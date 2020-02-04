@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Constructor function of a regulondb class — regulondb • regutools</title>
+<title>Methods for regulondb objects — show • regutools</title>
 
 
 <!-- jquery -->
@@ -35,10 +35,8 @@
 
 
 
-<meta property="og:title" content="Constructor function of a regulondb class — regulondb" />
-<meta property="og:description" content="The build_regulondb function is a constructor function of a
-regulondb
-class." />
+<meta property="og:title" content="Methods for regulondb objects — show" />
+<meta property="og:description" content="Methods for regulondb objects" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -113,63 +111,33 @@ class." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Constructor function of a regulondb class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/R/regulondb-classes.R'><code>R/regulondb-classes.R</code></a></small>
-    <div class="hidden name"><code>regulondb.Rd</code></div>
+    <h1>Methods for regulondb objects</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/R/regulondb-methods.R'><code>R/regulondb-methods.R</code></a></small>
+    <div class="hidden name"><code>regulondb-methods.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The build_regulondb function is a constructor function of a
-regulondb
-class.</p>
+    <p>Methods for regulondb objects</p>
     </div>
 
-    <pre class="usage"><span class='fu'>regulondb</span>(<span class='no'>database_path</span>, <span class='no'>organism</span>, <span class='no'>genome_version</span>, <span class='no'>database_version</span>)</pre>
+    <pre class="usage"><span class='co'># S4 method for regulondb</span>
+<span class='fu'>show</span>(<span class='no'>object</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>database_path</th>
-      <td><p>A path to the SQLite file.</p></td>
-    </tr>
-    <tr>
-      <th>organism</th>
-      <td><p>A character vector with the name of the organism of the database.</p></td>
-    </tr>
-    <tr>
-      <th>genome_version</th>
-      <td><p>A character vector with the version of the genome build.</p></td>
-    </tr>
-    <tr>
-      <th>database_version</th>
-      <td><p>A character vector with the version of regulondb
-build.</p></td>
+      <th>object</th>
+      <td><p>A regulondb object</p></td>
     </tr>
     </table>
 
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'>## Download the database if necessary</span>
-<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>'regulondb_sqlite3.db'</span>))) {
-    <span class='fu'><a href='download_database.html'>download_database</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>())
-}
-
-<span class='co'>## Build a regulondb object</span>
-<span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
-    <span class='fu'>regulondb</span>(
-        <span class='kw'>database_path</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>'regulondb_sqlite3.db'</span>),
-        <span class='kw'>organism</span> <span class='kw'>=</span> <span class='st'>"E.coli"</span>,
-        <span class='kw'>database_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>,
-        <span class='kw'>genome_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>
-    )</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
