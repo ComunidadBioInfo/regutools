@@ -122,7 +122,7 @@ transcription factor." />
 transcription factor.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_binding_sites</span>(<span class='no'>regulondb</span>, <span class='no'>TF</span>, <span class='kw'>seq.format</span> <span class='kw'>=</span> <span class='st'>"table"</span>)</pre>
+    <pre class="usage"><span class='fu'>get_binding_sites</span>(<span class='no'>regulondb</span>, <span class='no'>transcription_factor</span>, <span class='kw'>output_format</span> <span class='kw'>=</span> <span class='st'>"GRanges"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -132,29 +132,19 @@ transcription factor.</p>
       <td><p>A regulondb object.</p></td>
     </tr>
     <tr>
-      <th>TF</th>
+      <th>transcription_factor</th>
       <td><p>name of the transcription factor.</p></td>
     </tr>
     <tr>
-      <th>seq.format</th>
-      <td><p>Default: <code>table</code>. Supported: <code>fasta</code>, <code>wconsensus</code>.</p></td>
+      <th>output_format</th>
+      <td><p>The output object. Can be either a <code>GRanges</code> (default) or <code>Biostrings</code>..</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A dataframe with the following columns corresponding to the TFBSs
-associated with the TF.
-If seq.format = "fasta", returns a string with the TFBS sequences with
-breakline character.
-If the transcription factor does not exist, returns <code>NA</code>.</p><ul>
-<li><p>ID (identifier)</p></li>
-<li><p>left position</p></li>
-<li><p>right position</p></li>
-<li><p>strand</p></li>
-<li><p>sequence</p></li>
-</ul>
-
+    <p>Either a GRanges object or a Biostrings object summarizing information
+about the binding sites of the transcription factors.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Download the database if necessary</span>
@@ -172,71 +162,36 @@ If the transcription factor does not exist, returns <code>NA</code>.</p><ul>
     )
 
 <span class='co'>## Get the binding sites for AraC</span>
-<span class='fu'>get_binding_sites</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>TF</span> <span class='kw'>=</span> <span class='st'>"AraC"</span>)</div><div class='output co'>#&gt;                        ID    left   right  strand
-#&gt; 1  ECK120015742-araB-araC   70110   70126 forward
-#&gt; 2  ECK120012328-araB-araC   70131   70147 forward
-#&gt; 3  ECK120012320-araB-araC   70184   70200 reverse
-#&gt; 4  ECK120012323-araB-araC   70205   70221 reverse
-#&gt; 5  ECK120012603-araB-araC   70342   70358 reverse
-#&gt; 6       ECK120012335-araJ  412564  412580 reverse
-#&gt; 7       ECK120012992-araJ  412585  412601 reverse
-#&gt; 8       ECK120012990-araF 1986300 1986316 reverse
-#&gt; 9       ECK120012331-araF 1986321 1986337 reverse
-#&gt; 10      ECK120013555-araF 1986375 1986391 reverse
-#&gt; 11      ECK120012333-araF 1986396 1986412 reverse
-#&gt; 12      ECK120012915-araE 2982244 2982260 reverse
-#&gt; 13      ECK120012913-araE 2982265 2982281 reverse
-#&gt; 14      ECK125108641-xylA 3730824 3730840 reverse
-#&gt; 15      ECK125108643-xylA 3730847 3730863 reverse
-#&gt;                                 sequence
-#&gt; 1  ataaaaagcgTCAGGTAGGATCCGCTAatcttatgga
-#&gt; 2  ccgctaatctTATGGATAAAAATGCTAtggcatagca
-#&gt; 3  tctataatcaCGGCAGAAAAGTCCACAttgattattt
-#&gt; 4  caaaaacgcgTAACAAAAGTGTCTATAatcacggcag
-#&gt; 5  attcagagaaGAAACCAATTGTCCATAttgcatcaga
-#&gt; 6  tgaatacagaGGGGCGAATTATCTCTTggccttgctg
-#&gt; 7  aataactattCAGCAGGATAATGAATAcagaggggcg
-#&gt; 8  ccgctaaattTATGCACGTTCTCACTGtaattctgcg
-#&gt; 9  ggctttccctTATGTCTTTTCCCGCTAaatttatgca
-#&gt; 10 aggctaatctTATGGATTAATCTGCTGtgcattcgac
-#&gt; 11 ccaaagacaaCAAGGATTTCCAGGCTAatcttatgga
-#&gt; 12 tccatatttaTGCTGTTTCCGACCTGAcacctgcgtg
-#&gt; 13 cgacatgtcgCAGCAATTTAATCCATAtttatgctgt
-#&gt; 14 taacataattGAGCAACTGAAAGGGAGtgcccaatat
-#&gt; 15 attatctcaaTAGCAGTGTGAAATAACataattgagc</div><div class='input'>
-<span class='co'>## Get the fasta binding sites sequences for AraC</span>
-<span class='no'>fasta.seq</span> <span class='kw'>&lt;-</span> <span class='fu'>get_binding_sites</span>(<span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>TF</span> <span class='kw'>=</span> <span class='st'>"AraC"</span>, <span class='kw'>seq.format</span> <span class='kw'>=</span> <span class='st'>"fasta"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='no'>fasta.seq</span>)</div><div class='output co'>#&gt; &gt;ECK120015742-araB-araC_70110:70126:forward
-#&gt; ataaaaagcgTCAGGTAGGATCCGCTAatcttatgga
-#&gt;  &gt;ECK120012328-araB-araC_70131:70147:forward
-#&gt; ccgctaatctTATGGATAAAAATGCTAtggcatagca
-#&gt;  &gt;ECK120012320-araB-araC_70184:70200:reverse
-#&gt; tctataatcaCGGCAGAAAAGTCCACAttgattattt
-#&gt;  &gt;ECK120012323-araB-araC_70205:70221:reverse
-#&gt; caaaaacgcgTAACAAAAGTGTCTATAatcacggcag
-#&gt;  &gt;ECK120012603-araB-araC_70342:70358:reverse
-#&gt; attcagagaaGAAACCAATTGTCCATAttgcatcaga
-#&gt;  &gt;ECK120012335-araJ_412564:412580:reverse
-#&gt; tgaatacagaGGGGCGAATTATCTCTTggccttgctg
-#&gt;  &gt;ECK120012992-araJ_412585:412601:reverse
-#&gt; aataactattCAGCAGGATAATGAATAcagaggggcg
-#&gt;  &gt;ECK120012990-araF_1986300:1986316:reverse
-#&gt; ccgctaaattTATGCACGTTCTCACTGtaattctgcg
-#&gt;  &gt;ECK120012331-araF_1986321:1986337:reverse
-#&gt; ggctttccctTATGTCTTTTCCCGCTAaatttatgca
-#&gt;  &gt;ECK120013555-araF_1986375:1986391:reverse
-#&gt; aggctaatctTATGGATTAATCTGCTGtgcattcgac
-#&gt;  &gt;ECK120012333-araF_1986396:1986412:reverse
-#&gt; ccaaagacaaCAAGGATTTCCAGGCTAatcttatgga
-#&gt;  &gt;ECK120012915-araE_2982244:2982260:reverse
-#&gt; tccatatttaTGCTGTTTCCGACCTGAcacctgcgtg
-#&gt;  &gt;ECK120012913-araE_2982265:2982281:reverse
-#&gt; cgacatgtcgCAGCAATTTAATCCATAtttatgctgt
-#&gt;  &gt;ECK125108641-xylA_3730824:3730840:reverse
-#&gt; taacataattGAGCAACTGAAAGGGAGtgcccaatat
-#&gt;  &gt;ECK125108643-xylA_3730847:3730863:reverse
-#&gt; attatctcaaTAGCAGTGTGAAATAACataattgagc</div><div class='input'>
+<span class='fu'>get_binding_sites</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>transcription_factor</span> <span class='kw'>=</span> <span class='st'>"AraC"</span>)</div><div class='output co'>#&gt; GRanges object with 15 ranges and 1 metadata column:
+#&gt;                          seqnames          ranges strand |
+#&gt;                             &lt;Rle&gt;       &lt;IRanges&gt;  &lt;Rle&gt; |
+#&gt;   ECK120015742-araB-araC   E.coli     70110-70126      + |
+#&gt;   ECK120012328-araB-araC   E.coli     70131-70147      + |
+#&gt;   ECK120012320-araB-araC   E.coli     70184-70200      - |
+#&gt;   ECK120012323-araB-araC   E.coli     70205-70221      - |
+#&gt;   ECK120012603-araB-araC   E.coli     70342-70358      - |
+#&gt;                      ...      ...             ...    ... .
+#&gt;        ECK120012333-araF   E.coli 1986396-1986412      - |
+#&gt;        ECK120012915-araE   E.coli 2982244-2982260      - |
+#&gt;        ECK120012913-araE   E.coli 2982265-2982281      - |
+#&gt;        ECK125108641-xylA   E.coli 3730824-3730840      - |
+#&gt;        ECK125108643-xylA   E.coli 3730847-3730863      - |
+#&gt;                                                       sequence
+#&gt;                                                    &lt;character&gt;
+#&gt;   ECK120015742-araB-araC ataaaaagcgTCAGGTAGGATCCGCTAatcttatgga
+#&gt;   ECK120012328-araB-araC ccgctaatctTATGGATAAAAATGCTAtggcatagca
+#&gt;   ECK120012320-araB-araC tctataatcaCGGCAGAAAAGTCCACAttgattattt
+#&gt;   ECK120012323-araB-araC caaaaacgcgTAACAAAAGTGTCTATAatcacggcag
+#&gt;   ECK120012603-araB-araC attcagagaaGAAACCAATTGTCCATAttgcatcaga
+#&gt;                      ...                                   ...
+#&gt;        ECK120012333-araF ccaaagacaaCAAGGATTTCCAGGCTAatcttatgga
+#&gt;        ECK120012915-araE tccatatttaTGCTGTTTCCGACCTGAcacctgcgtg
+#&gt;        ECK120012913-araE cgacatgtcgCAGCAATTTAATCCATAtttatgctgt
+#&gt;        ECK125108641-xylA taacataattGAGCAACTGAAAGGGAGtgcccaatat
+#&gt;        ECK125108643-xylA attatctcaaTAGCAGTGTGAAATAACataattgagc
+#&gt;   -------
+#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

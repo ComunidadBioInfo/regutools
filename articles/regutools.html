@@ -101,7 +101,7 @@
       Lieber Institute for Brain Development, Johns Hopkins Medical Campus, Baltimore, MD, US<br><a class="author_email" href="mailto:#"></a><a href="mailto:lcolladotor@gmail.com">lcolladotor@gmail.com</a>
       </address>
                   
-            <h4 class="date">5 February 2020</h4>
+            <h4 class="date">6 February 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ComunidadBioInfo/regutools/blob/master/vignettes/regutools.Rmd"><code>vignettes/regutools.Rmd</code></a></small>
       <div class="hidden name"><code>regutools.Rmd</code></div>
@@ -180,60 +180,26 @@
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">## Other packages used</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'Biostrings'</span>)</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; Loading required package: BiocGenerics</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; Loading required package: parallel</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; Attaching package: 'BiocGenerics'</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; The following objects are masked from 'package:parallel':</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;     clusterExport, clusterMap, parApply, parCapply, parLapply,</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;     parLapplyLB, parRapply, parSapply, parSapplyLB</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; The following objects are masked from 'package:stats':</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;     IQR, mad, sd, var, xtabs</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; The following objects are masked from 'package:base':</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt;     anyDuplicated, append, as.data.frame, basename, cbind, colnames,</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt;     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,</span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt;     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,</span></a>
-<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt;     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,</span></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt;     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,</span></a>
-<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">#&gt;     union, unique, unsplit, which, which.max, which.min</span></a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">#&gt; Loading required package: S4Vectors</span></a>
-<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="co">#&gt; Loading required package: stats4</span></a>
-<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt; Attaching package: 'S4Vectors'</span></a>
-<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">#&gt; The following object is masked from 'package:base':</span></a>
-<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-31" data-line-number="31"><span class="co">#&gt;     expand.grid</span></a>
-<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="co">#&gt; Loading required package: IRanges</span></a>
-<a class="sourceLine" id="cb3-33" data-line-number="33"><span class="co">#&gt; Loading required package: XVector</span></a>
-<a class="sourceLine" id="cb3-34" data-line-number="34"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-35" data-line-number="35"><span class="co">#&gt; Attaching package: 'Biostrings'</span></a>
-<a class="sourceLine" id="cb3-36" data-line-number="36"><span class="co">#&gt; The following object is masked from 'package:base':</span></a>
-<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-38" data-line-number="38"><span class="co">#&gt;     strsplit</span></a>
-<a class="sourceLine" id="cb3-39" data-line-number="39"></a>
-<a class="sourceLine" id="cb3-40" data-line-number="40">## to be replaced with AnnotationHub call ##</a>
-<a class="sourceLine" id="cb3-41" data-line-number="41">fileToDb &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"regulondb_sqlite3.db"</span>)</a>
-<a class="sourceLine" id="cb3-42" data-line-number="42"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(fileToDb))</a>
-<a class="sourceLine" id="cb3-43" data-line-number="43">    <span class="kw"><a href="../reference/download_database.html">download_database</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>())</a>
-<a class="sourceLine" id="cb3-44" data-line-number="44"></a>
-<a class="sourceLine" id="cb3-45" data-line-number="45">ecoli_regulondb &lt;-</a>
-<a class="sourceLine" id="cb3-46" data-line-number="46"><span class="st">    </span><span class="kw"><a href="../reference/regulondb.html">regulondb</a></span>(</a>
-<a class="sourceLine" id="cb3-47" data-line-number="47">        <span class="dt">database_path =</span> fileToDb,</a>
-<a class="sourceLine" id="cb3-48" data-line-number="48">        <span class="dt">organism =</span> <span class="st">"E.coli"</span>,</a>
-<a class="sourceLine" id="cb3-49" data-line-number="49">        <span class="dt">database_version =</span> <span class="st">"version 1"</span>,</a>
-<a class="sourceLine" id="cb3-50" data-line-number="50">        <span class="dt">genome_version =</span> <span class="st">"version 1"</span></a>
-<a class="sourceLine" id="cb3-51" data-line-number="51">    )</a>
-<a class="sourceLine" id="cb3-52" data-line-number="52"></a>
-<a class="sourceLine" id="cb3-53" data-line-number="53">ecoli_regulondb</a>
-<a class="sourceLine" id="cb3-54" data-line-number="54"><span class="co">#&gt; regulondb object</span></a>
-<a class="sourceLine" id="cb3-55" data-line-number="55"><span class="co">#&gt;   organism: E.coli</span></a>
-<a class="sourceLine" id="cb3-56" data-line-number="56"><span class="co">#&gt;   genome_build: version 1</span></a>
-<a class="sourceLine" id="cb3-57" data-line-number="57"><span class="co">#&gt;   database_version: version 1</span></a>
-<a class="sourceLine" id="cb3-58" data-line-number="58"><span class="co">#&gt;   database_path: /tmp/RtmpdBDpGg/regulondb_sqlite3.db</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">## to be replaced with AnnotationHub call ##</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">fileToDb &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"regulondb_sqlite3.db"</span>)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(fileToDb))</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">    <span class="kw"><a href="../reference/download_database.html">download_database</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>())</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">ecoli_regulondb &lt;-</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="st">    </span><span class="kw"><a href="../reference/regulondb.html">regulondb</a></span>(</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="dt">database_path =</span> fileToDb,</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">        <span class="dt">organism =</span> <span class="st">"E.coli"</span>,</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">        <span class="dt">database_version =</span> <span class="st">"version 1"</span>,</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">        <span class="dt">genome_version =</span> <span class="st">"version 1"</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">    )</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">ecoli_regulondb</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; regulondb object</span></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt;   organism: E.coli</span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt;   genome_build: version 1</span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt;   database_version: version 1</span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">#&gt;   database_path: /tmp/RtmprMjXx7/regulondb_sqlite3.db</span></a></code></pre></div>
 <p>In order to get an overview of the tables present in a <em>regulondb</em> object, we can use the function <code><a href="../reference/list_datasets.html">list_datasets()</a></code>. This function will output all the available tables (datasets) that can be used to build queries.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/list_datasets.html">list_datasets</a></span>(ecoli_regulondb)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [1] "DNA_OBJECTS"       "GENE"              "NETWORK"          </span></a>
@@ -246,7 +212,7 @@
 </div>
 <div id="retrieving-data" class="section level1">
 <h1 class="hasAnchor">
-<a href="#retrieving-data" class="anchor"></a>retrieving data</h1>
+<a href="#retrieving-data" class="anchor"></a>Retrieving data</h1>
 <p>Since the <em>regulondb</em> object is an extension of the <em>SQLiteConnection</em>, users can retrieve data from a <em>regulondb</em> object using the function <code>dbGetQuery()</code>. Additionally, this package provides a wrapper function to build queries to the database. This function is called <code><a href="../reference/get_dataset.html">get_dataset()</a></code> and has a very similar syntax to the <code>getBM()</code> function from the biomaRt package. The main arguments of the <code><a href="../reference/get_dataset.html">get_dataset()</a></code> function are a <em>regulondb</em> object, a dataset (or table) of the database, the fields of the dataset to retrieve (attributes) and filters to specify what information to get. The code below shows an example where three attributes from the dataset <strong>“GENE”</strong> for the genes <em>araC</em>, <em>crp</em> and <em>lacI</em>. Note that if the <code>filters=</code> parameter is empty, the function will retrieve all the hits it find in the database.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
@@ -462,9 +428,9 @@
 <a class="sourceLine" id="cb16-17" data-line-number="17"><span class="co">#&gt; [1] 3</span></a></code></pre></div>
 </div>
 </div>
-<div id="functions-with-frequently-used-queries" class="section level1">
+<div id="functions-with-implement-popular-queries" class="section level1">
 <h1 class="hasAnchor">
-<a href="#functions-with-frequently-used-queries" class="anchor"></a>Functions with frequently used queries</h1>
+<a href="#functions-with-implement-popular-queries" class="anchor"></a>Functions with implement popular queries</h1>
 <p>The regutools package provides functions that encode the most frequent queries that are submitted to the <em>RegulonDB</em> web resource.</p>
 <div id="extracting-regulatory-networks" class="section level2">
 <h2 class="hasAnchor">
@@ -496,21 +462,82 @@
 <a class="sourceLine" id="cb18-10" data-line-number="10"><span class="co">#&gt; 6         Fis        bglB           -</span></a></code></pre></div>
 <p>But users can also set the parameter <code>type=</code> to <code>"GENE-GENE"</code> or <code>"TF-GENE"</code> to retrieve gene-gene regulatory networks or transcription factor-transcription factor regulatory networks, respectively.</p>
 <p>Users can also use the <code><a href="../reference/get_regulatory_summary.html">get_regulatory_summary()</a></code> to retrieve a summary of the transcription factor regulated the expression of a set of given genes. The parameter <code>gene_regulators</code> can receive either a vector of gene names or the output of a call to the function <code><a href="../reference/get_gene_regulators.html">get_gene_regulators()</a></code>. The resulting output is a <em>regulondb_result</em> object in which each row shows a transcription factor, and the columns display information about the number, percentage and regulatory activity exerted to the genes.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw"><a href="../reference/get_regulatory_summary.html">get_regulatory_summary</a></span>(ecoli_regulondb, <span class="dt">gene_regulators =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"araC"</span>, <span class="st">"modB"</span>))</a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co">#&gt; regulondb_result with 4 rows and 7 columns</span></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co">#&gt;         TF Regulated_genes_per_TF  Percent Activator Repressor     Dual</span></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co">#&gt;   &lt;factor&gt;               &lt;factor&gt; &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;</span></a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co">#&gt; 1     AraC                      1       20         0         0        1</span></a>
-<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="co">#&gt; 2     CRP                       2       40         2         0        0</span></a>
-<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="co">#&gt; 3     ModE                      1       20         0         1        0</span></a>
-<a class="sourceLine" id="cb19-8" data-line-number="8"><span class="co">#&gt; 4     XylR                      1       20         0         1        0</span></a>
-<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="co">#&gt;   Regulated_genes</span></a>
-<a class="sourceLine" id="cb19-10" data-line-number="10"><span class="co">#&gt;          &lt;factor&gt;</span></a>
-<a class="sourceLine" id="cb19-11" data-line-number="11"><span class="co">#&gt; 1      araC      </span></a>
-<a class="sourceLine" id="cb19-12" data-line-number="12"><span class="co">#&gt; 2      modB, araC</span></a>
-<a class="sourceLine" id="cb19-13" data-line-number="13"><span class="co">#&gt; 3      modB      </span></a>
-<a class="sourceLine" id="cb19-14" data-line-number="14"><span class="co">#&gt; 4      araC</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw"><a href="../reference/get_regulatory_summary.html">get_regulatory_summary</a></span>( ecoli_regulondb, </a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">                        <span class="dt">gene_regulators =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"araC"</span>, <span class="st">"modB"</span>) )</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co">#&gt; regulondb_result with 4 rows and 7 columns</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co">#&gt;         TF Regulated_genes_per_TF  Percent Activator Repressor     Dual</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co">#&gt;   &lt;factor&gt;               &lt;factor&gt; &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="co">#&gt; 1     AraC                      1       20         0         0        1</span></a>
+<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="co">#&gt; 2     CRP                       2       40         2         0        0</span></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8"><span class="co">#&gt; 3     ModE                      1       20         0         1        0</span></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="co">#&gt; 4     XylR                      1       20         0         1        0</span></a>
+<a class="sourceLine" id="cb19-10" data-line-number="10"><span class="co">#&gt;   Regulated_genes</span></a>
+<a class="sourceLine" id="cb19-11" data-line-number="11"><span class="co">#&gt;          &lt;factor&gt;</span></a>
+<a class="sourceLine" id="cb19-12" data-line-number="12"><span class="co">#&gt; 1      araC      </span></a>
+<a class="sourceLine" id="cb19-13" data-line-number="13"><span class="co">#&gt; 2      modB, araC</span></a>
+<a class="sourceLine" id="cb19-14" data-line-number="14"><span class="co">#&gt; 3      modB      </span></a>
+<a class="sourceLine" id="cb19-15" data-line-number="15"><span class="co">#&gt; 4      araC</span></a></code></pre></div>
 </div>
+<div id="visualizing-networks-using-cytoscape" class="section level2">
+<h2 class="hasAnchor">
+<a href="#visualizing-networks-using-cytoscape" class="anchor"></a>Visualizing networks using cytoscape</h2>
+<p>Software tools such as <a href="https://cytoscape.org/index.html">Cytoscape</a> are often useful for interactive exploration of data and visualization of networks. The function <code><a href="../reference/get_regulatory_network.html">get_regulatory_network()</a></code> has a parameter <code>cytograph=</code> that if set to <code>TRUE</code>, it will visualize the network in a cytoscape session. Of note, this feature will only work if the user has Cytoscape open in their computer.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw"><a href="../reference/get_regulatory_network.html">get_regulatory_network</a></span>(ecoli_regulondb, <span class="dt">cytograph =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+</div>
+<div id="transcription-factor-binding-sites" class="section level2">
+<h2 class="hasAnchor">
+<a href="#transcription-factor-binding-sites" class="anchor"></a>Transcription factor binding sites</h2>
+<p>Another common request to the <em>RegulonDB</em> database is to obtain the genomic coordinates and sequences of the DNA binding sites for a given transcription factor. This query is implemented in the function <code><a href="../reference/get_binding_sites.html">get_binding_sites()</a></code>, in which the results are formatted according to the parameter <code>output_format=</code> as either a <em>GRanges</em> object or a <em>Biostrings</em> object.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw"><a href="../reference/get_binding_sites.html">get_binding_sites</a></span>( ecoli_regulondb, <span class="dt">transcription_factor =</span> <span class="st">"AraC"</span> )</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; GRanges object with 15 ranges and 1 metadata column:</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co">#&gt;                          seqnames          ranges strand |</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co">#&gt;                             &lt;Rle&gt;       &lt;IRanges&gt;  &lt;Rle&gt; |</span></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co">#&gt;   ECK120015742-araB-araC   E.coli     70110-70126      + |</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co">#&gt;   ECK120012328-araB-araC   E.coli     70131-70147      + |</span></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="co">#&gt;   ECK120012320-araB-araC   E.coli     70184-70200      - |</span></a>
+<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="co">#&gt;   ECK120012323-araB-araC   E.coli     70205-70221      - |</span></a>
+<a class="sourceLine" id="cb21-9" data-line-number="9"><span class="co">#&gt;   ECK120012603-araB-araC   E.coli     70342-70358      - |</span></a>
+<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">#&gt;                      ...      ...             ...    ... .</span></a>
+<a class="sourceLine" id="cb21-11" data-line-number="11"><span class="co">#&gt;        ECK120012333-araF   E.coli 1986396-1986412      - |</span></a>
+<a class="sourceLine" id="cb21-12" data-line-number="12"><span class="co">#&gt;        ECK120012915-araE   E.coli 2982244-2982260      - |</span></a>
+<a class="sourceLine" id="cb21-13" data-line-number="13"><span class="co">#&gt;        ECK120012913-araE   E.coli 2982265-2982281      - |</span></a>
+<a class="sourceLine" id="cb21-14" data-line-number="14"><span class="co">#&gt;        ECK125108641-xylA   E.coli 3730824-3730840      - |</span></a>
+<a class="sourceLine" id="cb21-15" data-line-number="15"><span class="co">#&gt;        ECK125108643-xylA   E.coli 3730847-3730863      - |</span></a>
+<a class="sourceLine" id="cb21-16" data-line-number="16"><span class="co">#&gt;                                                       sequence</span></a>
+<a class="sourceLine" id="cb21-17" data-line-number="17"><span class="co">#&gt;                                                    &lt;character&gt;</span></a>
+<a class="sourceLine" id="cb21-18" data-line-number="18"><span class="co">#&gt;   ECK120015742-araB-araC ataaaaagcgTCAGGTAGGATCCGCTAatcttatgga</span></a>
+<a class="sourceLine" id="cb21-19" data-line-number="19"><span class="co">#&gt;   ECK120012328-araB-araC ccgctaatctTATGGATAAAAATGCTAtggcatagca</span></a>
+<a class="sourceLine" id="cb21-20" data-line-number="20"><span class="co">#&gt;   ECK120012320-araB-araC tctataatcaCGGCAGAAAAGTCCACAttgattattt</span></a>
+<a class="sourceLine" id="cb21-21" data-line-number="21"><span class="co">#&gt;   ECK120012323-araB-araC caaaaacgcgTAACAAAAGTGTCTATAatcacggcag</span></a>
+<a class="sourceLine" id="cb21-22" data-line-number="22"><span class="co">#&gt;   ECK120012603-araB-araC attcagagaaGAAACCAATTGTCCATAttgcatcaga</span></a>
+<a class="sourceLine" id="cb21-23" data-line-number="23"><span class="co">#&gt;                      ...                                   ...</span></a>
+<a class="sourceLine" id="cb21-24" data-line-number="24"><span class="co">#&gt;        ECK120012333-araF ccaaagacaaCAAGGATTTCCAGGCTAatcttatgga</span></a>
+<a class="sourceLine" id="cb21-25" data-line-number="25"><span class="co">#&gt;        ECK120012915-araE tccatatttaTGCTGTTTCCGACCTGAcacctgcgtg</span></a>
+<a class="sourceLine" id="cb21-26" data-line-number="26"><span class="co">#&gt;        ECK120012913-araE cgacatgtcgCAGCAATTTAATCCATAtttatgctgt</span></a>
+<a class="sourceLine" id="cb21-27" data-line-number="27"><span class="co">#&gt;        ECK125108641-xylA taacataattGAGCAACTGAAAGGGAGtgcccaatat</span></a>
+<a class="sourceLine" id="cb21-28" data-line-number="28"><span class="co">#&gt;        ECK125108643-xylA attatctcaaTAGCAGTGTGAAATAACataattgagc</span></a>
+<a class="sourceLine" id="cb21-29" data-line-number="29"><span class="co">#&gt;   -------</span></a>
+<a class="sourceLine" id="cb21-30" data-line-number="30"><span class="co">#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span></a>
+<a class="sourceLine" id="cb21-31" data-line-number="31"><span class="kw"><a href="../reference/get_binding_sites.html">get_binding_sites</a></span>( ecoli_regulondb, <span class="dt">transcription_factor =</span> <span class="st">"AraC"</span>, </a>
+<a class="sourceLine" id="cb21-32" data-line-number="32">                   <span class="dt">output_format =</span> <span class="st">"Biostrings"</span> )</a>
+<a class="sourceLine" id="cb21-33" data-line-number="33"><span class="co">#&gt; DNAStringSet object of length 15:</span></a>
+<a class="sourceLine" id="cb21-34" data-line-number="34"><span class="co">#&gt;      width seq                                              names               </span></a>
+<a class="sourceLine" id="cb21-35" data-line-number="35"><span class="co">#&gt;  [1]    37 ATAAAAAGCGTCAGGTAGGATCCGCTAATCTTATGGA            ECK120015742-araB-a…</span></a>
+<a class="sourceLine" id="cb21-36" data-line-number="36"><span class="co">#&gt;  [2]    37 CCGCTAATCTTATGGATAAAAATGCTATGGCATAGCA            ECK120012328-araB-a…</span></a>
+<a class="sourceLine" id="cb21-37" data-line-number="37"><span class="co">#&gt;  [3]    37 TCTATAATCACGGCAGAAAAGTCCACATTGATTATTT            ECK120012320-araB-a…</span></a>
+<a class="sourceLine" id="cb21-38" data-line-number="38"><span class="co">#&gt;  [4]    37 CAAAAACGCGTAACAAAAGTGTCTATAATCACGGCAG            ECK120012323-araB-a…</span></a>
+<a class="sourceLine" id="cb21-39" data-line-number="39"><span class="co">#&gt;  [5]    37 ATTCAGAGAAGAAACCAATTGTCCATATTGCATCAGA            ECK120012603-araB-a…</span></a>
+<a class="sourceLine" id="cb21-40" data-line-number="40"><span class="co">#&gt;  ...   ... ...</span></a>
+<a class="sourceLine" id="cb21-41" data-line-number="41"><span class="co">#&gt; [11]    37 CCAAAGACAACAAGGATTTCCAGGCTAATCTTATGGA            ECK120012333-araF</span></a>
+<a class="sourceLine" id="cb21-42" data-line-number="42"><span class="co">#&gt; [12]    37 TCCATATTTATGCTGTTTCCGACCTGACACCTGCGTG            ECK120012915-araE</span></a>
+<a class="sourceLine" id="cb21-43" data-line-number="43"><span class="co">#&gt; [13]    37 CGACATGTCGCAGCAATTTAATCCATATTTATGCTGT            ECK120012913-araE</span></a>
+<a class="sourceLine" id="cb21-44" data-line-number="44"><span class="co">#&gt; [14]    37 TAACATAATTGAGCAACTGAAAGGGAGTGCCCAATAT            ECK125108641-xylA</span></a>
+<a class="sourceLine" id="cb21-45" data-line-number="45"><span class="co">#&gt; [15]    37 ATTATCTCAATAGCAGTGTGAAATAACATAATTGAGC            ECK125108643-xylA</span></a></code></pre></div>
+</div>
+</div>
+<div id="integration-with-rsat" class="section level1">
+<h1 class="hasAnchor">
+<a href="#integration-with-rsat" class="anchor"></a>Integration with RSAT</h1>
 </div>
 <div id="reproducibility" class="section level1">
 <h1 class="hasAnchor">
@@ -554,21 +581,21 @@
 <em><a href="https://CRAN.R-project.org/package=DBI">DBI</a></em> <a id="cite-R_Special_Interest_Group_on_Databases_R-SIG-DB_2019"></a>(<a href="https://CRAN.R-project.org/package=DBI">R Special Interest Group on Databases (R-SIG-DB), Wickham, and Müller, 2019</a>)</li>
 </ul>
 <p>Code for creating the vignette</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">## Create the vignette</a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'rmarkdown'</span>)</a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span>(<span class="st">'regutools.Rmd'</span>))</a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5">## Extract the R code</a>
-<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'knitr'</span>)</a>
-<a class="sourceLine" id="cb20-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span>(<span class="st">'regutools.Rmd'</span>, <span class="dt">tangle =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">## Create the vignette</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'rmarkdown'</span>)</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span>(<span class="st">'regutools.Rmd'</span>))</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">## Extract the R code</a>
+<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'knitr'</span>)</a>
+<a class="sourceLine" id="cb22-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span>(<span class="st">'regutools.Rmd'</span>, <span class="dt">tangle =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-02-05 16:34:40 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-02-06 16:34:22 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 7.713 secs</code></pre>
+<pre><code>#&gt; Time difference of 6.761 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                             
-#&gt;  version  R Under development (unstable) (2020-02-05 r77773)
+#&gt;  version  R Under development (unstable) (2020-02-06 r77774)
 #&gt;  os       Ubuntu 16.04.6 LTS                                
 #&gt;  system   x86_64, linux-gnu                                 
 #&gt;  ui       X11                                               
@@ -576,7 +603,7 @@
 #&gt;  collate  en_US.UTF-8                                       
 #&gt;  ctype    en_US.UTF-8                                       
 #&gt;  tz       UTC                                               
-#&gt;  date     2020-02-05                                        
+#&gt;  date     2020-02-06                                        
 #&gt; 
 #&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  package          * version  date       lib source        
@@ -603,7 +630,7 @@
 #&gt;  fs                 1.3.1    2019-05-06 [1] CRAN (R 4.0.0)
 #&gt;  GenomeInfoDb       1.23.10  2020-02-01 [1] Bioconductor  
 #&gt;  GenomeInfoDbData   1.2.2    2020-01-17 [1] Bioconductor  
-#&gt;  GenomicRanges      1.39.1   2019-10-30 [1] Bioconductor  
+#&gt;  GenomicRanges      1.39.2   2020-02-04 [1] Bioconductor  
 #&gt;  glue               1.3.1    2019-03-12 [1] CRAN (R 4.0.0)
 #&gt;  graph              1.65.1   2020-01-26 [1] Bioconductor  
 #&gt;  htmltools          0.4.0    2019-10-04 [1] CRAN (R 4.0.0)
@@ -628,7 +655,7 @@
 #&gt;  RCurl              1.98-1.1 2020-01-19 [1] CRAN (R 4.0.0)
 #&gt;  RCy3               2.7.3    2020-01-12 [1] Bioconductor  
 #&gt;  RefManageR         1.2.12   2019-04-03 [1] CRAN (R 4.0.0)
-#&gt;  regutools        * 0.99.0   2020-02-05 [1] Bioconductor  
+#&gt;  regutools        * 0.99.0   2020-02-06 [1] Bioconductor  
 #&gt;  RJSONIO            1.3-1.4  2020-01-15 [1] CRAN (R 4.0.0)
 #&gt;  rlang              0.4.4    2020-01-28 [1] CRAN (R 4.0.0)
 #&gt;  rmarkdown          2.1      2020-01-20 [1] CRAN (R 4.0.0)
@@ -650,14 +677,6 @@
 #&gt; [1] /home/travis/R/Library
 #&gt; [2] /usr/local/lib/R/site-library
 #&gt; [3] /home/travis/R-bin/lib/R/library</code></pre>
-<div id="visualizing-networks-using-cytoscape" class="section level2">
-<h2 class="hasAnchor">
-<a href="#visualizing-networks-using-cytoscape" class="anchor"></a>Visualizing networks using cytoscape</h2>
-</div>
-</div>
-<div id="integration-with-rsat" class="section level1">
-<h1 class="hasAnchor">
-<a href="#integration-with-rsat" class="anchor"></a>Integration with RSAT</h1>
 </div>
 <div id="bibliography" class="section level1">
 <h1 class="hasAnchor">
@@ -701,7 +720,7 @@
 </li>
       <li><a href="#overview">Overview</a></li>
       <li><a href="#the-regulondb-object">The <strong>regulondb</strong> object</a></li>
-      <li><a href="#retrieving-data">retrieving data</a></li>
+      <li><a href="#retrieving-data">Retrieving data</a></li>
       <li><a href="#the-regulondb_result-object-and-integration-into-the-bioc-ecosystem">The <strong>regulondb_result</strong> object and integration into the <em>BioC</em> ecosystem</a></li>
       <li>
 <a href="#building-your-own-queries">Building your own queries</a><ul class="nav nav-pills nav-stacked">
@@ -711,16 +730,14 @@
       </ul>
 </li>
       <li>
-<a href="#functions-with-frequently-used-queries">Functions with frequently used queries</a><ul class="nav nav-pills nav-stacked">
+<a href="#functions-with-implement-popular-queries">Functions with implement popular queries</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#extracting-regulatory-networks">Extracting regulatory networks</a></li>
-      </ul>
-</li>
-      <li>
-<a href="#reproducibility">Reproducibility</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#visualizing-networks-using-cytoscape">Visualizing networks using cytoscape</a></li>
+      <li><a href="#visualizing-networks-using-cytoscape">Visualizing networks using cytoscape</a></li>
+      <li><a href="#transcription-factor-binding-sites">Transcription factor binding sites</a></li>
       </ul>
 </li>
       <li><a href="#integration-with-rsat">Integration with RSAT</a></li>
+      <li><a href="#reproducibility">Reproducibility</a></li>
       <li><a href="#bibliography">Bibliography</a></li>
       </ul>
 </div>
