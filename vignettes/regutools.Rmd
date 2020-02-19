@@ -164,26 +164,23 @@ list_datasets(ecoli_regulondb)
 For each table in the database, users can explore the fields (or attributes) of each table using the function `list_attributes`.
 
 ```{r}
-head(list_attributes(ecoli_regulondb, "GENE"), 8)
+head(list_attributes(ecoli_regulondb, "GENE", description=TRUE), 8)
 ```
 
 # Retrieving data
 
-Since the *regulondb* object is an extension of the *SQLiteConnection*, users can retrieve data from a *regulondb* object using the function `dbGetQuery()`. Additionally, this package provides a wrapper function to build queries to the database. This function is called `get_dataset()` and has a very similar syntax to the `getBM()` function from the biomaRt package. The main arguments of the `get_dataset()` function are a *regulondb* object, a dataset (or table) of the database, the fields of the dataset to retrieve (attributes) and filters to specify what information to get. The code below shows an example where three attributes from the dataset **"GENE"** for the genes *araC*, *crp* and *lacI*. Note that if the `filters=` parameter is empty, the function will retrieve all the hits it find in the database.  
+Since the *regulondb* object is an extension of the *SQLiteConnection*, users can retrieve data from a *regulondb* object using the function `dbGetQuery()`. Additionally, this package provides a wrapper function to build queries to the database. This function is called `get_dataset()` and has a very similar syntax to the `getBM()` function from the `r BiocStyle::Biocpkg("biomaRt")` package. The main arguments of the `get_dataset()` function are a *regulondb* object, a dataset (or table) of the database, the fields of the dataset to retrieve (i.e. the attributes) and filters to specify what information to get. The code below shows an example where four attributes from the dataset **"GENE"** for the genes *araC*, *crp* and *lacI* are retrieved. Note that if the `filters=` parameter is empty, the function will retrieve all the hits it find in the database.  
 
 ```{r echo = TRUE}
-
-
 get_dataset(
     regulondb = ecoli_regulondb,
     dataset = "GENE",
     attributes = c("posleft", "posright", "strand", "name"),
     filters = list("name" = c("araC", "crp", "lacI"))
 )
-
 ```
 
-Some of the filters, such as *posright* or *posleft*, can be filtered by specifying intervals. For example, the code below indicates that all the start positions *posright" should be between position 1 and position 5000 of the genome. The parameter `inverval=` is used to specify that the filter for that field will be defined by an interval rather than a exact match.
+Some of the filters, such as *posright* or *posleft*, can be filtered by a interval range. For example, the code below filters the search to the genes where the start positions, *posright*, lie between position 1 and position 5000 of the genome. The parameter `inverval=` is used to specify that the filter for that field will be defined by an interval rather than a exact match.
 
 ```{r echo = TRUE}
 get_dataset(
@@ -197,7 +194,7 @@ get_dataset(
 
 # The **regulondb_result** object and integration into the *BioC* ecosystem
 
-By default, the function `get_dataset()` outputs a **regulondb_result** object, which is an extension of a **DataFrame** that stores information about the query used to generate this object. This additional information includes the organism name, the database and genome versions, and the table (or dataset) of the *regulondb* object that was queried by `get_dataset()`.
+By default, the function `get_dataset()` outputs a **regulondb_result** object, which is an extension of a **DataFrame** that stores additional metadata. These metadata includes information of the organism name, the database and genome versions, and the table (or dataset) of the *regulondb* object that was queried by `get_dataset()`.
 
 ```{r}
 res <- get_dataset(
@@ -209,7 +206,7 @@ res <- get_dataset(
 slotNames(res)
 ```
 
-To enable integration with other Bioconductor packages, we provide the function `convert_to_granges()` which converts a **regulondb_result** object into a **GRanges** object whenever possible. For example, the result stored in the variable `res` has genomic coordinates and it is thus possible convert `res` into a **GRanges** object. 
+To enable integration with other Bioconductor packages, we provide the function `convert_to_granges()` which converts a **regulondb_result** object into a **GRanges** object. For example, the result stored in the variable `res` has genomic coordinates and it can be represented as a **GRanges** object. 
 
 ```{r}
 convert_to_granges(res)
@@ -227,7 +224,7 @@ get_dataset(
 )
 ```
 
-In a similar manner, the function `convert_to_biostrings()` converts **regulondb** objects into objects from the `r BiocStyle::Biocpkg("Biostrings")` package. Possible outputs of `convert_to_biostrings()` are **DNAStringSet** objects if `seq_type="DNA"` or a **BStringSet** if `seq_type="product"`. 
+In a similar manner, the function `convert_to_biostrings()` converts **regulondb** objects into objects from the `r BiocStyle::Biocpkg("Biostrings")` package. Possible outputs of `convert_to_biostrings()` are **DNAStringSet** objects if the parameter `seq_type="DNA"` or a **BStringSet** if the parameter `seq_type="product"`. 
 
 ```{r}
 res_dnastring <- get_dataset( regulondb=ecoli_regulondb, 
@@ -248,11 +245,11 @@ res_prodstring <- convert_to_biostrings( res_prodstring, seq_type="product" )
 mcols( res_prodstring )
 ```
 
-As with the **GRanges** output mentioned above, it is possible for the output of `get_dataset()` to be a **DNAStringSet** object by specifying the parameter `output_format="DNAStringSet"` or a **BStringSet** object by specifying `output_format="BStringSet"`. Note that the functions to convert **regulondb_result** objects will throw errors if there is insufficient information for the coersion to occur. For example, we will get an error if we try to convert into a **GRanges** object when genomic coordinates are missing from the **regulondb_result** object.
+It is also possible for the output of `get_dataset()` to be a **DNAStringSet** object by specifying the parameter `output_format="DNAStringSet"` or a **BStringSet** object by specifying `output_format="BStringSet"`. Note that the functions to convert **regulondb_result** objects will throw errors if there is insufficient information for the coersion to occur. For example, the function `convert_to_granges` will throw an error if the genomic coordinates are missing from the **regulondb_result** object.
 
-# Building your own queries
+# Building complex queries
 
-In the *regutools* package, we have implemented features that are commonly used when quering data from databases: filtering results by partial matching, filtering by numeric intervals, and building complex queries.
+In the *regutools* package, we have implemented functions to write user-defined queries programmatically. We have implemented the possibility of filtering results by partial matching, filtering by numeric intervals, and filtering by several attributes of the database.
 
 ## Partial matching
 
@@ -272,7 +269,7 @@ Note that setting the parameter `partialmatch=` to `NULL` will only return genes
 
 ## Filtering by numeric intervals
 
-In addition to partial matching, queries can be filtered by numeric intervals. For example, in the code below, the parameter `interv=` is set to `"posright"`. By doing this assignment, we are specifying that the values for `"posright"` must lie between the values of `posright` specified in the `filter=` parameter. Thus, the result of this query will be genes whose right positions lie between the coordinates 2000 and 4000000. Note that the use of the `interv=` parameter in the code below is equivalent to setting the parameter `output_format=` to `"GRanges"` and further subsetting the *GRanges* object using the function `subsetByOverlaps()`. 
+In addition to partial matching, queries can be filtered by numeric intervals. For example, in the code below, the parameter `interv=` is set to `"posright"`. By doing this assignment, we are specifying that the values for `"posright"` must lie between the values of `posright` specified in the `filter=` parameter. Thus, the result of this query will be genes whose right positions lie between the coordinates 2000 and 4000000. 
 
 ```{r echo = TRUE}
 get_dataset(
@@ -284,11 +281,11 @@ get_dataset(
 )
 ```
 
-## Complex filters
+## Composite filters
 
 The examples so far have considered queries in which the results are filtered according to single fields from tables. In order to build queries with filters from more than one field, several filters names can be passed as a list to the `filters=` argument. Additionally the `and=` argument is used to specify whether the filtering conditions of the result of the query must be satisfied (`and=TRUE`) or if satisfying a single condition is enough (`and=FALSE`). 
 
-For example, the code below extracts the genes where either `name` or `product_name` contain the word *Ara* or *Ara*, respectively, if the gene is in the forward strand or if the right position of the gene is between 2000 and 40000000. 
+For example, the code below extracts the genes where either `name` or `product_name` contain the word *Ara*, if the gene is in the forward strand or if the right position of the gene is between 2000 and 40000000. 
 
 ```{r}
 nrow(
@@ -336,7 +333,7 @@ The regutools package provides functions that encode the most frequent queries t
 
 ## Extracting regulatory networks
 
-One of the most important information that the *RegulonDB* database contains are manually curated regulatory networks. The *regutools* package exports the function `get_gene_regulators()`, which inputs a vector of gene names and outputs information about what are the transcription factors that regulate such genes together with the regulatory effect (activator, repressor or dual).
+One of the most important information that the *RegulonDB* database contains are manually curated regulatory networks. The *regutools* package exports the function `get_gene_regulators()`, which inputs a vector of gene names and outputs information about what are the transcription factors that regulate such genes together with the type of regulatory effect (activator, repressor or dual).
 
 ```{r echo = TRUE}
 get_gene_regulators(ecoli_regulondb, c("araC", "fis", "crp"))
@@ -350,7 +347,7 @@ head(get_regulatory_network(ecoli_regulondb))
 
 But users can also set the parameter `type=` to `"GENE-GENE"` or `"TF-GENE"` to retrieve gene-gene regulatory networks or transcription factor-transcription factor regulatory networks, respectively. 
 
-Users can also use the `get_regulatory_summary()` to retrieve a summary of the transcription factor regulated the expression of a set of given genes. The parameter `gene_regulators` can receive either a vector of gene names or the output of a call to the function `get_gene_regulators()`. The resulting output is a *regulondb_result* object in which each row shows a transcription factor, and the columns display information about the number, percentage and regulatory activity exerted to the genes.
+Users can also use the `get_regulatory_summary()` to retrieve a summary of the transcription factor that regulate the expression of a set of genes. The parameter `gene_regulators` can receive either a vector of gene names or the output of a call to the function `get_gene_regulators()`. The resulting output is a *regulondb_result* object in which each row shows a transcription factor, and the columns display information about the number, percentage and regulatory activity exerted to the genes.
 
 ```{r}
 get_regulatory_summary( ecoli_regulondb, 
@@ -359,7 +356,7 @@ get_regulatory_summary( ecoli_regulondb,
 
 ## Visualizing networks using cytoscape
 
-Software tools such as [Cytoscape](https://cytoscape.org/index.html) are often useful for interactive exploration of data and visualization of networks. The function `get_regulatory_network()` has a parameter `cytograph=` that if set to `TRUE`, it will visualize the network in a cytoscape session. Of note, this feature will only work if the user has Cytoscape open in their computer. 
+Software tools such as [Cytoscape](https://cytoscape.org/index.html) are useful to interactively explore networks. The function `get_regulatory_network()` has a parameter `cytograph=` that if set to `TRUE`, it will visualize the network in a cytoscape session. Of note, this feature will only work if when users have a Cytoscape session open in their computer. 
 
 ```{r eval=FALSE}
 get_regulatory_network(ecoli_regulondb, cytograph = TRUE)
@@ -374,10 +371,6 @@ get_binding_sites( ecoli_regulondb, transcription_factor = "AraC" )
 get_binding_sites( ecoli_regulondb, transcription_factor = "AraC", 
                    output_format = "Biostrings" )
 ```
-
-
-
-# Integration with RSAT
 
 
 # Reproducibility

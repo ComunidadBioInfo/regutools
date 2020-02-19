@@ -4,21 +4,23 @@
 \alias{list_attributes}
 \title{List attributes/fields from a dataset/table}
 \usage{
-list_attributes(regulondb, dataset)
+list_attributes(regulondb, dataset, description = FALSE)
 }
 \arguments{
 \item{regulondb}{A regulondb object.}
 
-\item{dataset}{Dataset of interest. The name should correspond to a table of
-the database.}
+\item{dataset}{Dataset of interest. The name should correspond to a table of the database.}
+
+\item{description}{Logical, indicating whether text with the description of the
+attributes should be included in the output.}
 }
 \value{
-A character vector with the field names.
+A character vector with the field names. If description is set to 'TRUE', the output will be a data.frame.
 }
 \description{
 List all attributes and their description of a dataset from
 RegulonDB. The result of this function may
-be used as parameter 'values' in \code{\link[=list_attributes]{list_attributes()}} function.
+be used as the parameters 'values' in \code{\link[=list_attributes]{list_attributes()}} function.
 }
 \examples{
 ## Download the database if necessary

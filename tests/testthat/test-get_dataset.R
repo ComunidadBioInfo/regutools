@@ -27,13 +27,13 @@ test_that("Function get dataset works as expected", {
         )
     )
     expect_s4_class(
-        get_dataset(
+        suppressWarnings( get_dataset(
             regdb,
             dataset = "GENE",
             attributes = c("posleft", "posright", "name", "strand"),
             and = F,
             output_format = "GRanges"
-        ),
+        )),
         "GRanges"
     )
     expect_s4_class(get_dataset(
@@ -42,12 +42,10 @@ test_that("Function get dataset works as expected", {
         output_format = "GRanges"),
         "GRanges")
 
-
-    expect_s4_class(get_dataset(
+    expect_s4_class( suppressWarnings( get_dataset(
         regdb,dataset = "OPERON",
-        output_format = "GRanges"),
+        output_format = "GRanges") ),
         "GRanges")
-
 
     expect_s4_class(
         get_dataset(
@@ -77,16 +75,15 @@ test_that("Function get dataset works as expected", {
                      "promoter_sequence"
                  ),
              output_format = "BStringSet"
-         ),"Dropped 92 entries where sequence data were NAs")
+         ),"entries where sequence data were NAs")
 
-
-    expect_error(get_dataset(
+    expect_error( suppressWarnings( get_dataset(
         regdb,
         dataset = "PROMOTER",
         filters = list(name = c("araC", "crp", "lacI")),
         attributes = c("name", "strand"),
         output_format = "DNAStringSet"
-    ), "Not enough information to convert to a Biostrings object.\nPlease add the following column to the regulondb_result object: \n\tpromoter_sequence\n")
+    ) ), "Not enough information to convert to a Biostrings object.\nPlease add the following column to the regulondb_result object: \n\tpromoter_sequence\n")
 
     expect_error(
             get_dataset(
@@ -100,7 +97,6 @@ test_that("Function get dataset works as expected", {
                     "strand"
                 ),
                 output_format = "BStringSet"))
-
 
     expect_error(get_dataset(
         regdb,dataset = "OPERON",
@@ -154,6 +150,5 @@ test_that("Function get dataset works as expected", {
         filters = list(name = c("araC")),
         partialmatch="posleft"),
         "Partialmatch \"posleft\" not defined in 'filters'")
-
 
 })

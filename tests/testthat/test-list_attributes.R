@@ -12,8 +12,11 @@ test_that("list_attributes works as expected ", {
         )
 
     # Returns a character vector
-    expect_type(list_attributes(regdb, dataset = "DNA_OBJECTS"),
-        "character")
+    resSimple <- list_attributes(regdb, dataset = "GENE")
+    expect_type( resSimple,"character" )
+
+    resComplex <- list_attributes(regdb, dataset = "GENE", description = TRUE )
+    expect_s3_class( resComplex, "data.frame" )
 
     # Test that function fails if not enough arguments are given
     expect_error(list_attributes(), "")
