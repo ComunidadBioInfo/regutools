@@ -28,7 +28,9 @@ Imports:
     utils,
     stats,
     xml2,
-    DBI
+    DBI,
+    Gviz, 
+    stringr
 LazyData: true
 RoxygenNote: 7.0.2
 Suggests: 
