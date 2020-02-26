@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Return summary of gene regulation. — get_regulatory_summary • regutools</title>
+<title>Plot elements within a genome region — plot_GRanges • regutools</title>
 
 
 <!-- jquery -->
@@ -35,11 +35,8 @@
 
 
 
-<meta property="og:title" content="Return summary of gene regulation. — get_regulatory_summary" />
-<meta property="og:description" content="This function takes the output of get_gene_regulators() with
-format multirow,
-onerow or table, or a vector with genes and retrieves information about the
-TFs and their regulated genes" />
+<meta property="og:title" content="Plot elements within a genome region — plot_GRanges" />
+<meta property="og:description" content="Plot elements within a genome region" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -114,19 +111,23 @@ TFs and their regulated genes" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Return summary of gene regulation.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/R/get_summary.R'><code>R/get_summary.R</code></a></small>
-    <div class="hidden name"><code>get_regulatory_summary.Rd</code></div>
+    <h1>Plot elements within a genome region</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/R/plot_granges.R'><code>R/plot_granges.R</code></a></small>
+    <div class="hidden name"><code>plot_GRanges.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function takes the output of <code><a href='get_gene_regulators.html'>get_gene_regulators()</a></code> with
-format multirow,
-onerow or table, or a vector with genes and retrieves information about the
-TFs and their regulated genes</p>
+    <p>Plot elements within a genome region</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_regulatory_summary</span>(<span class='no'>regulondb</span>, <span class='no'>gene_regulators</span>)</pre>
+    <pre class="usage"><span class='fu'>plot_GRanges</span>(
+  <span class='no'>regulondb</span>,
+  <span class='kw'>genome</span> <span class='kw'>=</span> <span class='st'>"eschColi_K12"</span>,
+  <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>5000</span>,
+  <span class='kw'>plot_map</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>elements</span> <span class='kw'>=</span> <span class='st'>"gene"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -136,86 +137,54 @@ TFs and their regulated genes</p>
       <td><p>A <code><a href='regulondb.html'>regulondb()</a></code> object.</p></td>
     </tr>
     <tr>
-      <th>gene_regulators</th>
-      <td><p>Result from <code><a href='get_gene_regulators.html'>get_gene_regulators()</a></code> or vector of genes</p></td>
+      <th>genome</th>
+      <td><p>A valid UCSC genome name.</p></td>
+    </tr>
+    <tr>
+      <th>from</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/integer.html'>integer(1)</a></code> specifying the left position.</p></td>
+    </tr>
+    <tr>
+      <th>to</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/integer.html'>integer(1)</a></code> specifying the right position.</p></td>
+    </tr>
+    <tr>
+      <th>plot_map</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>. By default <code>TRUE</code>, if <code>FALSE</code> returns a
+<code><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GenomicRanges::GRanges-class()</a></code> object with the elements found.</p></td>
+    </tr>
+    <tr>
+      <th>elements</th>
+      <td><p>A character vector specifying which annotation elements to
+plot. It can be any from: <code>"-10 promoter box"</code>, <code>"-35 promoter box"</code>,
+<code>"gene"</code>, <code>"promoter"</code>, <code>"Regulatory Interaction"</code>, <code>"sRNA interaction"</code>,
+or <code>"terminator"</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame with the following columns:</p><ul>
-<li><p>The name or gene of TF</p></li>
-<li><p>Regulated Genes per TF</p></li>
-<li><p>Percent of regulated genes per TF</p></li>
-<li><p>positive, negative or dual regulation</p></li>
-<li><p>Name(s) of regulated genes</p></li>
-</ul>
-
+    <p>A plot with genomic elements found within a genome region,
+including genes and regulators.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
 <span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-12</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
-<span class='co'>## Build the regulon db object</span>
+<span class='co'>## Build the regulondb object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
         <span class='kw'>database_conn</span> <span class='kw'>=</span> <span class='no'>regulondb_conn</span>,
-        <span class='kw'>organism</span> <span class='kw'>=</span> <span class='st'>"E.coli"</span>,
+        <span class='kw'>organism</span> <span class='kw'>=</span> <span class='st'>"chr"</span>,
         <span class='kw'>database_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>,
         <span class='kw'>genome_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>
     )
 
-<span class='co'>## Get the araC regulators</span>
-<span class='no'>araC_regulation</span> <span class='kw'>&lt;-</span>
-    <span class='fu'><a href='get_gene_regulators.html'>get_gene_regulators</a></span>(
-        <span class='no'>e_coli_regulondb</span>,
-        <span class='kw'>genes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"araC"</span>),
-        <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"multirow"</span>,
-        <span class='kw'>output.type</span> <span class='kw'>=</span> <span class='st'>"TF"</span>
-    )
-
-<span class='co'>## Summarize the araC regulation</span>
-<span class='fu'>get_regulatory_summary</span>(<span class='no'>e_coli_regulondb</span>, <span class='no'>araC_regulation</span>)</div><div class='output co'>#&gt; regulondb_result with 3 rows and 7 columns
-#&gt;         TF Regulated_genes_per_TF          Percent Activator Repressor     Dual
-#&gt;   &lt;factor&gt;               &lt;factor&gt;         &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;
-#&gt; 1     AraC                      1 33.3333333333333         0         0        1
-#&gt; 2     CRP                       1 33.3333333333333         1         0        0
-#&gt; 3     XylR                      1 33.3333333333333         0         1        0
-#&gt;   Regulated_genes
-#&gt;          &lt;factor&gt;
-#&gt; 1            araC
-#&gt; 2            araC
-#&gt; 3            araC</div><div class='input'>
-<span class='co'>## Retrieve summary of genes 'araC' and 'modB'</span>
-<span class='fu'>get_regulatory_summary</span>(<span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>gene_regulators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"araC"</span>, <span class='st'>"modB"</span>))</div><div class='output co'>#&gt; regulondb_result with 4 rows and 7 columns
-#&gt;         TF Regulated_genes_per_TF  Percent Activator Repressor     Dual
-#&gt;   &lt;factor&gt;               &lt;factor&gt; &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;
-#&gt; 1     AraC                      1       20         0         0        1
-#&gt; 2     CRP                       2       40         2         0        0
-#&gt; 3     ModE                      1       20         0         1        0
-#&gt; 4     XylR                      1       20         0         1        0
-#&gt;   Regulated_genes
-#&gt;          &lt;factor&gt;
-#&gt; 1      araC      
-#&gt; 2      modB, araC
-#&gt; 3      modB      
-#&gt; 4      araC      </div><div class='input'>
-<span class='co'>## Obtain the summary for 'ECK120000050' and 'modB'</span>
-<span class='fu'>get_regulatory_summary</span>(<span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>gene_regulators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ECK120000050"</span>, <span class='st'>"modB"</span>))</div><div class='output co'>#&gt; regulondb_result with 4 rows and 7 columns
-#&gt;         TF Regulated_genes_per_TF  Percent Activator Repressor     Dual
-#&gt;   &lt;factor&gt;               &lt;factor&gt; &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;
-#&gt; 1     AraC                      1       20         0         0        1
-#&gt; 2     CRP                       2       40         2         0        0
-#&gt; 3     ModE                      1       20         0         1        0
-#&gt; 4     XylR                      1       20         0         1        0
-#&gt;   Regulated_genes
-#&gt;          &lt;factor&gt;
-#&gt; 1      araC      
-#&gt; 2      modB, araC
-#&gt; 3      modB      
-#&gt; 4      araC      </div><div class='input'>
-</div></pre>
+<span class='co'>## Plot genes from E. coli using default parameters</span>
+<span class='fu'>plot_GRanges</span>(<span class='no'>e_coli_regulondb</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: implicit list embedding of S4 objects is deprecated</span></div><div class='img'><img src='plot_GRanges-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'>## Plot genes providing Genomic Ranges</span>
+<span class='fu'>plot_GRanges</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>5000</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>10000</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: implicit list embedding of S4 objects is deprecated</span></div><div class='img'><img src='plot_GRanges-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'>## Plot aditional elements within Genomic Ranges</span>
+<span class='fu'>plot_GRanges</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>5000</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>10000</span>, <span class='kw'>elements</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gene"</span>, <span class='st'>"promoter"</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: implicit list embedding of S4 objects is deprecated</span></div><div class='output co'>#&gt; <span class='warning'>Warning: implicit list embedding of S4 objects is deprecated</span></div><div class='img'><img src='plot_GRanges-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -226,8 +195,7 @@ TFs and their regulated genes</p>
     </ul>
 
     <h2>Author</h2>
-    <p>Carmina Barberena Jonas, Jesús Emiliano Sotelo Fonseca,
-José Alquicira Hernández, Joselyn Chávez</p>
+    <p>Joselyn Chavez</p>
   </div>
 </div>
 

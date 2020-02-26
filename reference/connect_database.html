@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Constructs a particular logical condition to query database — existing_intervals • regutools</title>
+<title>Connect to the regulondb database — connect_database • regutools</title>
 
 
 <!-- jquery -->
@@ -35,10 +35,9 @@
 
 
 
-<meta property="og:title" content="Constructs a particular logical condition to query database — existing_intervals" />
-<meta property="og:description" content="Given a list of filters, this function builds a logical
-condition to query database using intervals.
-The output is used in build_condition()." />
+<meta property="og:title" content="Connect to the regulondb database — connect_database" />
+<meta property="og:description" content="If the file does not exist, this function downloads
+the RegulonDB SQLite database file into the path prior to loading it." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -113,61 +112,53 @@ The output is used in build_condition()." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Constructs a particular logical condition to query database</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/R/existing_intervals.R'><code>R/existing_intervals.R</code></a></small>
-    <div class="hidden name"><code>existing_intervals.Rd</code></div>
+    <h1>Connect to the regulondb database</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/R/connect_database.R'><code>R/connect_database.R</code></a></small>
+    <div class="hidden name"><code>connect_database.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Given a list of filters, this function builds a logical
-condition to query database using intervals.
-The output is used in <code><a href='build_condition.html'>build_condition()</a></code>.</p>
+    <p>If the file does not exist, this function downloads
+the RegulonDB SQLite database file into the <code>path</code> prior to loading it.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>existing_intervals</span>(<span class='no'>filters</span>, <span class='no'>interval</span>, <span class='no'>operator</span>, <span class='no'>partialmatch</span>)</pre>
+    <pre class="usage"><span class='fu'>connect_database</span>(
+  <span class='kw'>path</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(),
+  <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>ah</span> <span class='kw'>=</span> <span class='kw pkg'>AnnotationHub</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html'>AnnotationHub</a></span>()
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>filters</th>
-      <td><p>List of filters to be used. The names should correspond to
-the attribute and the values correspond to the condition for selection.</p></td>
+      <th>path</th>
+      <td><p>The directory where the database will be downloaded to.</p></td>
     </tr>
     <tr>
-      <th>interval</th>
-      <td><p>the filters with values considered as interval.</p></td>
+      <th>overwrite</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to overwrite the database
+file.</p></td>
     </tr>
     <tr>
-      <th>operator</th>
-      <td><p>A string indicading if all the filters (AND) or some of
-them (OR) should be met.</p></td>
-    </tr>
-    <tr>
-      <th>partialmatch</th>
-      <td><p>name of the condition(s) with a string pattern for full
-or partial match in the query.</p></td>
+      <th>ah</th>
+      <td><p>An <code>AnnotationtHub</code> object
+<a href='https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html'>AnnotationHub-class</a>. Can be <code>NULL</code>
+if you want to force to use the backup download mechanism.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> with the sql logical condition to query the dataset.</p>
+    <p>An <a href='https://rsqlite.r-dbi.org/reference/SQLiteConnection-class.html'>SQLiteConnection-class</a>
+connection to the RegulonDB database.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='co'>## Build the SQL query for existing interval partial matches for ara</span>
-<span class='fu'>existing_intervals</span>(
-    <span class='kw'>filters</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-        <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"ara"</span>,
-        <span class='kw'>strand</span> <span class='kw'>=</span> <span class='st'>"for"</span>,
-        <span class='kw'>posright</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"2000"</span>, <span class='st'>"40000"</span>)
-    ),
-    <span class='kw'>interval</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"posright"</span>),
-    <span class='kw'>operator</span> <span class='kw'>=</span> <span class='st'>"AND"</span>,
-    <span class='kw'>partialmatch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"name"</span>, <span class='st'>"strand"</span>)
-)</div><div class='output co'>#&gt; [1] "(name like  '%ara%') AND (strand like  '%for%')AND(posright &gt;= 2000 AND posright &lt;= 40000)"</div><div class='input'>
-</div></pre>
+<span class='co'>## Connect to the RegulonDB database if necessary</span>
+<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'>connect_database</span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-12</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
+<span class='co'>## Connect to the database without using AnnotationHub</span>
+<span class='no'>regulondb_conn_noAH</span> <span class='kw'>&lt;-</span> <span class='fu'>connect_database</span>(<span class='kw'>ah</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -177,9 +168,6 @@ or partial match in the query.</p></td>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
-    <h2>Author</h2>
-    <p>Carmina Barberena Jonás, Jesús Emiliano Sotelo Fonseca,
-José Alquicira Hernández, Joselyn Chávez</p>
   </div>
 </div>
 

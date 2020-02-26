@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Constructs a particular logical condition to query database — existing_intervals • regutools</title>
+<title>Retrieve gene synonyms — get_gene_synonyms • regutools</title>
 
 
 <!-- jquery -->
@@ -35,10 +35,9 @@
 
 
 
-<meta property="og:title" content="Constructs a particular logical condition to query database — existing_intervals" />
-<meta property="og:description" content="Given a list of filters, this function builds a logical
-condition to query database using intervals.
-The output is used in build_condition()." />
+<meta property="og:title" content="Retrieve gene synonyms — get_gene_synonyms" />
+<meta property="og:description" content="Given a list of genes (id, name, bnumber or gi),
+get the gene synonyms (name, bnumber of gi)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -113,73 +112,83 @@ The output is used in build_condition()." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Constructs a particular logical condition to query database</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/R/existing_intervals.R'><code>R/existing_intervals.R</code></a></small>
-    <div class="hidden name"><code>existing_intervals.Rd</code></div>
+    <h1>Retrieve gene synonyms</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/R/get_gene_synonyms.R'><code>R/get_gene_synonyms.R</code></a></small>
+    <div class="hidden name"><code>get_gene_synonyms.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Given a list of filters, this function builds a logical
-condition to query database using intervals.
-The output is used in <code><a href='build_condition.html'>build_condition()</a></code>.</p>
+    <p>Given a list of genes (id, name, bnumber or gi),
+get the gene synonyms (name, bnumber of gi).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>existing_intervals</span>(<span class='no'>filters</span>, <span class='no'>interval</span>, <span class='no'>operator</span>, <span class='no'>partialmatch</span>)</pre>
+    <pre class="usage"><span class='fu'>get_gene_synonyms</span>(
+  <span class='no'>regulondb</span>,
+  <span class='no'>genes</span>,
+  <span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>"name"</span>,
+  <span class='kw'>to</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"id"</span>, <span class='st'>"name"</span>, <span class='st'>"bnumber"</span>, <span class='st'>"gi"</span>)
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>filters</th>
-      <td><p>List of filters to be used. The names should correspond to
-the attribute and the values correspond to the condition for selection.</p></td>
+      <th>regulondb</th>
+      <td><p>A <code><a href='regulondb.html'>regulondb()</a></code> object.</p></td>
     </tr>
     <tr>
-      <th>interval</th>
-      <td><p>the filters with values considered as interval.</p></td>
+      <th>genes</th>
+      <td><p>Character vector of gene identifiers (id, name, bnumber or gi).</p></td>
     </tr>
     <tr>
-      <th>operator</th>
-      <td><p>A string indicading if all the filters (AND) or some of
-them (OR) should be met.</p></td>
+      <th>from</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character()</a></code> specifying one of: id, name, bnumber of gi</p></td>
     </tr>
     <tr>
-      <th>partialmatch</th>
-      <td><p>name of the condition(s) with a string pattern for full
-or partial match in the query.</p></td>
+      <th>to</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character()</a></code> specifying one or more of: id, name, bnumber of gi</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> with the sql logical condition to query the dataset.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'>## Build the SQL query for existing interval partial matches for ara</span>
-<span class='fu'>existing_intervals</span>(
-    <span class='kw'>filters</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-        <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"ara"</span>,
-        <span class='kw'>strand</span> <span class='kw'>=</span> <span class='st'>"for"</span>,
-        <span class='kw'>posright</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"2000"</span>, <span class='st'>"40000"</span>)
-    ),
-    <span class='kw'>interval</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"posright"</span>),
-    <span class='kw'>operator</span> <span class='kw'>=</span> <span class='st'>"AND"</span>,
-    <span class='kw'>partialmatch</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"name"</span>, <span class='st'>"strand"</span>)
-)</div><div class='output co'>#&gt; [1] "(name like  '%ara%') AND (strand like  '%for%')AND(posright &gt;= 2000 AND posright &lt;= 40000)"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
+<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-12</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
+<span class='co'>## Build the regulon db object</span>
+<span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
+    <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
+        <span class='kw'>database_conn</span> <span class='kw'>=</span> <span class='no'>regulondb_conn</span>,
+        <span class='kw'>organism</span> <span class='kw'>=</span> <span class='st'>"E.coli"</span>,
+        <span class='kw'>database_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>,
+        <span class='kw'>genome_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>
+    )
+
+<span class='co'>## Lists all available identifiers for "araC"</span>
+<span class='fu'>get_gene_synonyms</span>(<span class='no'>e_coli_regulondb</span>, <span class='st'>"araC"</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>"name"</span>)</div><div class='output co'>#&gt; regulondb_result with 1 row and 4 columns
+#&gt;             id        name     bnumber          gi
+#&gt;    &lt;character&gt; &lt;character&gt; &lt;character&gt; &lt;character&gt;
+#&gt; 1 ECK120000050        araC       b0064          NA</div><div class='input'>
+<span class='co'>## Retrieve only the ID</span>
+<span class='fu'>get_gene_synonyms</span>(<span class='no'>e_coli_regulondb</span>, <span class='st'>"araC"</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>"name"</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='st'>"id"</span>)</div><div class='output co'>#&gt; regulondb_result with 1 row and 1 column
+#&gt;             id
+#&gt;    &lt;character&gt;
+#&gt; 1 ECK120000050</div><div class='input'>
+<span class='co'>## Use an ID to retrieve the synonyms</span>
+<span class='fu'>get_gene_synonyms</span>(<span class='no'>e_coli_regulondb</span>, <span class='st'>"ECK120000998"</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>"id"</span>)</div><div class='output co'>#&gt; regulondb_result with 1 row and 4 columns
+#&gt;             id        name     bnumber          gi
+#&gt;    &lt;character&gt; &lt;character&gt; &lt;character&gt; &lt;character&gt;
+#&gt; 1 ECK120000998        tolC       b3035          NA</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
     <h2>Author</h2>
-    <p>Carmina Barberena Jonás, Jesús Emiliano Sotelo Fonseca,
-José Alquicira Hernández, Joselyn Chávez</p>
+    <p>Jesús Emiliano Sotelo Fonseca</p>
   </div>
 </div>
 

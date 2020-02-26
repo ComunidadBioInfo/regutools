@@ -129,7 +129,7 @@ transcription factor.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>regulondb</th>
-      <td><p>A regulondb object.</p></td>
+      <td><p>A <code><a href='regulondb.html'>regulondb()</a></code> object.</p></td>
     </tr>
     <tr>
       <th>transcription_factor</th>
@@ -147,15 +147,12 @@ transcription factor.</p>
 about the binding sites of the transcription factors.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Download the database if necessary</span>
-<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>'regulondb_sqlite3.db'</span>))) {
-    <span class='fu'><a href='download_database.html'>download_database</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>())
-}
-
+    <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
+<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-12</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
 <span class='co'>## Build the regulon db object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
-        <span class='kw'>database_path</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"regulondb_sqlite3.db"</span>),
+        <span class='kw'>database_conn</span> <span class='kw'>=</span> <span class='no'>regulondb_conn</span>,
         <span class='kw'>organism</span> <span class='kw'>=</span> <span class='st'>"E.coli"</span>,
         <span class='kw'>database_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>,
         <span class='kw'>genome_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>
@@ -210,7 +207,7 @@ about the binding sites of the transcription factors.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Jose Alquicira-Hernandez, Heladia Salgado, Alejandro Reyes, Leonardo Collado-Torres.</p>
+  <p>Developed by Carmina Barberena-Jonas, Joselyn Chavez, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p>
 </div>
 
 <div class="pkgdown">
