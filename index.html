@@ -82,7 +82,8 @@
 <a href="#regutools" class="anchor"></a>regutools</h1></div>
 <!-- badges: start -->
 
-<p>The goal of <code>regutools</code> is to provide an R interface for extracting and processing data from <a href="http://regulondb.ccg.unam.mx/">RegulonDB</a>.</p>
+<p>The goal of <code>regutools</code> is to provide an R interface for extracting and processing data from <a href="http://regulondb.ccg.unam.mx/">RegulonDB</a>. This package was created as a collaboration by members of the <a href="https://comunidadbioinfo.github.io/">Community of Bioinformatics Software Developers</a> (CDSB in Spanish).</p>
+<p>For more details, please check the <a href="http://comunidadbioinfo.github.io/regutools">documentation website</a> or the Bioconductor package landing page <a href="https://bioconductor.org/packages/regutools">here</a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -106,38 +107,39 @@
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">## Connect to the RegulonDB database if necessary</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/exists.html">exists</a></span>(<span class="st">'regulondb_conn'</span>)) regulondb_conn &lt;-<span class="st"> </span><span class="kw"><a href="reference/connect_database.html">connect_database</a></span>()</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">## Build a regulondb object</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">e_coli_regulondb &lt;-</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">    </span><span class="kw"><a href="reference/regulondb.html">regulondb</a></span>(</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">        <span class="dt">database_conn =</span> regulondb_conn,</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">        <span class="dt">organism =</span> <span class="st">"E.coli"</span>,</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">        <span class="dt">database_version =</span> <span class="st">"1"</span>,</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="dt">genome_version =</span> <span class="st">"1"</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">    )</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16">## Get the araC regulators</a>
-<a class="sourceLine" id="cb3-17" data-line-number="17">araC_regulation &lt;-</a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="st">    </span><span class="kw"><a href="reference/get_gene_regulators.html">get_gene_regulators</a></span>(</a>
-<a class="sourceLine" id="cb3-19" data-line-number="19">        e_coli_regulondb,</a>
-<a class="sourceLine" id="cb3-20" data-line-number="20">        <span class="dt">genes =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"araC"</span>),</a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">        <span class="dt">format =</span> <span class="st">"multirow"</span>,</a>
-<a class="sourceLine" id="cb3-22" data-line-number="22">        <span class="dt">output.type =</span> <span class="st">"TF"</span></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23">    )</a>
-<a class="sourceLine" id="cb3-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb3-25" data-line-number="25">## Summarize the araC regulation</a>
-<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="kw"><a href="reference/get_regulatory_summary.html">get_regulatory_summary</a></span>(e_coli_regulondb, araC_regulation)</a>
-<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co">#&gt; regulondb_result with 3 rows and 7 columns</span></a>
-<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt;         TF Regulated_genes_per_TF          Percent Activator Repressor     Dual</span></a>
-<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">#&gt;   &lt;factor&gt;               &lt;factor&gt;         &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;</span></a>
-<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co">#&gt; 1     AraC                      1 33.3333333333333         0         0        1</span></a>
-<a class="sourceLine" id="cb3-31" data-line-number="31"><span class="co">#&gt; 2      CRP                      1 33.3333333333333         1         0        0</span></a>
-<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="co">#&gt; 3     XylR                      1 33.3333333333333         0         1        0</span></a>
-<a class="sourceLine" id="cb3-33" data-line-number="33"><span class="co">#&gt;   Regulated_genes</span></a>
-<a class="sourceLine" id="cb3-34" data-line-number="34"><span class="co">#&gt;          &lt;factor&gt;</span></a>
-<a class="sourceLine" id="cb3-35" data-line-number="35"><span class="co">#&gt; 1            araC</span></a>
-<a class="sourceLine" id="cb3-36" data-line-number="36"><span class="co">#&gt; 2            araC</span></a>
-<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="co">#&gt; 3            araC</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; snapshotDate(): 2019-10-29</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">## Build a regulondb object</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">e_coli_regulondb &lt;-</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="st">    </span><span class="kw"><a href="reference/regulondb.html">regulondb</a></span>(</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">        <span class="dt">database_conn =</span> regulondb_conn,</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">        <span class="dt">organism =</span> <span class="st">"E.coli"</span>,</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="dt">database_version =</span> <span class="st">"1"</span>,</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">        <span class="dt">genome_version =</span> <span class="st">"1"</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    )</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">## Get the araC regulators</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">araC_regulation &lt;-</a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="st">    </span><span class="kw"><a href="reference/get_gene_regulators.html">get_gene_regulators</a></span>(</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">        e_coli_regulondb,</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">        <span class="dt">genes =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"araC"</span>),</a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">        <span class="dt">format =</span> <span class="st">"multirow"</span>,</a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">        <span class="dt">output.type =</span> <span class="st">"TF"</span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24">    )</a>
+<a class="sourceLine" id="cb3-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb3-26" data-line-number="26">## Summarize the araC regulation</a>
+<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="kw"><a href="reference/get_regulatory_summary.html">get_regulatory_summary</a></span>(e_coli_regulondb, araC_regulation)</a>
+<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt; regulondb_result with 3 rows and 7 columns</span></a>
+<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">#&gt;         TF Regulated_genes_per_TF          Percent Activator Repressor     Dual</span></a>
+<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co">#&gt;   &lt;factor&gt;               &lt;factor&gt;         &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;</span></a>
+<a class="sourceLine" id="cb3-31" data-line-number="31"><span class="co">#&gt; 1     AraC                      1 33.3333333333333         0         0        1</span></a>
+<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="co">#&gt; 2      CRP                      1 33.3333333333333         1         0        0</span></a>
+<a class="sourceLine" id="cb3-33" data-line-number="33"><span class="co">#&gt; 3     XylR                      1 33.3333333333333         0         1        0</span></a>
+<a class="sourceLine" id="cb3-34" data-line-number="34"><span class="co">#&gt;   Regulated_genes</span></a>
+<a class="sourceLine" id="cb3-35" data-line-number="35"><span class="co">#&gt;          &lt;factor&gt;</span></a>
+<a class="sourceLine" id="cb3-36" data-line-number="36"><span class="co">#&gt; 1            araC</span></a>
+<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="co">#&gt; 2            araC</span></a>
+<a class="sourceLine" id="cb3-38" data-line-number="38"><span class="co">#&gt; 3            araC</span></a></code></pre></div>
 </div>
 </div>
 <div id="citation" class="section level1">
@@ -146,28 +148,41 @@
 <p>Below is the citation output from using <code><a href="https://rdrr.io/r/utils/citation.html">citation('regutools')</a></code> in R. Please run this yourself to check for any updates on how to cite <strong>regutools</strong>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">'regutools'</span>)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; To cite package 'regutools' in publications use:</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;   Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca,</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;   Jose Alquicira-Hernandez, Heladia Salgado, Alejandro Reyes and</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;   Leonardo Collado-Torres (2020). regutools: regutools: an R package</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;   for data extraction from RegulonDB. R package version 0.99.0.</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;   https://github.com/ComunidadBioInfo/regutools</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;   @Manual{,</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;     title = {regutools: regutools: an R package for data extraction from RegulonDB},</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;     author = {Joselyn Chavez and Carmina Barberena-Jonas and Jesus E. Sotelo-Fonseca and Jose Alquicira-Hernandez and Heladia Salgado and Alejandro Reyes and Leonardo Collado-Torres},</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;     year = {2020},</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt;     note = {R package version 0.99.0},</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt;     url = {https://github.com/ComunidadBioInfo/regutools},</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt;   }</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; Barberena-Jonas C, Chavez J, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). _regutools: an R package</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; for data extraction from RegulonDB_. doi: 10.18129/B9.bioc.regutools</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; (URL: https://doi.org/10.18129/B9.bioc.regutools),</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; https://github.com/comunidadbioinfo/regutools - R package version</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; 0.99.0, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; Barberena-Jonas C, Chavez J, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). "Programmatic access to</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; bacterial regulatory networks with regutools." _bioRxiv_. doi:</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; 10.1101/xxxyyy (URL: https://doi.org/10.1101/xxxyyy), &lt;URL:</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; https://doi.org/10.1101/xxxyyy&gt;.</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; To see these entries in BibTeX format, use 'print(&lt;citation&gt;,</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; bibtex=TRUE)', 'toBibtex(.)', or set</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; 'options(citation.bibtex.max=999)'.</span></a></code></pre></div>
 </div>
-<div id="testing" class="section level1">
+<div id="development-tools" class="section level1">
 <h1 class="hasAnchor">
-<a href="#testing" class="anchor"></a>Testing</h1>
-<p>Testing on Bioc-devel is feasible thanks to <a href="http://docs.travis-ci.com/user/languages/r/">R Travis</a>.</p>
+<a href="#development-tools" class="anchor"></a>Development tools</h1>
+<ul>
+<li>Testing on Bioc-devel is possible thanks to <a href="http://docs.travis-ci.com/user/languages/r/">R Travis</a>.</li>
+<li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh">codecov</a>.</li>
+<li>The <a href="http://comunidadbioinfo.github.io/regutools">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> and <em><a href="https://github.com/ropenscilabs/travis">travis</a></em>.</li>
+</ul>
+</div>
+<div id="regulondb" class="section level1">
+<h1 class="hasAnchor">
+<a href="#regulondb" class="anchor"></a>RegulonDB</h1>
+<p><a href="http://regulondb.ccg.unam.mx/"><img src="http://regulondb.ccg.unam.mx/img/logo.jpg"></a></p>
+</div>
+<div id="a-cdsb-community-project" class="section level1">
+<h1 class="hasAnchor">
+<a href="#a-cdsb-community-project" class="anchor"></a>A CDSB community project</h1>
+<p><a href="https://comunidadbioinfo.github.io/"><img src="https://comunidadbioinfo.github.io/img/Logo_texto-768x107.png"></a></p>
 </div>
 
   </div>
@@ -212,6 +227,7 @@
 <li><a href="https://travis-ci.org/ComunidadBioInfo/regutools"><img src="https://travis-ci.org/ComunidadBioInfo/regutools.svg?branch=master" alt="Travis build status"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://codecov.io/gh/ComunidadBioInfo/regutools?branch=master"><img src="https://codecov.io/gh/ComunidadBioInfo/regutools/branch/master/graphs/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://bioconductor.org/checkResults/release/bioc-LATEST/regutools"><img src="http://www.bioconductor.org/shields/build/release/bioc/regutools.svg" alt="BioC status"></a></li>
 </ul>
 </div>
 </div>
