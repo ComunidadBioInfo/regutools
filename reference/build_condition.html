@@ -8,6 +8,13 @@
 
 <title>Construct logical condition to query database — build_condition • regutools</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -39,6 +46,7 @@
 <meta property="og:description" content="Given a list of filters, this function builds a logical
 condition to query database.
 The output is used in get_dataset()." />
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -165,7 +173,7 @@ or partial match in the query</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpwYf6wd/BiocFileCache</span></div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-12</span></div><div class='input'>
+<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpJkqmDy/BiocFileCache</span></div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-12</span></div><div class='input'>
 <span class='co'>## Build the regulon db object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
