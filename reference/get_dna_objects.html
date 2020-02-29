@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot genomic elements from regulonDB — get_dna_objects • regutools</title>
+<title>Retrieve genomic elements from regulonDB — get_dna_objects • regutools</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="Plot genomic elements from regulonDB — get_dna_objects" />
-<meta property="og:description" content="Plot genomic elements from regulonDB" />
+<meta property="og:title" content="Retrieve genomic elements from regulonDB — get_dna_objects" />
+<meta property="og:description" content="Retrieve genomic elements from regulonDB" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -119,20 +119,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot genomic elements from regulonDB</h1>
+    <h1>Retrieve genomic elements from regulonDB</h1>
     <small class="dont-index">Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/R/get_dna_objects.R'><code>R/get_dna_objects.R</code></a></small>
     <div class="hidden name"><code>get_dna_objects.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Plot genomic elements from regulonDB</p>
+    <p>Retrieve genomic elements from regulonDB</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_dna_objects</span>(
   <span class='no'>regulondb</span>,
   <span class='kw'>genome</span> <span class='kw'>=</span> <span class='st'>"eschColi_K12"</span>,
-  <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>4641628</span>,
+  <span class='kw'>grange</span> <span class='kw'>=</span> <span class='fu'>GRanges</span>(<span class='st'>"chr"</span>, <span class='fu'>IRanges</span>(<span class='fl'>1</span>, <span class='fl'>5000</span>)),
   <span class='kw'>elements</span> <span class='kw'>=</span> <span class='st'>"gene"</span>
 )</pre>
 
@@ -148,12 +147,8 @@
       <td><p>A valid UCSC genome name.</p></td>
     </tr>
     <tr>
-      <th>from</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/integer.html'>integer(1)</a></code> specifying the left position.</p></td>
-    </tr>
-    <tr>
-      <th>to</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/integer.html'>integer(1)</a></code> specifying the right position.</p></td>
+      <th>grange</th>
+      <td><p>A <code><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GenomicRanges::GRanges-class()</a></code> object indicating position left and right.</p></td>
     </tr>
     <tr>
       <th>elements</th>
@@ -170,7 +165,7 @@ or <code>"terminator"</code>.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-12</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
+<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-28</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
 <span class='co'>## Build the regulondb object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
@@ -181,37 +176,21 @@ or <code>"terminator"</code>.</p></td>
     )
 
 <span class='co'>## Get all genes from E. coli</span>
-<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>)</div><div class='output co'>#&gt; GRanges object with 4583 ranges and 4 metadata columns:
-#&gt;          seqnames          ranges strand |           id        type        name
-#&gt;             &lt;Rle&gt;       &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;
-#&gt;      [1]      chr 4265782-4266861      + | ECK120000001        gene         alr
-#&gt;      [2]      chr   795862-796551      + | ECK120000002        gene        modB
-#&gt;      [3]      chr 2531463-2532224      + | ECK120000003        gene        cysZ
-#&gt;      [4]      chr 3812731-3813951      + | ECK120000004        gene         dfp
-#&gt;      [5]      chr 4347404-4348744      - | ECK120000005        gene        dcuB
-#&gt;      ...      ...             ...    ... .          ...         ...         ...
-#&gt;   [4579]      chr 3032939-3033010      - | ECK125276531        gene        yqfH
-#&gt;   [4580]      chr   850332-850397      + | ECK125276532        gene        yliM
-#&gt;   [4581]      chr 1642122-1642211      + | ECK125276533        gene        ynfS
-#&gt;   [4582]      chr   568695-568844      + | ECK125276534        gene        ylcJ
-#&gt;   [4583]      chr   765050-765150      + | ECK125276535        gene        sdhX
-#&gt;                                                                                            description
-#&gt;                                                                                            &lt;character&gt;
-#&gt;      [1]                                                                            alanine racemase 1
-#&gt;      [2]                                                    molybdate ABC transporter membrane subunit
-#&gt;      [3]                                                               sulfate:H&lt;sup&gt;+&lt;/sup&gt; symporter
-#&gt;      [4] fused 4'-phosphopantothenoylcysteine decarboxylase and phosphopantothenoylcysteine synthetase
-#&gt;      [5]                                                   anaerobic C4-dicarboxylate transporter DcuB
-#&gt;      ...                                                                                           ...
-#&gt;   [4579]                                                                                  protein YqfH
-#&gt;   [4580]                                                                                  protein YliM
-#&gt;   [4581]                                                                    Qin prophage; protein YnfS
-#&gt;   [4582]                                                                                  protein YlcJ
-#&gt;   [4583]                                                                     small regulatory RNA SdhX
+<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>)</div><div class='output co'>#&gt; GRanges object with 3 ranges and 4 metadata columns:
+#&gt;       seqnames    ranges strand |           id        type        name
+#&gt;          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;
+#&gt;   [1]      chr  337-2799      + | ECK120000987        gene        thrA
+#&gt;   [2]      chr 2801-3733      + | ECK120000988        gene        thrB
+#&gt;   [3]      chr   190-255      + | ECK120001251        gene        thrL
+#&gt;                                             description
+#&gt;                                             &lt;character&gt;
+#&gt;   [1] fused aspartate kinase/homoserine dehydrogenase 1
+#&gt;   [2]                                 homoserine kinase
+#&gt;   [3]                  &lt;i&gt;thr&lt;/i&gt; operon leader peptide
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
 <span class='co'>## Get genes providing Genomic Ranges</span>
-<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>5000</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>10000</span>)</div><div class='output co'>#&gt; GRanges object with 6 ranges and 4 metadata columns:
+<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>grange</span> <span class='kw'>=</span> <span class='kw pkg'>GenomicRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span>(<span class='st'>"chr"</span>, <span class='kw pkg'>IRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span>(<span class='fl'>5000</span>, <span class='fl'>10000</span>)) )</div><div class='output co'>#&gt; GRanges object with 6 ranges and 4 metadata columns:
 #&gt;       seqnames    ranges strand |           id        type        name
 #&gt;          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;
 #&gt;   [1]      chr 5683-6459      - | ECK120000009        gene        yaaA
@@ -231,7 +210,7 @@ or <code>"terminator"</code>.</p></td>
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
 <span class='co'>## Get aditional elements within genomic positions</span>
-<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>5000</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>10000</span>, <span class='kw'>elements</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gene"</span>, <span class='st'>"promoter"</span>))</div><div class='output co'>#&gt; GRanges object with 19 ranges and 4 metadata columns:
+<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>grange</span> <span class='kw'>=</span> <span class='kw pkg'>GenomicRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span>(<span class='st'>"chr"</span>, <span class='kw pkg'>IRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span>(<span class='fl'>5000</span>, <span class='fl'>10000</span>)), <span class='kw'>elements</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gene"</span>, <span class='st'>"promoter"</span>))</div><div class='output co'>#&gt; GRanges object with 19 ranges and 4 metadata columns:
 #&gt;        seqnames    ranges strand |           id        type
 #&gt;           &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt;
 #&gt;    [1]      chr 5683-6459      - | ECK120000009        gene
