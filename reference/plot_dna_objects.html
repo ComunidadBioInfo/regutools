@@ -131,8 +131,7 @@
     <pre class="usage"><span class='fu'>plot_dna_objects</span>(
   <span class='no'>regulondb</span>,
   <span class='kw'>genome</span> <span class='kw'>=</span> <span class='st'>"eschColi_K12"</span>,
-  <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>5000</span>,
+  <span class='kw'>grange</span> <span class='kw'>=</span> <span class='fu'>GRanges</span>(<span class='st'>"chr"</span>, <span class='fu'>IRanges</span>(<span class='fl'>1</span>, <span class='fl'>5000</span>)),
   <span class='kw'>elements</span> <span class='kw'>=</span> <span class='st'>"gene"</span>
 )</pre>
 
@@ -148,12 +147,8 @@
       <td><p>A valid UCSC genome name.</p></td>
     </tr>
     <tr>
-      <th>from</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/integer.html'>integer(1)</a></code> specifying the left position.</p></td>
-    </tr>
-    <tr>
-      <th>to</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/integer.html'>integer(1)</a></code> specifying the right position.</p></td>
+      <th>grange</th>
+      <td><p>A <code><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GenomicRanges::GRanges-class()</a></code> object indicating position left and right.</p></td>
     </tr>
     <tr>
       <th>elements</th>
@@ -184,9 +179,9 @@ including genes and regulators.</p>
 <span class='co'>## Plot some genes from E. coli using default parameters</span>
 <span class='fu'>plot_dna_objects</span>(<span class='no'>e_coli_regulondb</span>)</div><div class='img'><img src='plot_dna_objects-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Plot genes providing Genomic Ranges</span>
-<span class='fu'>plot_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>5000</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>10000</span>)</div><div class='img'><img src='plot_dna_objects-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>grange</span> <span class='kw'>=</span> <span class='kw pkg'>GenomicRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span>(<span class='st'>"chr"</span>, <span class='kw pkg'>IRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span>(<span class='fl'>5000</span>, <span class='fl'>10000</span>)) )</div><div class='img'><img src='plot_dna_objects-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Plot aditional elements within genomic positions</span>
-<span class='fu'>plot_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>5000</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='fl'>10000</span>, <span class='kw'>elements</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gene"</span>, <span class='st'>"promoter"</span>))</div><div class='img'><img src='plot_dna_objects-3.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'>plot_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>grange</span> <span class='kw'>=</span> <span class='kw pkg'>GenomicRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span>(<span class='st'>"chr"</span>, <span class='kw pkg'>IRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span>(<span class='fl'>5000</span>, <span class='fl'>10000</span>)), <span class='kw'>elements</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gene"</span>, <span class='st'>"promoter"</span>))</div><div class='img'><img src='plot_dna_objects-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
