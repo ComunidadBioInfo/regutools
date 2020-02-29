@@ -160,7 +160,7 @@
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; https://github.com/comunidadbioinfo/regutools - R package version</span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; 0.99.0, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span></a>
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; Barberena-Jonas C, Chavez J, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; Chávez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). "Programmatic access to</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; bacterial regulatory networks with regutools." _bioRxiv_. doi:</span></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; 10.1101/xxxyyy (URL: https://doi.org/10.1101/xxxyyy), &lt;URL:</span></a>
@@ -175,7 +175,7 @@
 <h1 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h1>
 <p><em>Escherichia coli K-12 (E. coli)</em> is the best bacterial organism studied to date. Thousands of papers have been published using <em>E. coli</em> as a model system asking how genes are regulated. The throughput of these experiments range from single-gene studies to whole-genome approaches. Twenty years ago, the database <a href="http://regulondb.ccg.unam.mx/"><em>RegulonDB</em></a> started collecting, curating and organizing this information into a centralized resource. Thanks to this huge efforts, researchers have had an easy way to access all these data in a database, facilitating the advancements of complete fields, such as <em>systems biology</em>.</p>
-<p>The analysis of high-throughput experiments -such as RNA-seq or ChIP-seq- often requires the integration of databases such as <em>RegulonDB</em> in order to give biological interpretations to these data. The <em>regutools</em> package is designed to facilitate such integration by providing programmatic access to <em>RegulonDB</em> within the R environment <a id="cite-Barberena-Jonas_2020"></a>(<a href="https://doi.org/10.1101/xxxyyy">Barberena-Jonas, Chavez, Sotelo-Fonseca, Alquicira-Hernandez, et al., 2020</a>). The package retrieves information from the <em>RegulonDB</em> database into <em>Bioconductor</em> objects, ready for downstream analyses.</p>
+<p>The analysis of high-throughput experiments -such as RNA-seq or ChIP-seq- often requires the integration of databases such as <em>RegulonDB</em> in order to give biological interpretations to these data. The <em>regutools</em> package is designed to facilitate such integration by providing programmatic access to <em>RegulonDB</em> within the R environment <a id="cite-Chavez_2020"></a>(<a href="https://doi.org/10.1101/xxxyyy">Chávez, Barberena-Jonas, Sotelo-Fonseca, Alquicira-Hernandez, et al., 2020</a>). The package retrieves information from the <em>RegulonDB</em> database into <em>Bioconductor</em> objects, ready for downstream analyses.</p>
 <p>The package defines the object <strong>regulondb</strong>, which is a data structure that contains the path to a <em>SQLite</em> database retrieved from <em>RegulonDB</em> along with metadata such as database version and reference genome. The function <code><a href="../reference/connect_database.html">connect_database()</a></code> will retrieve the latest version of the database and connect to it. It will download the database using <em><a href="https://bioconductor.org/packages/3.11/AnnotationHub">AnnotationHub</a></em> or a backup mechanism if necessary. The <em>regutools</em> package contains functions with the most popular queries to <em>regutools</em>, such as retrieving information of which gene targets are regulated by a transcription factor. But users can also design queries that are specific to their analyses. This vignette describes how to use the provided functions and how to design programmatic queries to <em>regutools</em>. The general syntax of the function calls of this package is <code>result &lt;- functionCalled( regulondb, arguments )</code>.</p>
 </div>
 <div id="the-regulondb-object" class="section level1">
@@ -204,7 +204,7 @@
 <a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt;   organism: E.coli</span></a>
 <a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt;   genome_build: 1</span></a>
 <a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt;   database_version: 1</span></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt;   database_conn: /tmp/RtmplCE91i/regulondb_sqlite3_v10.6.2_DM.db</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt;   database_conn: /tmp/RtmpOoYAVe/regulondb_sqlite3_v10.6.2_DM.db</span></a></code></pre></div>
 <p>In order to get an overview of the tables present in a <em>regulondb</em> object, we can use the function <code><a href="../reference/list_datasets.html">list_datasets()</a></code>. This function will output all the available tables (datasets) that can be used to build queries.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/list_datasets.html">list_datasets</a></span>(e_coli_regulondb)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [1] "DNA_OBJECTS"       "GENE"              "NETWORK"          </span></a>
@@ -648,7 +648,7 @@
 <div id="reproducibility" class="section level1">
 <h1 class="hasAnchor">
 <a href="#reproducibility" class="anchor"></a>Reproducibility</h1>
-<p>The <em><a href="https://bioconductor.org/packages/3.11/regutools">regutools</a></em> package <a id="cite-Chavez_2020"></a>(<a href="http://www.bioconductor.org/packages/regutools">Chávez, Barberena-Jonas, Sotelo-Fonseca, Alquicira-Hernandez, et al., 2020</a>) was made possible thanks to:</p>
+<p>The <em><a href="https://bioconductor.org/packages/3.11/regutools">regutools</a></em> package <a id="cite-Chavez_2020a"></a>(<a href="http://www.bioconductor.org/packages/regutools">Chávez, Barberena-Jonas, Sotelo-Fonseca, Alquicira-Hernandez, et al., 2020</a>) was made possible thanks to:</p>
 <ul>
 <li>R <a id="cite-R_Core_Team_2020"></a>(<a href="https://www.R-project.org/">R Core Team, 2020</a>)</li>
 <li>
@@ -659,7 +659,6 @@
 <em><a href="https://bioconductor.org/packages/3.11/BiocStyle">BiocStyle</a></em> <a id="cite-Oles_2020"></a>(<a href="https://github.com/Bioconductor/BiocStyle">Oleś, Morgan, and Huber, 2020</a>)</li>
 <li>
 <em><a href="https://bioconductor.org/packages/3.11/Biostrings">Biostrings</a></em> <a id="cite-Pages_2019"></a>(<a href="#bib-Pages_2019">Pagès, Aboyoun, Gentleman, and DebRoy, 2019</a>)</li>
-<li><em><a href="https://CRAN.R-project.org/package=data.table">data.table</a></em></li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=DBI">DBI</a></em> <a id="cite-R_Special_Interest_Group_on_Databases_R-SIG-DB_2019"></a>(<a href="https://CRAN.R-project.org/package=DBI">R Special Interest Group on Databases (R-SIG-DB), Wickham, and Müller, 2019</a>)</li>
 <li>
@@ -694,9 +693,9 @@
 <a class="sourceLine" id="cb26-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'knitr'</span>)</a>
 <a class="sourceLine" id="cb26-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span>(<span class="st">'regutools.Rmd'</span>, <span class="dt">tangle =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-02-29 17:56:40 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-02-29 20:33:54 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 31.269 secs</code></pre>
+<pre><code>#&gt; Time difference of 34.124 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                             
@@ -859,8 +858,8 @@
 <p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.11/BiocStyle">BiocStyle</a></em> (<a href="https://github.com/Bioconductor/BiocStyle">Oleś, Morgan, and Huber, 2020</a>), <em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (<a href="http://www.crcpress.com/product/isbn/9781466561595">Xie, 2014</a>) and <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (<a href="https://github.com/rstudio/rmarkdown">Allaire, Xie, McPherson, Luraschi, et al., 2020</a>) running behind the scenes.</p>
 <p>Citations were made with <em><a href="https://CRAN.R-project.org/package=knitcitations">knitcitations</a></em> (<a href="https://CRAN.R-project.org/package=knitcitations">Boettiger, 2019</a>).</p>
 <p>[1] J. Allaire, Y. Xie, J. McPherson, J. Luraschi, et al. <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.1. 2020. &lt;URL: <a href="https://github.com/rstudio/rmarkdown" class="uri">https://github.com/rstudio/rmarkdown</a>&gt;.</p>
-<p>[2] C. Barberena-Jonas, J. Chavez, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. “Programmatic access to bacterial regulatory networks with regutools”. In: <em>bioRxiv</em> (2020). DOI: 10.1101/xxxyyy. &lt;URL: <a href="https://doi.org/10.1101/xxxyyy" class="uri">https://doi.org/10.1101/xxxyyy</a>&gt;.</p>
-<p>[3] C. Boettiger. <em>knitcitations: Citations for ‘Knitr’ Markdown Files</em>. R package version 1.0.10. 2019. &lt;URL: <a href="https://CRAN.R-project.org/package=knitcitations" class="uri">https://CRAN.R-project.org/package=knitcitations</a>&gt;.</p>
+<p>[2] C. Boettiger. <em>knitcitations: Citations for ‘Knitr’ Markdown Files</em>. R package version 1.0.10. 2019. &lt;URL: <a href="https://CRAN.R-project.org/package=knitcitations" class="uri">https://CRAN.R-project.org/package=knitcitations</a>&gt;.</p>
+<p>[3] J. Chávez, C. Barberena-Jonas, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. “Programmatic access to bacterial regulatory networks with regutools”. In: <em>bioRxiv</em> (2020). DOI: 10.1101/xxxyyy. &lt;URL: <a href="https://doi.org/10.1101/xxxyyy" class="uri">https://doi.org/10.1101/xxxyyy</a>&gt;.</p>
 <p>[4] J. Chávez, C. Barberena-Jonas, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. <em>regutools: an R package for data extraction from RegulonDB</em>. <a href="https://github.com/comunidadbioinfo/regutools" class="uri">https://github.com/comunidadbioinfo/regutools</a> - R package version 0.99.0. 2020. DOI: 10.18129/B9.bioc.regutools. &lt;URL: <a href="http://www.bioconductor.org/packages/regutools" class="uri">http://www.bioconductor.org/packages/regutools</a>&gt;.</p>
 <p>[5] G. Csárdi, R. core, H. Wickham, W. Chang, et al. <em>sessioninfo: R Session Information</em>. R package version 1.1.1. 2018. &lt;URL: <a href="https://CRAN.R-project.org/package=sessioninfo" class="uri">https://CRAN.R-project.org/package=sessioninfo</a>&gt;.</p>
 <p>[6] Gustavsen, J. A., Pai, Shraddha, et al. “RCy3: Network Biology using Cytoscape from within R”. In: <em>F1000Research</em> (2019). DOI: 10.12688/f1000research.20887.1.</p>
