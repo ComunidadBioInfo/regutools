@@ -80,7 +80,7 @@ TFs and their regulated genes" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.2</span>
       </span>
     </div>
 
@@ -183,46 +183,46 @@ TFs and their regulated genes</p>
 
 <span class='co'>## Summarize the araC regulation</span>
 <span class='fu'>get_regulatory_summary</span>(<span class='no'>e_coli_regulondb</span>, <span class='no'>araC_regulation</span>)</div><div class='output co'>#&gt; regulondb_result with 3 rows and 7 columns
-#&gt;         TF Regulated_genes_per_TF          Percent Activator Repressor     Dual
-#&gt;   &lt;factor&gt;               &lt;factor&gt;         &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;
-#&gt; 1     AraC                      1 33.3333333333333         0         0        1
-#&gt; 2     CRP                       1 33.3333333333333         1         0        0
-#&gt; 3     XylR                      1 33.3333333333333         0         1        0
-#&gt;   Regulated_genes
-#&gt;          &lt;factor&gt;
-#&gt; 1            araC
-#&gt; 2            araC
-#&gt; 3            araC</div><div class='input'>
+#&gt;            TF Regulated_genes_per_TF          Percent   Activator   Repressor
+#&gt;   &lt;character&gt;            &lt;character&gt;      &lt;character&gt; &lt;character&gt; &lt;character&gt;
+#&gt; 1        AraC                      1 33.3333333333333           0           0
+#&gt; 2         CRP                      1 33.3333333333333           1           0
+#&gt; 3        XylR                      1 33.3333333333333           0           1
+#&gt;          Dual Regulated_genes
+#&gt;   &lt;character&gt;     &lt;character&gt;
+#&gt; 1           1            araC
+#&gt; 2           0            araC
+#&gt; 3           0            araC</div><div class='input'>
 <span class='co'>## Retrieve summary of genes 'araC' and 'modB'</span>
 <span class='fu'>get_regulatory_summary</span>(<span class='no'>e_coli_regulondb</span>,
     <span class='kw'>gene_regulators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"araC"</span>, <span class='st'>"modB"</span>))</div><div class='output co'>#&gt; regulondb_result with 4 rows and 7 columns
-#&gt;         TF Regulated_genes_per_TF  Percent Activator Repressor     Dual
-#&gt;   &lt;factor&gt;               &lt;factor&gt; &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;
-#&gt; 1     AraC                      1       20         0         0        1
-#&gt; 2     CRP                       2       40         2         0        0
-#&gt; 3     ModE                      1       20         0         1        0
-#&gt; 4     XylR                      1       20         0         1        0
-#&gt;   Regulated_genes
-#&gt;          &lt;factor&gt;
-#&gt; 1      araC      
-#&gt; 2      modB, araC
-#&gt; 3      modB      
-#&gt; 4      araC      </div><div class='input'>
+#&gt;            TF Regulated_genes_per_TF     Percent   Activator   Repressor
+#&gt;   &lt;character&gt;            &lt;character&gt; &lt;character&gt; &lt;character&gt; &lt;character&gt;
+#&gt; 1        AraC                      1          20           0           0
+#&gt; 2         CRP                      2          40           2           0
+#&gt; 3        ModE                      1          20           0           1
+#&gt; 4        XylR                      1          20           0           1
+#&gt;          Dual Regulated_genes
+#&gt;   &lt;character&gt;     &lt;character&gt;
+#&gt; 1           1            araC
+#&gt; 2           0      modB, araC
+#&gt; 3           0            modB
+#&gt; 4           0            araC</div><div class='input'>
 <span class='co'>## Obtain the summary for 'ECK120000050' and 'modB'</span>
 <span class='fu'>get_regulatory_summary</span>(<span class='no'>e_coli_regulondb</span>,
     <span class='kw'>gene_regulators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ECK120000050"</span>, <span class='st'>"modB"</span>))</div><div class='output co'>#&gt; regulondb_result with 4 rows and 7 columns
-#&gt;         TF Regulated_genes_per_TF  Percent Activator Repressor     Dual
-#&gt;   &lt;factor&gt;               &lt;factor&gt; &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;
-#&gt; 1     AraC                      1       20         0         0        1
-#&gt; 2     CRP                       2       40         2         0        0
-#&gt; 3     ModE                      1       20         0         1        0
-#&gt; 4     XylR                      1       20         0         1        0
-#&gt;   Regulated_genes
-#&gt;          &lt;factor&gt;
-#&gt; 1      araC      
-#&gt; 2      modB, araC
-#&gt; 3      modB      
-#&gt; 4      araC      </div><div class='input'>
+#&gt;            TF Regulated_genes_per_TF     Percent   Activator   Repressor
+#&gt;   &lt;character&gt;            &lt;character&gt; &lt;character&gt; &lt;character&gt; &lt;character&gt;
+#&gt; 1        AraC                      1          20           0           0
+#&gt; 2         CRP                      2          40           2           0
+#&gt; 3        ModE                      1          20           0           1
+#&gt; 4        XylR                      1          20           0           1
+#&gt;          Dual Regulated_genes
+#&gt;   &lt;character&gt;     &lt;character&gt;
+#&gt; 1           1            araC
+#&gt; 2           0      modB, araC
+#&gt; 3           0            modB
+#&gt; 4           0            araC</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
