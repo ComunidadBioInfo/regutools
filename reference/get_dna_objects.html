@@ -165,7 +165,8 @@ or <code>"terminator"</code>.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-28</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
+<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>))
+<span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-02-28</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
 <span class='co'>## Build the regulondb object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
@@ -190,66 +191,66 @@ or <code>"terminator"</code>.</p></td>
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
 <span class='co'>## Get genes providing Genomic Ranges</span>
-<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>grange</span> <span class='kw'>=</span> <span class='kw pkg'>GenomicRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span>(<span class='st'>"chr"</span>, <span class='kw pkg'>IRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span>(<span class='fl'>5000</span>, <span class='fl'>10000</span>)) )</div><div class='output co'>#&gt; GRanges object with 6 ranges and 4 metadata columns:
+<span class='no'>grange</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>GenomicRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span>(<span class='st'>"chr"</span>,
+            <span class='kw pkg'>IRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span>(<span class='fl'>5000</span>, <span class='fl'>10000</span>)
+            )
+<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='no'>grange</span>)</div><div class='output co'>#&gt; GRanges object with 3 ranges and 4 metadata columns:
 #&gt;       seqnames    ranges strand |           id        type        name
 #&gt;          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;
-#&gt;   [1]      chr 5683-6459      - | ECK120000009        gene        yaaA
-#&gt;   [2]      chr 3734-5020      + | ECK120000989        gene        thrC
-#&gt;   [3]      chr 9306-9893      + | ECK120001467        gene         mog
-#&gt;   [4]      chr 6529-7959      - | ECK120001508        gene        yaaJ
-#&gt;   [5]      chr 8238-9191      + | ECK120001509        gene        talB
-#&gt;   [6]      chr 5234-5530      + | ECK120002701        gene        yaaX
-#&gt;                                   description
-#&gt;                                   &lt;character&gt;
-#&gt;   [1] peroxide stress resistance protein YaaA
-#&gt;   [2]                      threonine synthase
-#&gt;   [3]       molybdopterin adenylyltransferase
-#&gt;   [4]               putative transporter YaaJ
-#&gt;   [5]                         transaldolase B
-#&gt;   [6]  DUF2502 domain-containing protein YaaX
+#&gt;   [1]      chr  337-2799      + | ECK120000987        gene        thrA
+#&gt;   [2]      chr 2801-3733      + | ECK120000988        gene        thrB
+#&gt;   [3]      chr   190-255      + | ECK120001251        gene        thrL
+#&gt;                                             description
+#&gt;                                             &lt;character&gt;
+#&gt;   [1] fused aspartate kinase/homoserine dehydrogenase 1
+#&gt;   [2]                                 homoserine kinase
+#&gt;   [3]                  &lt;i&gt;thr&lt;/i&gt; operon leader peptide
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
 <span class='co'>## Get aditional elements within genomic positions</span>
-<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>grange</span> <span class='kw'>=</span> <span class='kw pkg'>GenomicRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span>(<span class='st'>"chr"</span>, <span class='kw pkg'>IRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span>(<span class='fl'>5000</span>, <span class='fl'>10000</span>)), <span class='kw'>elements</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gene"</span>, <span class='st'>"promoter"</span>))</div><div class='output co'>#&gt; GRanges object with 19 ranges and 4 metadata columns:
+<span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>,
+                <span class='no'>grange</span>,
+                <span class='kw'>elements</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gene"</span>, <span class='st'>"promoter"</span>)
+                )</div><div class='output co'>#&gt; GRanges object with 19 ranges and 4 metadata columns:
 #&gt;        seqnames    ranges strand |           id        type
 #&gt;           &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt;
-#&gt;    [1]      chr 5683-6459      - | ECK120000009        gene
-#&gt;    [2]      chr 3734-5020      + | ECK120000989        gene
-#&gt;    [3]      chr 9306-9893      + | ECK120001467        gene
-#&gt;    [4]      chr 6529-7959      - | ECK120001508        gene
-#&gt;    [5]      chr 8238-9191      + | ECK120001509        gene
+#&gt;    [1]      chr  337-2799      + | ECK120000987        gene
+#&gt;    [2]      chr 2801-3733      + | ECK120000988        gene
+#&gt;    [3]      chr   190-255      + | ECK120001251        gene
+#&gt;    [4]      chr       148      + | ECK120010236    promoter
+#&gt;    [5]      chr        38      + | ECK125230824    promoter
 #&gt;    ...      ...       ...    ... .          ...         ...
-#&gt;   [15]      chr      8229      + | ECK125230842    promoter
-#&gt;   [16]      chr      8232      + | ECK125230843    promoter
-#&gt;   [17]      chr      8352      + | ECK125230844    promoter
-#&gt;   [18]      chr      8638      + | ECK125230845    promoter
-#&gt;   [19]      chr      9277      + | ECK125230846    promoter
-#&gt;                                          name
-#&gt;                                   &lt;character&gt;
-#&gt;    [1]                                   yaaA
-#&gt;    [2]                                   thrC
-#&gt;    [3]                                    mog
-#&gt;    [4]                                   yaaJ
-#&gt;    [5]                                   talB
-#&gt;    ...                                    ...
-#&gt;   [15] TSS_21 (cluster) promoter with unknown
-#&gt;   [16]           TSS_22 promoter with unknown
-#&gt;   [17]           TSS_23 promoter with unknown
-#&gt;   [18]           TSS_24 promoter with unknown
-#&gt;   [19] TSS_25 (cluster) promoter with unknown
-#&gt;                                    description
-#&gt;                                    &lt;character&gt;
-#&gt;    [1] peroxide stress resistance protein YaaA
-#&gt;    [2]                      threonine synthase
-#&gt;    [3]       molybdopterin adenylyltransferase
-#&gt;    [4]               putative transporter YaaJ
-#&gt;    [5]                         transaldolase B
-#&gt;    ...                                     ...
-#&gt;   [15]  TSS_21 (cluster) promoter with unknown
-#&gt;   [16]            TSS_22 promoter with unknown
-#&gt;   [17]            TSS_23 promoter with unknown
-#&gt;   [18]            TSS_24 promoter with unknown
-#&gt;   [19]  TSS_25 (cluster) promoter with unknown
+#&gt;   [15]      chr      3066      + | ECK125230834    promoter
+#&gt;   [16]      chr      3368      + | ECK125230835    promoter
+#&gt;   [17]      chr      3396      + | ECK125230836    promoter
+#&gt;   [18]      chr      3401      + | ECK125230837    promoter
+#&gt;   [19]      chr      4241      + | ECK125230838    promoter
+#&gt;                                name
+#&gt;                         &lt;character&gt;
+#&gt;    [1]                         thrA
+#&gt;    [2]                         thrB
+#&gt;    [3]                         thrL
+#&gt;    [4]  thrLp promoter with Sigma70
+#&gt;    [5]  TSS_1 promoter with unknown
+#&gt;    ...                          ...
+#&gt;   [15] TSS_12 promoter with unknown
+#&gt;   [16] TSS_13 promoter with unknown
+#&gt;   [17] TSS_14 promoter with unknown
+#&gt;   [18] TSS_15 promoter with unknown
+#&gt;   [19] TSS_16 promoter with unknown
+#&gt;                                              description
+#&gt;                                              &lt;character&gt;
+#&gt;    [1] fused aspartate kinase/homoserine dehydrogenase 1
+#&gt;    [2]                                 homoserine kinase
+#&gt;    [3]                  &lt;i&gt;thr&lt;/i&gt; operon leader peptide
+#&gt;    [4]                       thrLp promoter with Sigma70
+#&gt;    [5]                       TSS_1 promoter with unknown
+#&gt;    ...                                               ...
+#&gt;   [15]                      TSS_12 promoter with unknown
+#&gt;   [16]                      TSS_13 promoter with unknown
+#&gt;   [17]                      TSS_14 promoter with unknown
+#&gt;   [18]                      TSS_15 promoter with unknown
+#&gt;   [19]                      TSS_16 promoter with unknown
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div></pre>
   </div>
