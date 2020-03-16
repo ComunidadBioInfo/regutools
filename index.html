@@ -17,11 +17,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="regutools: an R package for data extraction from RegulonDB">
-<meta property="og:description" content="This package provides an interface to the RegulonDB
-    http://regulondb.ccg.unam.mx/ database such that you can query it using
-    R and easily work with Bioconductor packages. This package was created
-    as a collaboration by members of the Community of Bioinformatics
-    Software Developers (CDSB in Spanish) https://comunidadbioinfo.github.io/.">
+<meta property="og:description" content="RegulonDB has collected, harmonized and centralized data 
+    from hundreds of experiments for nearly two decades and is considered
+    a point of reference for transcriptional regulation in Escherichia coli K12. 
+    Here, we present the regutools R package to facilitate programmatic 
+    access to RegulonDB data in computational biology. regutools provides 
+    researchers with the possibility of writing reproducible workflows 
+    with automated queries to RegulonDB. The regutools package serves as
+    a bridge between RegulonDB data and the Bioconductor ecosystem by 
+    reusing the data structures and statistical methods powered by other 
+    Bioconductor packages. We demonstrate the integration of regutools 
+    with Bioconductor by analyzing transcription factor DNA binding sites 
+    and transcriptional regulatory networks from RegulonDB. We anticipate 
+    that regutools will serve as a useful building block in our progress
+    to further our understanding of gene regulatory networks.">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -42,7 +51,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.3</span>
       </span>
     </div>
 
