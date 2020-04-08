@@ -12,10 +12,11 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="regutools: an R package for data extraction from RegulonDB">
 <meta property="og:description" content="RegulonDB has collected, harmonized and centralized data 
     from hundreds of experiments for nearly two decades and is considered
@@ -32,13 +33,12 @@
     that regutools will serve as a useful building block in our progress
     to further our understanding of gene regulatory networks.">
 <meta property="og:image" content="/logo.png">
-<meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -51,7 +51,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.7</span>
       </span>
     </div>
 
@@ -75,7 +75,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/ComunidadBioInfo/regutools">
+  <a href="https://github.com/ComunidadBioInfo/regutools/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -105,82 +105,82 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the released version of <code>regutools</code> from <a href="http://bioconductor.org/">Bioconductor</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span>(<span class="st">"BiocManager"</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BiocManager"</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">BiocManager<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"regutools"</span>)</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">## Check that you have a valid Bioconductor installation</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">BiocManager<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/BiocManager/man/valid.html">valid</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span>(<span class="st">"BiocManager"</span>, <span class="kw">quietly</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BiocManager"</span>)
+
+<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"regutools"</span>)
+
+<span class="co">## Check that you have a valid Bioconductor installation</span>
+<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/valid.html">valid</a></span>()</pre></div>
 <p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">BiocManager<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"ComunidadBioinfo/regutools"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"ComunidadBioinfo/regutools"</span>)</pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>This is a basic example which shows you how to use <code>regutools</code>. For more details, please check the vignette.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'regutools'</span>)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">## basic example code</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">## Connect to the RegulonDB database if necessary</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="cf">if</span>(<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/exists.html">exists</a></span>(<span class="st">'regulondb_conn'</span>)) regulondb_conn &lt;-<span class="st"> </span><span class="kw"><a href="reference/connect_database.html">connect_database</a></span>()</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; snapshotDate(): 2019-10-29</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">## Build a regulondb object</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">e_coli_regulondb &lt;-</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="st">    </span><span class="kw"><a href="reference/regulondb.html">regulondb</a></span>(</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">        <span class="dt">database_conn =</span> regulondb_conn,</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">        <span class="dt">organism =</span> <span class="st">"E.coli"</span>,</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="dt">database_version =</span> <span class="st">"1"</span>,</a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">        <span class="dt">genome_version =</span> <span class="st">"1"</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">    )</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17">## Get the araC regulators</a>
-<a class="sourceLine" id="cb3-18" data-line-number="18">araC_regulation &lt;-</a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="st">    </span><span class="kw"><a href="reference/get_gene_regulators.html">get_gene_regulators</a></span>(</a>
-<a class="sourceLine" id="cb3-20" data-line-number="20">        e_coli_regulondb,</a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">        <span class="dt">genes =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"araC"</span>),</a>
-<a class="sourceLine" id="cb3-22" data-line-number="22">        <span class="dt">format =</span> <span class="st">"multirow"</span>,</a>
-<a class="sourceLine" id="cb3-23" data-line-number="23">        <span class="dt">output.type =</span> <span class="st">"TF"</span></a>
-<a class="sourceLine" id="cb3-24" data-line-number="24">    )</a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb3-26" data-line-number="26">## Summarize the araC regulation</a>
-<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="kw"><a href="reference/get_regulatory_summary.html">get_regulatory_summary</a></span>(e_coli_regulondb, araC_regulation)</a>
-<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt; regulondb_result with 3 rows and 7 columns</span></a>
-<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">#&gt;         TF Regulated_genes_per_TF          Percent Activator Repressor     Dual</span></a>
-<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co">#&gt;   &lt;factor&gt;               &lt;factor&gt;         &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;</span></a>
-<a class="sourceLine" id="cb3-31" data-line-number="31"><span class="co">#&gt; 1     AraC                      1 33.3333333333333         0         0        1</span></a>
-<a class="sourceLine" id="cb3-32" data-line-number="32"><span class="co">#&gt; 2      CRP                      1 33.3333333333333         1         0        0</span></a>
-<a class="sourceLine" id="cb3-33" data-line-number="33"><span class="co">#&gt; 3     XylR                      1 33.3333333333333         0         1        0</span></a>
-<a class="sourceLine" id="cb3-34" data-line-number="34"><span class="co">#&gt;   Regulated_genes</span></a>
-<a class="sourceLine" id="cb3-35" data-line-number="35"><span class="co">#&gt;          &lt;factor&gt;</span></a>
-<a class="sourceLine" id="cb3-36" data-line-number="36"><span class="co">#&gt; 1            araC</span></a>
-<a class="sourceLine" id="cb3-37" data-line-number="37"><span class="co">#&gt; 2            araC</span></a>
-<a class="sourceLine" id="cb3-38" data-line-number="38"><span class="co">#&gt; 3            araC</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'regutools'</span>)
+<span class="co">## basic example code</span>
+
+<span class="co">## Connect to the RegulonDB database if necessary</span>
+<span class="kw">if</span>(!<span class="fu"><a href="https://rdrr.io/r/base/exists.html">exists</a></span>(<span class="st">'regulondb_conn'</span>)) <span class="no">regulondb_conn</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/connect_database.html">connect_database</a></span>()
+<span class="co">#&gt; snapshotDate(): 2019-10-29</span>
+
+<span class="co">## Build a regulondb object</span>
+<span class="no">e_coli_regulondb</span> <span class="kw">&lt;-</span>
+    <span class="fu"><a href="reference/regulondb.html">regulondb</a></span>(
+        <span class="kw">database_conn</span> <span class="kw">=</span> <span class="no">regulondb_conn</span>,
+        <span class="kw">organism</span> <span class="kw">=</span> <span class="st">"E.coli"</span>,
+        <span class="kw">database_version</span> <span class="kw">=</span> <span class="st">"1"</span>,
+        <span class="kw">genome_version</span> <span class="kw">=</span> <span class="st">"1"</span>
+    )
+
+<span class="co">## Get the araC regulators</span>
+<span class="no">araC_regulation</span> <span class="kw">&lt;-</span>
+    <span class="fu"><a href="reference/get_gene_regulators.html">get_gene_regulators</a></span>(
+        <span class="no">e_coli_regulondb</span>,
+        <span class="kw">genes</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"araC"</span>),
+        <span class="kw">format</span> <span class="kw">=</span> <span class="st">"multirow"</span>,
+        <span class="kw">output.type</span> <span class="kw">=</span> <span class="st">"TF"</span>
+    )
+
+<span class="co">## Summarize the araC regulation</span>
+<span class="fu"><a href="reference/get_regulatory_summary.html">get_regulatory_summary</a></span>(<span class="no">e_coli_regulondb</span>, <span class="no">araC_regulation</span>)
+<span class="co">#&gt; regulondb_result with 3 rows and 7 columns</span>
+<span class="co">#&gt;         TF Regulated_genes_per_TF          Percent Activator Repressor     Dual</span>
+<span class="co">#&gt;   &lt;factor&gt;               &lt;factor&gt;         &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;</span>
+<span class="co">#&gt; 1     AraC                      1 33.3333333333333         0         0        1</span>
+<span class="co">#&gt; 2      CRP                      1 33.3333333333333         1         0        0</span>
+<span class="co">#&gt; 3     XylR                      1 33.3333333333333         0         1        0</span>
+<span class="co">#&gt;   Regulated_genes</span>
+<span class="co">#&gt;          &lt;factor&gt;</span>
+<span class="co">#&gt; 1            araC</span>
+<span class="co">#&gt; 2            araC</span>
+<span class="co">#&gt; 3            araC</span></pre></div>
 </div>
 </div>
 <div id="citation" class="section level1">
 <h1 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h1>
 <p>Below is the citation output from using <code><a href="https://rdrr.io/r/utils/citation.html">citation('regutools')</a></code> in R. Please run this yourself to check for any updates on how to cite <strong>regutools</strong>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">'regutools'</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; Chávez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). _regutools: an R package</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; for data extraction from RegulonDB_. doi: 10.18129/B9.bioc.regutools</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; (URL: https://doi.org/10.18129/B9.bioc.regutools),</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; https://github.com/comunidadbioinfo/regutools - R package version</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; 0.99.2, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; Chávez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). "Programmatic access to</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; bacterial regulatory networks with regutools." _bioRxiv_. doi:</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; 10.1101/xxxyyy (URL: https://doi.org/10.1101/xxxyyy), &lt;URL:</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; https://doi.org/10.1101/xxxyyy&gt;.</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; To see these entries in BibTeX format, use 'print(&lt;citation&gt;,</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; bibtex=TRUE)', 'toBibtex(.)', or set</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; 'options(citation.bibtex.max=999)'.</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">'regutools'</span>)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ChÃ¡vez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span>
+<span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). _regutools: an R package</span>
+<span class="co">#&gt; for data extraction from RegulonDB_. doi: 10.18129/B9.bioc.regutools</span>
+<span class="co">#&gt; (URL: https://doi.org/10.18129/B9.bioc.regutools),</span>
+<span class="co">#&gt; https://github.com/comunidadbioinfo/regutools - R package version</span>
+<span class="co">#&gt; 0.99.7, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ChÃ¡vez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span>
+<span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). "Programmatic access to</span>
+<span class="co">#&gt; bacterial regulatory networks with regutools." _bioRxiv_. doi:</span>
+<span class="co">#&gt; 10.1101/xxxyyy (URL: https://doi.org/10.1101/xxxyyy), &lt;URL:</span>
+<span class="co">#&gt; https://doi.org/10.1101/xxxyyy&gt;.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; To see these entries in BibTeX format, use 'print(&lt;citation&gt;,</span>
+<span class="co">#&gt; bibtex=TRUE)', 'toBibtex(.)', or set</span>
+<span class="co">#&gt; 'options(citation.bibtex.max=999)'.</span></pre></div>
 </div>
 <div id="development-tools" class="section level1">
 <h1 class="hasAnchor">
@@ -204,11 +204,11 @@
 
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/ComunidadBioInfo/regutools">https://​github.com/​ComunidadBioInfo/​regutools</a>
+<li>Browse source code at <br><a href="https://github.com/ComunidadBioInfo/regutools/">https://​github.com/​ComunidadBioInfo/​regutools/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/ComunidadBioInfo/regutools/issues">https://​github.com/​ComunidadBioInfo/​regutools/​issues</a>
 </li>
@@ -229,11 +229,11 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Joselyn Chavez <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-4974-4591" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
-<li>Carmina Barberena-Jonas <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-7413-638X" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
-<li>Jesus E. Sotelo-Fonseca <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-1600-2396" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
-<li>Leonardo Collado-Torres <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-2140-308X" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
-<li>Alejandro Reyes <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-8717-6612" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
+<li>Joselyn Chavez <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-4974-4591" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Carmina Barberena-Jonas <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-7413-638X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Jesus E. Sotelo-Fonseca <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-1600-2396" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Leonardo Collado-Torres <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-2140-308X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Alejandro Reyes <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-8717-6612" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
@@ -256,7 +256,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
 </div>
 
       </footer>
