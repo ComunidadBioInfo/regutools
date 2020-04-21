@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.13</span>
       </span>
     </div>
 
@@ -159,7 +159,7 @@
 <span class="co">#&gt; for data extraction from RegulonDB_. doi: 10.18129/B9.bioc.regutools</span>
 <span class="co">#&gt; (URL: https://doi.org/10.18129/B9.bioc.regutools),</span>
 <span class="co">#&gt; https://github.com/comunidadbioinfo/regutools - R package version</span>
-<span class="co">#&gt; 0.99.12, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span>
+<span class="co">#&gt; 0.99.13, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Chávez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span>
 <span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). "Programmatic access to</span>
@@ -205,7 +205,7 @@
 <span class="co">#&gt;   organism: E.coli</span>
 <span class="co">#&gt;   genome_build: 1</span>
 <span class="co">#&gt;   database_version: 1</span>
-<span class="co">#&gt;   database_conn: /tmp/Rtmp05QZJr/regulondb_sqlite3_v10.6.2_DM.db</span></pre></body></html></div>
+<span class="co">#&gt;   database_conn: /tmp/RtmpFVzRuS/BiocFileCache/7f2d1b3699b0_regulondb_v10.6.2_DM_sqlite3.db%3Fdl%3D1</span></pre></body></html></div>
 <p>In order to get an overview of the tables present in a <em>regulondb</em> object, we can use the function <code><a href="../reference/list_datasets.html">list_datasets()</a></code>. This function will output all the available tables (datasets) that can be used to build queries.</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/list_datasets.html">list_datasets</a></span>(<span class="no">e_coli_regulondb</span>)
 <span class="co">#&gt; [1] "DNA_OBJECTS"       "GENE"              "NETWORK"          </span>
@@ -663,6 +663,8 @@
 <li>
 <em><a href="https://bioconductor.org/packages/3.11/AnnotationHub">AnnotationHub</a></em> (<a href="#bib-Morgan_2020">Morgan and Shepherd, 2020</a>)</li>
 <li>
+<em><a href="https://bioconductor.org/packages/3.11/BiocFileCache">BiocFileCache</a></em> <a id="cite-Shepherd_2020"></a>(<a href="#bib-Shepherd_2020">Shepherd and Morgan, 2020</a>)</li>
+<li>
 <em><a href="https://bioconductor.org/packages/3.11/BiocStyle">BiocStyle</a></em> <a id="cite-Oles_2020"></a>(<a href="https://github.com/Bioconductor/BiocStyle">Oleś, Morgan, and Huber, 2020</a>)</li>
 <li>
 <em><a href="https://bioconductor.org/packages/3.11/Biostrings">Biostrings</a></em> <a id="cite-Pages_2020a"></a>(<a href="#bib-Pages_2020a">Pagès, Aboyoun, Gentleman, and DebRoy, 2020</a>)</li>
@@ -700,9 +702,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"knitr"</span>)
 <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span>(<span class="st">"regutools.Rmd"</span>, <span class="kw">tangle</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-04-21 23:27:39 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-04-21 23:44:55 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 29.801 secs</code></pre>
+<pre><code>#&gt; Time difference of 29.33 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                             
@@ -826,7 +828,7 @@
 #&gt;  RCurl                    1.98-1.2 2020-04-18 [1] CRAN (R 4.1.0)
 #&gt;  RCy3                     2.7.8    2020-04-16 [1] Bioconductor  
 #&gt;  RefManageR               1.2.12   2019-04-03 [1] CRAN (R 4.1.0)
-#&gt;  regutools              * 0.99.12  2020-04-21 [1] Bioconductor  
+#&gt;  regutools              * 0.99.13  2020-04-21 [1] Bioconductor  
 #&gt;  RJSONIO                  1.3-1.4  2020-01-15 [1] CRAN (R 4.1.0)
 #&gt;  rlang                    0.4.5    2020-03-01 [2] CRAN (R 4.1.0)
 #&gt;  rmarkdown                2.1      2020-01-20 [1] CRAN (R 4.1.0)
@@ -869,7 +871,7 @@
 <p>[1] J. Allaire, Y. Xie, J. McPherson, J. Luraschi, et al. <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.1. 2020. &lt;URL: <a href="https://github.com/rstudio/rmarkdown" class="uri">https://github.com/rstudio/rmarkdown</a>&gt;.</p>
 <p>[2] C. Boettiger. <em>knitcitations: Citations for ‘Knitr’ Markdown Files</em>. R package version 1.0.10. 2019. &lt;URL: <a href="https://CRAN.R-project.org/package=knitcitations" class="uri">https://CRAN.R-project.org/package=knitcitations</a>&gt;.</p>
 <p>[3] J. Chávez, C. Barberena-Jonas, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. “Programmatic access to bacterial regulatory networks with regutools”. In: <em>bioRxiv</em> (2020). DOI: 10.1101/xxxyyy. &lt;URL: <a href="https://doi.org/10.1101/xxxyyy" class="uri">https://doi.org/10.1101/xxxyyy</a>&gt;.</p>
-<p>[4] J. Chávez, C. Barberena-Jonas, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. <em>regutools: an R package for data extraction from RegulonDB</em>. <a href="https://github.com/comunidadbioinfo/regutools" class="uri">https://github.com/comunidadbioinfo/regutools</a> - R package version 0.99.12. 2020. DOI: 10.18129/B9.bioc.regutools. &lt;URL: <a href="http://www.bioconductor.org/packages/regutools" class="uri">http://www.bioconductor.org/packages/regutools</a>&gt;.</p>
+<p>[4] J. Chávez, C. Barberena-Jonas, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. <em>regutools: an R package for data extraction from RegulonDB</em>. <a href="https://github.com/comunidadbioinfo/regutools" class="uri">https://github.com/comunidadbioinfo/regutools</a> - R package version 0.99.13. 2020. DOI: 10.18129/B9.bioc.regutools. &lt;URL: <a href="http://www.bioconductor.org/packages/regutools" class="uri">http://www.bioconductor.org/packages/regutools</a>&gt;.</p>
 <p>[5] G. Csárdi, R. core, H. Wickham, W. Chang, et al. <em>sessioninfo: R Session Information</em>. R package version 1.1.1. 2018. &lt;URL: <a href="https://CRAN.R-project.org/package=sessioninfo" class="uri">https://CRAN.R-project.org/package=sessioninfo</a>&gt;.</p>
 <p>[6] Gustavsen, J. A., Pai, Shraddha, et al. “RCy3: Network Biology using Cytoscape from within R”. In: <em>F1000Research</em> (2019). DOI: 10.12688/f1000research.20887.3.</p>
 <p>[7] F. Hahne and R. Ivanek. “Statistical Genomics: Methods and Protocols”. In: Ed. by E. Mathé and S. Davis. New York, NY: Springer New York, 2016. Chap. Visualizing Genomic Data Using Gviz and Bioconductor, pp. 335-351. ISBN: 978-1-4939-3578-9. DOI: 10.1007/978-1-4939-3578-9_16. &lt;URL: <a href="http://dx.doi.org/10.1007/978-1-4939-3578-9_16" class="uri">http://dx.doi.org/10.1007/978-1-4939-3578-9_16</a>&gt;.</p>
@@ -883,8 +885,9 @@
 <p>[15] H. Pagès, M. Lawrence, and P. Aboyoun. <em>S4Vectors: Foundation of vector-like and list-like containers in Bioconductor</em>. R package version 0.25.15. 2020.</p>
 <p>[16] R Core Team. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. Vienna, Austria, 2020. &lt;URL: <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>&gt;.</p>
 <p>[17] R Special Interest Group on Databases (R-SIG-DB), H. Wickham, and K. Müller. <em>DBI: R Database Interface</em>. R package version 1.1.0. 2019. &lt;URL: <a href="https://CRAN.R-project.org/package=DBI" class="uri">https://CRAN.R-project.org/package=DBI</a>&gt;.</p>
-<p>[18] H. Wickham. “testthat: Get Started with Testing”. In: <em>The R Journal</em> 3 (2011), pp. 5-10. &lt;URL: <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf" class="uri">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>&gt;.</p>
-<p>[19] Y. Xie. “knitr: A Comprehensive Tool for Reproducible Research in R”. In: <em>Implementing Reproducible Computational Research</em>. Ed. by V. Stodden, F. Leisch and R. D. Peng. ISBN 978-1466561595. Chapman and Hall/CRC, 2014. &lt;URL: <a href="http://www.crcpress.com/product/isbn/9781466561595" class="uri">http://www.crcpress.com/product/isbn/9781466561595</a>&gt;.</p>
+<p>[18] L. Shepherd and M. Morgan. <em>BiocFileCache: Manage Files Across Sessions</em>. R package version 1.11.6. 2020.</p>
+<p>[19] H. Wickham. “testthat: Get Started with Testing”. In: <em>The R Journal</em> 3 (2011), pp. 5-10. &lt;URL: <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf" class="uri">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>&gt;.</p>
+<p>[20] Y. Xie. “knitr: A Comprehensive Tool for Reproducible Research in R”. In: <em>Implementing Reproducible Computational Research</em>. Ed. by V. Stodden, F. Leisch and R. D. Peng. ISBN 978-1466561595. Chapman and Hall/CRC, 2014. &lt;URL: <a href="http://www.crcpress.com/product/isbn/9781466561595" class="uri">http://www.crcpress.com/product/isbn/9781466561595</a>&gt;.</p>
 </div>
   </div>
 

@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.13</span>
       </span>
     </div>
 
@@ -125,6 +125,14 @@
       <small>Source: <a href='https://github.com/ComunidadBioInfo/regutools/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="regutools-0-99-13" class="section level1">
+<h1 class="page-header" data-toc-text="0.99.13">
+<a href="#regutools-0-99-13" class="anchor"></a>regutools 0.99.13</h1>
+<p>SIGNIFICANT USER-VISIBLE CHANGES</p>
+<ul>
+<li>Now <code><a href="../reference/connect_database.html">connect_database()</a></code> uses <code><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html">BiocFileCache::BiocFileCache()</a></code> and <code><a href="https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html">BiocFileCache::bfcrpath()</a></code> to download the database from Dropbox when it’s not available from <code><a href="https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html">AnnotationHub::query()</a></code> and caches the file so you don’t have to re-download it multiple times.</li>
+</ul>
+</div>
     <div id="regutools-0-99-12" class="section level1">
 <h1 class="page-header" data-toc-text="0.99.12">
 <a href="#regutools-0-99-12" class="anchor"></a>regutools 0.99.12</h1>
