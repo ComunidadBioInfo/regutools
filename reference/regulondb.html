@@ -48,8 +48,7 @@
 
 <meta property="og:title" content="Constructor function of a regulondb class — regulondb" />
 <meta property="og:description" content="The build_regulondb function is a constructor function of a
-regulondb
-class." />
+regulondb class." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -82,7 +81,7 @@ class." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.12</span>
       </span>
     </div>
 
@@ -131,8 +130,7 @@ class." />
 
     <div class="ref-description">
     <p>The build_regulondb function is a constructor function of a
-regulondb
-class.</p>
+regulondb class.</p>
     </div>
 
     <pre class="usage"><span class='fu'>regulondb</span>(<span class='no'>database_conn</span>, <span class='no'>organism</span>, <span class='no'>genome_version</span>, <span class='no'>database_version</span>)</pre>
@@ -148,11 +146,13 @@ the RegulonDB database made with <code><a href='connect_database.html'>connect_d
     </tr>
     <tr>
       <th>organism</th>
-      <td><p>A character vector with the name of the organism of the database.</p></td>
+      <td><p>A character vector with the name of the organism of the
+database.</p></td>
     </tr>
     <tr>
       <th>genome_version</th>
-      <td><p>A character vector with the version of the genome build.</p></td>
+      <td><p>A character vector with the version of the genome
+build.</p></td>
     </tr>
     <tr>
       <th>database_version</th>
@@ -168,7 +168,7 @@ build.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-03-31</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
+<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-03-31</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
 <span class='co'>## Build a regulondb object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'>regulondb</span>(
@@ -192,7 +192,7 @@ build.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.12</span>
       </span>
     </div>
 
@@ -151,7 +151,8 @@
     </tr>
     <tr>
       <th>grange</th>
-      <td><p>A <code><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GenomicRanges::GRanges-class()</a></code> object indicating position left and right.</p></td>
+      <td><p>A <code><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GenomicRanges::GRanges-class()</a></code> object indicating position
+left and right.</p></td>
     </tr>
     <tr>
       <th>elements</th>
@@ -168,8 +169,9 @@ or <code>"terminator"</code>.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>))
-<span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-03-31</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
+<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) {
+      <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()
+  }</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-03-31</span></div><div class='output co'>#&gt; <span class='message'>regulondb_sqlite3_v10.6.2_DM.db already exists in local directory, setoverwrite = TRUE if you want to replace the existing file.</span></div><div class='input'>
 <span class='co'>## Build the regulondb object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
@@ -194,9 +196,10 @@ or <code>"terminator"</code>.</p></td>
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
 <span class='co'>## Get genes providing Genomic Ranges</span>
-<span class='no'>grange</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>GenomicRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span>(<span class='st'>"chr"</span>,
-            <span class='kw pkg'>IRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span>(<span class='fl'>5000</span>, <span class='fl'>10000</span>)
-            )
+<span class='no'>grange</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>GenomicRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span>(
+    <span class='st'>"chr"</span>,
+    <span class='kw pkg'>IRanges</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span>(<span class='fl'>5000</span>, <span class='fl'>10000</span>)
+)
 <span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>, <span class='no'>grange</span>)</div><div class='output co'>#&gt; GRanges object with 3 ranges and 4 metadata columns:
 #&gt;       seqnames    ranges strand |           id        type        name
 #&gt;          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;
@@ -212,9 +215,9 @@ or <code>"terminator"</code>.</p></td>
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
 <span class='co'>## Get aditional elements within genomic positions</span>
 <span class='fu'>get_dna_objects</span>(<span class='no'>e_coli_regulondb</span>,
-                <span class='no'>grange</span>,
-                <span class='kw'>elements</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gene"</span>, <span class='st'>"promoter"</span>)
-                )</div><div class='output co'>#&gt; GRanges object with 19 ranges and 4 metadata columns:
+    <span class='no'>grange</span>,
+    <span class='kw'>elements</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gene"</span>, <span class='st'>"promoter"</span>)
+)</div><div class='output co'>#&gt; GRanges object with 19 ranges and 4 metadata columns:
 #&gt;        seqnames    ranges strand |           id        type
 #&gt;           &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt;
 #&gt;    [1]      chr  337-2799      + | ECK120000987        gene
@@ -271,7 +274,7 @@ or <code>"terminator"</code>.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

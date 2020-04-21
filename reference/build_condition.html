@@ -82,7 +82,7 @@ The output is used in get_dataset()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.12</span>
       </span>
     </div>
 
@@ -171,12 +171,13 @@ or partial match in the query</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> with the sql logical condition to query the dataset.</p>
+    <p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> with the sql logical condition to query the dataset
+.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>'regulondb_conn'</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmptLwTKa/BiocFileCache</span></div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-03-31</span></div><div class='input'>
+<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/Rtmp2nAvB7/BiocFileCache</span></div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-03-31</span></div><div class='input'>
 <span class='co'>## Build the regulon db object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
@@ -198,8 +199,7 @@ or partial match in the query</p></td>
     <span class='kw'>operator</span> <span class='kw'>=</span> <span class='st'>"AND"</span>,
     <span class='kw'>interval</span> <span class='kw'>=</span> <span class='st'>"posright"</span>,
     <span class='kw'>partialmatch</span> <span class='kw'>=</span> <span class='st'>"name"</span>
-)</div><div class='output co'>#&gt; [1] "(name like  '%ara%')AND(posright &gt;= 2000 AND posright &lt;= 40000) AND (name like  '%ara%')AND(strand = 'forward')"</div><div class='input'>
-</div></pre>
+)</div><div class='output co'>#&gt; [1] "(name like  '%ara%')AND(posright &gt;= 2000 AND posright &lt;= 40000) AND (name like  '%ara%')AND(strand = 'forward')"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -215,7 +215,7 @@ or partial match in the query</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

@@ -51,7 +51,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.12</span>
       </span>
     </div>
 
@@ -124,7 +124,7 @@
 
 <span class="co">## Connect to the RegulonDB database if necessary</span>
 <span class="kw">if</span>(!<span class="fu"><a href="https://rdrr.io/r/base/exists.html">exists</a></span>(<span class="st">'regulondb_conn'</span>)) <span class="no">regulondb_conn</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/connect_database.html">connect_database</a></span>()
-<span class="co">#&gt; snapshotDate(): 2019-10-29</span>
+<span class="co">#&gt; snapshotDate(): 2020-03-31</span>
 
 <span class="co">## Build a regulondb object</span>
 <span class="no">e_coli_regulondb</span> <span class="kw">&lt;-</span>
@@ -147,30 +147,54 @@
 <span class="co">## Summarize the araC regulation</span>
 <span class="fu"><a href="reference/get_regulatory_summary.html">get_regulatory_summary</a></span>(<span class="no">e_coli_regulondb</span>, <span class="no">araC_regulation</span>)
 <span class="co">#&gt; regulondb_result with 3 rows and 7 columns</span>
-<span class="co">#&gt;         TF Regulated_genes_per_TF          Percent Activator Repressor     Dual</span>
-<span class="co">#&gt;   &lt;factor&gt;               &lt;factor&gt;         &lt;factor&gt;  &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;</span>
-<span class="co">#&gt; 1     AraC                      1 33.3333333333333         0         0        1</span>
-<span class="co">#&gt; 2      CRP                      1 33.3333333333333         1         0        0</span>
-<span class="co">#&gt; 3     XylR                      1 33.3333333333333         0         1        0</span>
-<span class="co">#&gt;   Regulated_genes</span>
-<span class="co">#&gt;          &lt;factor&gt;</span>
-<span class="co">#&gt; 1            araC</span>
-<span class="co">#&gt; 2            araC</span>
-<span class="co">#&gt; 3            araC</span></pre></div>
+<span class="co">#&gt;            TF Regulated_genes_per_TF          Percent   Activator   Repressor</span>
+<span class="co">#&gt;   &lt;character&gt;            &lt;character&gt;      &lt;character&gt; &lt;character&gt; &lt;character&gt;</span>
+<span class="co">#&gt; 1        AraC                      1 33.3333333333333           0           0</span>
+<span class="co">#&gt; 2         CRP                      1 33.3333333333333           1           0</span>
+<span class="co">#&gt; 3        XylR                      1 33.3333333333333           0           1</span>
+<span class="co">#&gt;          Dual Regulated_genes</span>
+<span class="co">#&gt;   &lt;character&gt;     &lt;character&gt;</span>
+<span class="co">#&gt; 1           1            araC</span>
+<span class="co">#&gt; 2           0            araC</span>
+<span class="co">#&gt; 3           0            araC</span></pre></div>
 </div>
+<div id="documentation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#documentation" class="anchor"></a>Documentation</h2>
+<p>For more information about <code>regutools</code> check the vignettes <a href="http://bioconductor.org/packages/regutools">through Bioconductor</a> or at the <a href="http://comunidadbioinfo.github.io/regutools">documentation website</a>.</p>
 </div>
-<div id="citation" class="section level1">
-<h1 class="hasAnchor">
-<a href="#citation" class="anchor"></a>Citation</h1>
+<div id="installation-instructions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation-instructions" class="anchor"></a>Installation instructions</h2>
+<p>Get the latest stable <code>R</code> release from <a href="http://cran.r-project.org/">CRAN</a>. Then install <code>regutools</code> using from <a href="http://bioconductor.org/">Bioconductor</a> the following code:</p>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span>(<span class="st">"BiocManager"</span>, <span class="kw">quietly</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BiocManager"</span>)
+
+<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"regutools"</span>)</pre></div>
+</div>
+<div id="citation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#citation" class="anchor"></a>Citation</h2>
 <p>Below is the citation output from using <code><a href="https://rdrr.io/r/utils/citation.html">citation('regutools')</a></code> in R. Please run this yourself to check for any updates on how to cite <strong>regutools</strong>.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">'regutools'</span>)
+<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">'regutools'</span>), <span class="kw">bibtex</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Chávez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span>
 <span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). _regutools: an R package</span>
 <span class="co">#&gt; for data extraction from RegulonDB_. doi: 10.18129/B9.bioc.regutools</span>
 <span class="co">#&gt; (URL: https://doi.org/10.18129/B9.bioc.regutools),</span>
 <span class="co">#&gt; https://github.com/comunidadbioinfo/regutools - R package version</span>
-<span class="co">#&gt; 0.99.7, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span>
+<span class="co">#&gt; 0.99.12, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; A BibTeX entry for LaTeX users is</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;   @Manual{,</span>
+<span class="co">#&gt;     title = {regutools: an R package for data extraction from RegulonDB},</span>
+<span class="co">#&gt;     author = {Joselyn Chávez and Carmina Barberena-Jonas and Jesus Emiliano Sotelo-Fonseca and Jose Alquicira-Hernandez and Heladia Salgado and Leonardo Collado-Torres and Alejandro Reyes},</span>
+<span class="co">#&gt;     year = {2020},</span>
+<span class="co">#&gt;     url = {http://www.bioconductor.org/packages/regutools},</span>
+<span class="co">#&gt;     note = {https://github.com/comunidadbioinfo/regutools - R package version 0.99.12},</span>
+<span class="co">#&gt;     doi = {10.18129/B9.bioc.regutools},</span>
+<span class="co">#&gt;   }</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Chávez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span>
 <span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). "Programmatic access to</span>
@@ -178,18 +202,35 @@
 <span class="co">#&gt; 10.1101/xxxyyy (URL: https://doi.org/10.1101/xxxyyy), &lt;URL:</span>
 <span class="co">#&gt; https://doi.org/10.1101/xxxyyy&gt;.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; To see these entries in BibTeX format, use 'print(&lt;citation&gt;,</span>
-<span class="co">#&gt; bibtex=TRUE)', 'toBibtex(.)', or set</span>
-<span class="co">#&gt; 'options(citation.bibtex.max=999)'.</span></pre></div>
+<span class="co">#&gt; A BibTeX entry for LaTeX users is</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;   @Article{,</span>
+<span class="co">#&gt;     title = {Programmatic access to bacterial regulatory networks with regutools},</span>
+<span class="co">#&gt;     author = {Joselyn Chávez and Carmina Barberena-Jonas and Jesus Emiliano Sotelo-Fonseca and Jose Alquicira-Hernandez and Heladia Salgado and Leonardo Collado-Torres and Alejandro Reyes},</span>
+<span class="co">#&gt;     year = {2020},</span>
+<span class="co">#&gt;     journal = {bioRxiv},</span>
+<span class="co">#&gt;     doi = {10.1101/xxxyyy},</span>
+<span class="co">#&gt;     url = {https://doi.org/10.1101/xxxyyy},</span>
+<span class="co">#&gt;   }</span></pre></div>
+<p>Please note that the <code>regutools</code> was only made possible thanks to many other R and bioinformatics software authors, which are cited either in the vignettes and/or the paper(s) describing this package.</p>
 </div>
-<div id="development-tools" class="section level1">
-<h1 class="hasAnchor">
-<a href="#development-tools" class="anchor"></a>Development tools</h1>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>Please note that the derfinderPlot project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+</div>
+<div id="development-tools" class="section level2">
+<h2 class="hasAnchor">
+<a href="#development-tools" class="anchor"></a>Development tools</h2>
 <ul>
-<li>Testing on Bioc-devel is possible thanks to <a href="http://docs.travis-ci.com/user/languages/r/">R Travis</a>.</li>
-<li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh">codecov</a>.</li>
-<li>The <a href="http://comunidadbioinfo.github.io/regutools">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> and <em><a href="https://github.com/ropenscilabs/travis">travis</a></em>.</li>
+<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes">remotes</a></em>, <em><a href="https://github.com/r-hub/sysreqs">sysreqs</a></em> and <em><a href="https://CRAN.R-project.org/package=rcmdcheck">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.11/BiocCheck">BiocCheck</a></em>.</li>
+<li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh">codecov</a> and <em><a href="https://CRAN.R-project.org/package=covr">covr</a></em>.</li>
+<li>The <a href="http://comunidadbioinfo.github.io/regutools">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em>.</li>
+<li>The code is styled automatically thanks to <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em>.</li>
+<li>The documentation is formatted thanks to <em><a href="https://CRAN.R-project.org/package=devtools">devtools</a></em> and <em><a href="https://CRAN.R-project.org/package=roxygen2">roxygen2</a></em>.</li>
 </ul>
+<p>For more details, check the <code>dev</code> directory.</p>
+</div>
 </div>
 <div id="regulondb" class="section level1">
 <h1 class="hasAnchor">
@@ -210,7 +251,7 @@
 <ul class="list-unstyled">
 <li>Browse source code at <br><a href="https://github.com/ComunidadBioInfo/regutools/">https://​github.com/​ComunidadBioInfo/​regutools/​</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/ComunidadBioInfo/regutools/issues">https://​github.com/​ComunidadBioInfo/​regutools/​issues</a>
+<li>Report a bug at <br><a href="https://support.bioconductor.org/t/regutools">https://​support.bioconductor.org/​t/​regutools</a>
 </li>
 </ul>
 </div>
@@ -218,6 +259,13 @@
 <h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="https://www.r-project.org/Licenses/Artistic-2.0">Artistic-2.0</a></li>
+</ul>
+</div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
 <div class="citation">
@@ -241,10 +289,10 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/ComunidadBioInfo/regutools"><img src="https://travis-ci.org/ComunidadBioInfo/regutools.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
-<li><a href="https://codecov.io/gh/ComunidadBioInfo/regutools?branch=master"><img src="https://codecov.io/gh/ComunidadBioInfo/regutools/branch/master/graphs/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
 <li><a href="https://bioconductor.org/checkResults/release/bioc-LATEST/regutools"><img src="http://www.bioconductor.org/shields/build/release/bioc/regutools.svg" alt="BioC status"></a></li>
+<li><a href="https://codecov.io/gh/ComunidadBioInfo/regutools?branch=master"><img src="https://codecov.io/gh/ComunidadBioInfo/regutools/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/ComunidadBioInfo/regutools/actions"><img src="https://github.com/ComunidadBioInfo/regutools/workflows/R-CMD-check-bioc/badge.svg" alt="R build status"></a></li>
 </ul>
 </div>
 </div>
@@ -256,7 +304,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
