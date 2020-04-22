@@ -47,8 +47,10 @@
 
 
 <meta property="og:title" content="Connect to the regulondb database — connect_database" />
-<meta property="og:description" content="If the file does not exist, this function downloads
-the RegulonDB SQLite database file into the path prior to loading it." />
+<meta property="og:description" content="This function downloads the RegulonDB SQLite database file
+prior to making a connection to it. It will cache the database file such
+that subsequent calls will run faster. This function requires an active
+internet connection." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -81,7 +83,7 @@ the RegulonDB SQLite database file into the path prior to loading it." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.14</span>
       </span>
     </div>
 
@@ -129,33 +131,31 @@ the RegulonDB SQLite database file into the path prior to loading it." />
     </div>
 
     <div class="ref-description">
-    <p>If the file does not exist, this function downloads
-the RegulonDB SQLite database file into the <code>path</code> prior to loading it.</p>
+    <p>This function downloads the RegulonDB SQLite database file
+prior to making a connection to it. It will cache the database file such
+that subsequent calls will run faster. This function requires an active
+internet connection.</p>
     </div>
 
     <pre class="usage"><span class='fu'>connect_database</span>(
-  <span class='kw'>path</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(),
-  <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>ah</span> <span class='kw'>=</span> <span class='kw pkg'>AnnotationHub</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html'>AnnotationHub</a></span>()
+  <span class='kw'>ah</span> <span class='kw'>=</span> <span class='kw pkg'>AnnotationHub</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html'>AnnotationHub</a></span>(),
+  <span class='kw'>bfc</span> <span class='kw'>=</span> <span class='kw pkg'>BiocFileCache</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>BiocFileCache</a></span>()
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>path</th>
-      <td><p>The directory where the database will be downloaded to.</p></td>
-    </tr>
-    <tr>
-      <th>overwrite</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to overwrite the database
-file.</p></td>
-    </tr>
-    <tr>
       <th>ah</th>
-      <td><p>An <code>AnnotationtHub</code> object
+      <td><p>An <code>AnnotationHub</code> object
 <a href='https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html'>AnnotationHub-class</a>. Can be <code>NULL</code>
 if you want to force to use the backup download mechanism.</p></td>
+    </tr>
+    <tr>
+      <th>bfc</th>
+      <td><p>A <code>BiocFileCache</code> object
+<a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>BiocFileCache-class</a>. Used when
+<code>ah</code> is not available.</p></td>
     </tr>
     </table>
 
@@ -169,7 +169,7 @@ connection to the RegulonDB database.</p>
 <span class='co'>## Connect to the RegulonDB database if necessary</span>
 <span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'>connect_database</span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-03-31</span></div><div class='input'>
 <span class='co'>## Connect to the database without using AnnotationHub</span>
-<span class='no'>regulondb_conn_noAH</span> <span class='kw'>&lt;-</span> <span class='fu'>connect_database</span>(<span class='kw'>ah</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
+<span class='no'>regulondb_conn_noAH</span> <span class='kw'>&lt;-</span> <span class='fu'>connect_database</span>(<span class='kw'>ah</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
