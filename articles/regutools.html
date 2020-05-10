@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.15</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.2</span>
       </span>
     </div>
 
@@ -108,7 +108,7 @@
       Dana Farber Cancer Institute, Boston, MA, US<br><a class="author_email" href="mailto:#"></a><a href="mailto:alejandro.reyes.ds@gmail.com" class="email">alejandro.reyes.ds@gmail.com</a>
       </address>
                   
-            <h4 class="date">27 April 2020</h4>
+            <h4 class="date">10 May 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ComunidadBioInfo/regutools/blob/master/vignettes/regutools.Rmd"><code>vignettes/regutools.Rmd</code></a></small>
       <div class="hidden name"><code>regutools.Rmd</code></div>
@@ -125,7 +125,7 @@
 <h2 class="hasAnchor">
 <a href="#install-regutools" class="anchor"></a>Install <code>regutools</code>
 </h2>
-<p><code>R</code> is an open-source statistical environment which can be easily modified to enhance its functionality via packages. <em><a href="https://bioconductor.org/packages/3.11/regutools">regutools</a></em> is a <code>R</code> package available via Bioconductor. <code>R</code> can be installed on any operating system from <a href="https://cran.r-project.org/">CRAN</a> after which you can install <em><a href="https://bioconductor.org/packages/3.11/regutools">regutools</a></em> by using the following commands in your <code>R</code> session:</p>
+<p><code>R</code> is an open-source statistical environment which can be easily modified to enhance its functionality via packages. <em><a href="https://bioconductor.org/packages/3.12/regutools">regutools</a></em> is a <code>R</code> package available via Bioconductor. <code>R</code> can be installed on any operating system from <a href="https://cran.r-project.org/">CRAN</a> after which you can install <em><a href="https://bioconductor.org/packages/3.12/regutools">regutools</a></em> by using the following commands in your <code>R</code> session:</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span>(<span class="st">"BiocManager"</span>, <span class="kw">quietly</span> <span class="kw">=</span> <span class="fl">TRUE</span>)) {
       <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BiocManager"</span>)
   }
@@ -138,7 +138,7 @@
 <div id="required-knowledge" class="section level2">
 <h2 class="hasAnchor">
 <a href="#required-knowledge" class="anchor"></a>Required knowledge</h2>
-<p><em><a href="https://bioconductor.org/packages/3.11/regutools">regutools</a></em> is based on many other packages and in particular in those that have implemented the infrastructure needed for dealing with genomic and sequence data. That is, packages like <em><a href="https://bioconductor.org/packages/3.11/Biostrings">Biostrings</a></em> that allow you to work with sequences and <em><a href="https://bioconductor.org/packages/3.11/GenomicRanges">GenomicRanges</a></em> for data on genomic coordinates. A <em><a href="https://bioconductor.org/packages/3.11/regutools">regutools</a></em> user is not expected to deal with those packages directly but will need to be familiar with them to understand the results <em><a href="https://bioconductor.org/packages/3.11/regutools">regutools</a></em> generates. Furthermore, it’ll be useful for the user to know the syntax of <em><a href="https://bioconductor.org/packages/3.11/AnnotationHub">AnnotationHub</a></em> <a id="cite-Morgan_2020"></a>(<a href="#bib-Morgan_2020">Morgan and Shepherd, 2020</a>) in order to query and load the data provided by this package.</p>
+<p><em><a href="https://bioconductor.org/packages/3.12/regutools">regutools</a></em> is based on many other packages and in particular in those that have implemented the infrastructure needed for dealing with genomic and sequence data. That is, packages like <em><a href="https://bioconductor.org/packages/3.12/Biostrings">Biostrings</a></em> that allow you to work with sequences and <em><a href="https://bioconductor.org/packages/3.12/GenomicRanges">GenomicRanges</a></em> for data on genomic coordinates. A <em><a href="https://bioconductor.org/packages/3.12/regutools">regutools</a></em> user is not expected to deal with those packages directly but will need to be familiar with them to understand the results <em><a href="https://bioconductor.org/packages/3.12/regutools">regutools</a></em> generates. Furthermore, it’ll be useful for the user to know the syntax of <em><a href="https://bioconductor.org/packages/3.12/AnnotationHub">AnnotationHub</a></em> <a id="cite-Morgan_2020"></a>(<a href="#bib-Morgan_2020">Morgan and Shepherd, 2020</a>) in order to query and load the data provided by this package.</p>
 <p>If you are asking yourself the question “Where do I start using Bioconductor?” you might be interested in <a href="http://lcolladotor.github.io/2014/10/16/startbioc/#.VkOKbq6rRuU">this blog post</a>.</p>
 </div>
 <div id="asking-for-help" class="section level2">
@@ -150,7 +150,7 @@
 <h2 class="hasAnchor">
 <a href="#citing-regutools" class="anchor"></a>Citing <code>regutools</code>
 </h2>
-<p>We hope that <em><a href="https://bioconductor.org/packages/3.11/regutools">regutools</a></em> will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!</p>
+<p>We hope that <em><a href="https://bioconductor.org/packages/3.12/regutools">regutools</a></em> will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co">## Citation info</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"regutools"</span>)
 <span class="co">#&gt; </span>
@@ -159,13 +159,14 @@
 <span class="co">#&gt; for data extraction from RegulonDB_. doi: 10.18129/B9.bioc.regutools</span>
 <span class="co">#&gt; (URL: https://doi.org/10.18129/B9.bioc.regutools),</span>
 <span class="co">#&gt; https://github.com/comunidadbioinfo/regutools - R package version</span>
-<span class="co">#&gt; 0.99.15, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span>
+<span class="co">#&gt; 1.1.2, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Chávez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span>
 <span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). "Programmatic access to</span>
 <span class="co">#&gt; bacterial regulatory networks with regutools." _bioRxiv_. doi:</span>
-<span class="co">#&gt; 10.1101/xxxyyy (URL: https://doi.org/10.1101/xxxyyy), &lt;URL:</span>
-<span class="co">#&gt; https://doi.org/10.1101/xxxyyy&gt;.</span>
+<span class="co">#&gt; 10.1101/2020.04.29.068551 (URL:</span>
+<span class="co">#&gt; https://doi.org/10.1101/2020.04.29.068551), &lt;URL:</span>
+<span class="co">#&gt; https://doi.org/10.1101/2020.04.29.068551&gt;.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; To see these entries in BibTeX format, use 'print(&lt;citation&gt;,</span>
 <span class="co">#&gt; bibtex=TRUE)', 'toBibtex(.)', or set</span>
@@ -176,8 +177,8 @@
 <h1 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h1>
 <p><em>Escherichia coli K-12 (E. coli)</em> is the best bacterial organism studied to date. Thousands of papers have been published using <em>E. coli</em> as a model system asking how genes are regulated. The throughput of these experiments range from single-gene studies to whole-genome approaches. Twenty years ago, the database <a href="http://regulondb.ccg.unam.mx/"><em>RegulonDB</em></a> started collecting, curating and organizing this information into a centralized resource. Thanks to this huge efforts, researchers have had an easy way to access all these data in a database, facilitating the advancements of complete fields, such as <em>systems biology</em>.</p>
-<p>The analysis of high-throughput experiments -such as RNA-seq or ChIP-seq- often requires the integration of databases such as <em>RegulonDB</em> in order to give biological interpretations to these data. The <em>regutools</em> package is designed to facilitate such integration by providing programmatic access to <em>RegulonDB</em> within the R environment <a id="cite-Chavez_2020"></a>(<a href="https://doi.org/10.1101/xxxyyy">Chávez, Barberena-Jonas, Sotelo-Fonseca, Alquicira-Hernandez, et al., 2020</a>). The package retrieves information from the <em>RegulonDB</em> database into <em>Bioconductor</em> objects, ready for downstream analyses.</p>
-<p>The package defines the object <strong>regulondb</strong>, which is a data structure that contains the path to a <em>SQLite</em> database retrieved from <em>RegulonDB</em> along with metadata such as database version and reference genome. The function <code><a href="../reference/connect_database.html">connect_database()</a></code> will retrieve the latest version of the database and connect to it. It will download the database using <em><a href="https://bioconductor.org/packages/3.11/AnnotationHub">AnnotationHub</a></em> or a backup mechanism if necessary. The <em>regutools</em> package contains functions with the most popular queries to <em>regutools</em>, such as retrieving information of which gene targets are regulated by a transcription factor. But users can also design queries that are specific to their analyses. This vignette describes how to use the provided functions and how to design programmatic queries to <em>regutools</em>. The general syntax of the function calls of this package is <code>result &lt;- functionCalled( regulondb, arguments )</code>.</p>
+<p>The analysis of high-throughput experiments -such as RNA-seq or ChIP-seq- often requires the integration of databases such as <em>RegulonDB</em> in order to give biological interpretations to these data. The <em>regutools</em> package is designed to facilitate such integration by providing programmatic access to <em>RegulonDB</em> within the R environment <a id="cite-Chavez_2020"></a>(<a href="https://doi.org/10.1101/2020.04.29.068551">Chávez, Barberena-Jonas, Sotelo-Fonseca, Alquicira-Hernandez, et al., 2020</a>). The package retrieves information from the <em>RegulonDB</em> database into <em>Bioconductor</em> objects, ready for downstream analyses.</p>
+<p>The package defines the object <strong>regulondb</strong>, which is a data structure that contains the path to a <em>SQLite</em> database retrieved from <em>RegulonDB</em> along with metadata such as database version and reference genome. The function <code><a href="../reference/connect_database.html">connect_database()</a></code> will retrieve the latest version of the database and connect to it. It will download the database using <em><a href="https://bioconductor.org/packages/3.12/AnnotationHub">AnnotationHub</a></em> or a backup mechanism if necessary. The <em>regutools</em> package contains functions with the most popular queries to <em>regutools</em>, such as retrieving information of which gene targets are regulated by a transcription factor. But users can also design queries that are specific to their analyses. This vignette describes how to use the provided functions and how to design programmatic queries to <em>regutools</em>. The general syntax of the function calls of this package is <code>result &lt;- functionCalled( regulondb, arguments )</code>.</p>
 </div>
 <div id="the-regulondb-object" class="section level1">
 <h1 class="hasAnchor">
@@ -205,7 +206,7 @@
 <span class="co">#&gt;   organism: E.coli</span>
 <span class="co">#&gt;   genome_build: 1</span>
 <span class="co">#&gt;   database_version: 1</span>
-<span class="co">#&gt;   database_conn: /tmp/Rtmp6qzR3P/BiocFileCache/7e333b241cb4_regulondb_v10.6.2_DM_sqlite3.db%3Fdl%3D1</span></pre></body></html></div>
+<span class="co">#&gt;   database_conn: /tmp/RtmpD3qmER/BiocFileCache/910311b7a716_regulondb_v10.6.2_DM_sqlite3.db%3Fdl%3D1</span></pre></body></html></div>
 <p>In order to get an overview of the tables present in a <em>regulondb</em> object, we can use the function <code><a href="../reference/list_datasets.html">list_datasets()</a></code>. This function will output all the available tables (datasets) that can be used to build queries.</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/list_datasets.html">list_datasets</a></span>(<span class="no">e_coli_regulondb</span>)
 <span class="co">#&gt; [1] "DNA_OBJECTS"       "GENE"              "NETWORK"          </span>
@@ -287,7 +288,7 @@
 <span class="co">#&gt;   [3]   E.coli   366428-367510      - |        lacI</span>
 <span class="co">#&gt;   -------</span>
 <span class="co">#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span></pre></body></html></div>
-<p>In a similar manner, the function <code><a href="../reference/convert_to_biostrings.html">convert_to_biostrings()</a></code> converts <strong>regulondb</strong> objects into objects from the <em><a href="https://bioconductor.org/packages/3.11/Biostrings">Biostrings</a></em> package. Possible outputs of <code><a href="../reference/convert_to_biostrings.html">convert_to_biostrings()</a></code> are <strong>DNAStringSet</strong> objects if <code>seq_type="DNA"</code> or a <strong>BStringSet</strong> if <code>seq_type="product"</code>.</p>
+<p>In a similar manner, the function <code><a href="../reference/convert_to_biostrings.html">convert_to_biostrings()</a></code> converts <strong>regulondb</strong> objects into objects from the <em><a href="https://bioconductor.org/packages/3.12/Biostrings">Biostrings</a></em> package. Possible outputs of <code><a href="../reference/convert_to_biostrings.html">convert_to_biostrings()</a></code> are <strong>DNAStringSet</strong> objects if <code>seq_type="DNA"</code> or a <strong>BStringSet</strong> if <code>seq_type="product"</code>.</p>
 <div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">res_dnastring</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/get_dataset.html">get_dataset</a></span>(
     <span class="kw">regulondb</span> <span class="kw">=</span> <span class="no">e_coli_regulondb</span>,
     <span class="kw">dataset</span> <span class="kw">=</span> <span class="st">"GENE"</span>,
@@ -655,39 +656,39 @@
 <div id="reproducibility" class="section level1">
 <h1 class="hasAnchor">
 <a href="#reproducibility" class="anchor"></a>Reproducibility</h1>
-<p>The <em><a href="https://bioconductor.org/packages/3.11/regutools">regutools</a></em> package <a id="cite-Chavez_2020a"></a>(<a href="http://www.bioconductor.org/packages/regutools">Chávez, Barberena-Jonas, Sotelo-Fonseca, Alquicira-Hernandez, et al., 2020</a>) was made possible thanks to:</p>
+<p>The <em><a href="https://bioconductor.org/packages/3.12/regutools">regutools</a></em> package <a id="cite-Chavez_2020a"></a>(<a href="http://www.bioconductor.org/packages/regutools">Chávez, Barberena-Jonas, Sotelo-Fonseca, Alquicira-Hernandez, et al., 2020</a>) was made possible thanks to:</p>
 <ul>
 <li>R <a id="cite-R_Core_Team_2020"></a>(<a href="https://www.R-project.org/">R Core Team, 2020</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/AnnotationDbi">AnnotationDbi</a></em> <a id="cite-Pages_2020"></a>(<a href="#bib-Pages_2020">Pagès, Carlson, Falcon, and Li, 2020</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/AnnotationDbi">AnnotationDbi</a></em> <a id="cite-Pages_2020"></a>(<a href="#bib-Pages_2020">Pagès, Carlson, Falcon, and Li, 2020</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/AnnotationHub">AnnotationHub</a></em> (<a href="#bib-Morgan_2020">Morgan and Shepherd, 2020</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/AnnotationHub">AnnotationHub</a></em> (<a href="#bib-Morgan_2020">Morgan and Shepherd, 2020</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/BiocFileCache">BiocFileCache</a></em> <a id="cite-Shepherd_2020"></a>(<a href="#bib-Shepherd_2020">Shepherd and Morgan, 2020</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/BiocFileCache">BiocFileCache</a></em> <a id="cite-Shepherd_2020"></a>(<a href="#bib-Shepherd_2020">Shepherd and Morgan, 2020</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/BiocStyle">BiocStyle</a></em> <a id="cite-Oles_2020"></a>(<a href="https://github.com/Bioconductor/BiocStyle">Oleś, Morgan, and Huber, 2020</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/BiocStyle">BiocStyle</a></em> <a id="cite-Oles_2020"></a>(<a href="https://github.com/Bioconductor/BiocStyle">Oleś, Morgan, and Huber, 2020</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/Biostrings">Biostrings</a></em> <a id="cite-Pages_2020a"></a>(<a href="#bib-Pages_2020a">Pagès, Aboyoun, Gentleman, and DebRoy, 2020</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/Biostrings">Biostrings</a></em> <a id="cite-Pages_2020a"></a>(<a href="#bib-Pages_2020a">Pagès, Aboyoun, Gentleman, and DebRoy, 2020</a>)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=DBI">DBI</a></em> <a id="cite-R_Special_Interest_Group_on_Databases_R-SIG-DB_2019"></a>(<a href="https://CRAN.R-project.org/package=DBI">R Special Interest Group on Databases (R-SIG-DB), Wickham, and Müller, 2019</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/GenomicRanges">GenomicRanges</a></em> <a id="cite-Lawrence_2013"></a>(<a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118">Lawrence, Huber, Pagès, Aboyoun, et al., 2013</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/GenomicRanges">GenomicRanges</a></em> <a id="cite-Lawrence_2013"></a>(<a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118">Lawrence, Huber, Pagès, Aboyoun, et al., 2013</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/Gviz">Gviz</a></em> <a id="cite-Hahne_2016"></a>(<a href="http://dx.doi.org/10.1007/978-1-4939-3578-9_16">Hahne and Ivanek, 2016</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/Gviz">Gviz</a></em> <a id="cite-Hahne_2016"></a>(<a href="http://dx.doi.org/10.1007/978-1-4939-3578-9_16">Hahne and Ivanek, 2016</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/IRanges">IRanges</a></em> <a id="cite-Lawrence_2013a"></a>(<a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118">Lawrence, Huber, Pagès, Aboyoun, et al., 2013</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/IRanges">IRanges</a></em> <a id="cite-Lawrence_2013a"></a>(<a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118">Lawrence, Huber, Pagès, Aboyoun, et al., 2013</a>)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=knitcitations">knitcitations</a></em> <a id="cite-Boettiger_2019"></a>(<a href="https://CRAN.R-project.org/package=knitcitations">Boettiger, 2019</a>)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> <a id="cite-Xie_2014"></a>(<a href="http://www.crcpress.com/product/isbn/9781466561595">Xie, 2014</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/RCy3">RCy3</a></em> <a id="cite-Gustavsen_2019"></a>(<a href="https://doi.org/10.12688/f1000research.20887.3">Gustavsen, A., Pai, Shraddha, et al., 2019</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/RCy3">RCy3</a></em> <a id="cite-Gustavsen_2019"></a>(<a href="https://doi.org/10.12688/f1000research.20887.3">Gustavsen, A., Pai, Shraddha, et al., 2019</a>)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> <a id="cite-Allaire_2020"></a>(<a href="https://github.com/rstudio/rmarkdown">Allaire, Xie, McPherson, Luraschi, et al., 2020</a>)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=RSQLite">RSQLite</a></em> <a id="cite-Muller_2020"></a>(<a href="https://CRAN.R-project.org/package=RSQLite">Müller, Wickham, James, and Falcon, 2020</a>)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.11/S4Vectors">S4Vectors</a></em> <a id="cite-Pages_2020ab"></a>(<a href="#bib-Pages_2020ab">Pagès, Lawrence, and Aboyoun, 2020</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.12/S4Vectors">S4Vectors</a></em> <a id="cite-Pages_2020ab"></a>(<a href="#bib-Pages_2020ab">Pagès, Lawrence, and Aboyoun, 2020</a>)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=sessioninfo">sessioninfo</a></em> <a id="cite-Csardi_2018"></a>(<a href="https://CRAN.R-project.org/package=sessioninfo">Csárdi, core, Wickham, Chang, et al., 2018</a>)</li>
 <li>
@@ -702,162 +703,162 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"knitr"</span>)
 <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span>(<span class="st">"regutools.Rmd"</span>, <span class="kw">tangle</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-04-27 15:14:40 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-05-10 16:29:55 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 37.49 secs</code></pre>
+<pre><code>#&gt; Time difference of 32.396 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
-#&gt;  setting  value                                             
-#&gt;  version  R Under development (unstable) (2020-04-24 r78289)
-#&gt;  os       Debian GNU/Linux 10 (buster)                      
-#&gt;  system   x86_64, linux-gnu                                 
-#&gt;  ui       X11                                               
-#&gt;  language (EN)                                              
-#&gt;  collate  en_US.UTF-8                                       
-#&gt;  ctype    en_US.UTF-8                                       
-#&gt;  tz       UTC                                               
-#&gt;  date     2020-04-27                                        
+#&gt;  setting  value                                      
+#&gt;  version  R version 4.0.0 Patched (2020-05-07 r78385)
+#&gt;  os       Ubuntu 18.04.4 LTS                         
+#&gt;  system   x86_64, linux-gnu                          
+#&gt;  ui       X11                                        
+#&gt;  language (EN)                                       
+#&gt;  collate  en_US.UTF-8                                
+#&gt;  ctype    en_US.UTF-8                                
+#&gt;  tz       UTC                                        
+#&gt;  date     2020-05-10                                 
 #&gt; 
 #&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  package                * version    date       lib source                        
-#&gt;  acepack                  1.4.1      2016-10-29 [1] CRAN (R 4.1.0)                
-#&gt;  AnnotationDbi            1.49.1     2020-01-25 [1] Bioconductor                  
-#&gt;  AnnotationFilter         1.11.0     2019-10-29 [1] Bioconductor                  
-#&gt;  AnnotationHub            2.19.12    2020-04-21 [1] Bioconductor                  
-#&gt;  askpass                  1.1        2019-01-13 [2] CRAN (R 4.1.0)                
-#&gt;  assertthat               0.2.1      2019-03-21 [2] CRAN (R 4.1.0)                
-#&gt;  backports                1.1.6      2020-04-05 [2] CRAN (R 4.1.0)                
-#&gt;  base64enc                0.1-3      2015-07-28 [1] CRAN (R 4.1.0)                
-#&gt;  bibtex                   0.4.2.2    2020-01-02 [1] CRAN (R 4.1.0)                
-#&gt;  Biobase                  2.47.3     2020-03-16 [1] Bioconductor                  
-#&gt;  BiocFileCache            1.11.6     2020-04-16 [1] Bioconductor                  
-#&gt;  BiocGenerics           * 0.33.3     2020-03-23 [1] Bioconductor                  
-#&gt;  BiocManager              1.30.10    2019-11-16 [2] CRAN (R 4.1.0)                
-#&gt;  BiocParallel             1.21.3     2020-04-21 [1] Bioconductor                  
-#&gt;  BiocStyle              * 2.15.8     2020-04-19 [1] Bioconductor                  
-#&gt;  BiocVersion              3.11.1     2019-11-13 [2] Bioconductor                  
-#&gt;  biomaRt                  2.43.6     2020-04-21 [1] Bioconductor                  
-#&gt;  Biostrings             * 2.55.7     2020-03-24 [1] Bioconductor                  
-#&gt;  biovizBase               1.35.1     2019-12-03 [1] Bioconductor                  
-#&gt;  bit                      1.1-15.2   2020-02-10 [1] CRAN (R 4.1.0)                
-#&gt;  bit64                    0.9-7      2017-05-08 [1] CRAN (R 4.1.0)                
-#&gt;  bitops                   1.0-6      2013-08-17 [1] CRAN (R 4.1.0)                
-#&gt;  blob                     1.2.1      2020-01-20 [1] CRAN (R 4.1.0)                
-#&gt;  bookdown                 0.18       2020-03-05 [1] CRAN (R 4.1.0)                
-#&gt;  BSgenome                 1.55.4     2020-03-19 [1] Bioconductor                  
-#&gt;  checkmate                2.0.0      2020-02-06 [1] CRAN (R 4.1.0)                
-#&gt;  cli                      2.0.2      2020-02-28 [2] CRAN (R 4.1.0)                
-#&gt;  cluster                  2.1.0      2019-06-19 [3] CRAN (R 4.1.0)                
-#&gt;  colorspace               1.4-1      2019-03-18 [1] CRAN (R 4.1.0)                
-#&gt;  crayon                   1.3.4      2017-09-16 [2] CRAN (R 4.1.0)                
-#&gt;  curl                     4.3        2019-12-02 [2] CRAN (R 4.1.0)                
-#&gt;  data.table               1.12.8     2019-12-09 [1] CRAN (R 4.1.0)                
-#&gt;  DBI                      1.1.0      2019-12-15 [1] CRAN (R 4.1.0)                
-#&gt;  dbplyr                   1.4.3      2020-04-19 [1] CRAN (R 4.1.0)                
-#&gt;  DelayedArray             0.13.12    2020-04-10 [1] Bioconductor                  
-#&gt;  desc                     1.2.0      2018-05-01 [2] CRAN (R 4.1.0)                
-#&gt;  dichromat                2.0-0      2013-01-24 [1] CRAN (R 4.1.0)                
-#&gt;  digest                   0.6.25     2020-02-23 [2] CRAN (R 4.1.0)                
-#&gt;  dplyr                    0.8.5      2020-03-07 [1] CRAN (R 4.1.0)                
-#&gt;  ellipsis                 0.3.0      2019-09-20 [2] CRAN (R 4.1.0)                
-#&gt;  ensembldb                2.11.4     2020-04-17 [1] Bioconductor                  
-#&gt;  evaluate                 0.14       2019-05-28 [2] CRAN (R 4.1.0)                
-#&gt;  fansi                    0.4.1      2020-01-08 [2] CRAN (R 4.1.0)                
-#&gt;  fastmap                  1.0.1      2019-10-08 [1] CRAN (R 4.1.0)                
-#&gt;  foreign                  0.8-78     2020-04-13 [3] CRAN (R 4.1.0)                
-#&gt;  Formula                  1.2-3      2018-05-03 [1] CRAN (R 4.1.0)                
-#&gt;  fs                       1.4.1      2020-04-04 [2] CRAN (R 4.1.0)                
-#&gt;  generics                 0.0.2      2018-11-29 [1] CRAN (R 4.1.0)                
-#&gt;  GenomeInfoDb             1.23.17    2020-04-13 [1] Bioconductor                  
-#&gt;  GenomeInfoDbData         1.2.3      2020-04-27 [1] Bioconductor                  
-#&gt;  GenomicAlignments        1.23.2     2020-03-24 [1] Bioconductor                  
-#&gt;  GenomicFeatures          1.39.7     2020-03-19 [1] Bioconductor                  
-#&gt;  GenomicRanges            1.39.3     2020-03-24 [1] Bioconductor                  
-#&gt;  ggplot2                  3.3.0      2020-03-05 [1] CRAN (R 4.1.0)                
-#&gt;  glue                     1.4.0      2020-04-03 [2] CRAN (R 4.1.0)                
-#&gt;  graph                    1.65.3     2020-04-14 [1] Bioconductor                  
-#&gt;  gridExtra                2.3        2017-09-09 [1] CRAN (R 4.1.0)                
-#&gt;  gtable                   0.3.0      2019-03-25 [1] CRAN (R 4.1.0)                
-#&gt;  Gviz                     1.31.13    2020-04-21 [1] Bioconductor                  
-#&gt;  Hmisc                    4.4-0      2020-03-23 [1] CRAN (R 4.1.0)                
-#&gt;  hms                      0.5.3      2020-01-08 [1] CRAN (R 4.1.0)                
-#&gt;  htmlTable                1.13.3     2019-12-04 [1] CRAN (R 4.1.0)                
-#&gt;  htmltools                0.4.0      2019-10-04 [2] CRAN (R 4.1.0)                
-#&gt;  htmlwidgets              1.5.1      2019-10-08 [2] CRAN (R 4.1.0)                
-#&gt;  httpuv                   1.5.2      2019-09-11 [1] CRAN (R 4.1.0)                
-#&gt;  httr                     1.4.1      2019-08-05 [2] CRAN (R 4.1.0)                
-#&gt;  igraph                   1.2.5      2020-03-19 [1] CRAN (R 4.1.0)                
-#&gt;  interactiveDisplayBase   1.25.0     2019-10-29 [1] Bioconductor                  
-#&gt;  IRanges                * 2.21.8     2020-03-25 [1] Bioconductor                  
-#&gt;  jpeg                     0.1-8.1    2019-10-24 [1] CRAN (R 4.1.0)                
-#&gt;  jsonlite                 1.6.1      2020-02-02 [2] CRAN (R 4.1.0)                
-#&gt;  knitcitations          * 1.0.10     2019-09-15 [1] CRAN (R 4.1.0)                
-#&gt;  knitr                    1.28       2020-02-06 [2] CRAN (R 4.1.0)                
-#&gt;  later                    1.0.0      2019-10-04 [2] CRAN (R 4.1.0)                
-#&gt;  lattice                  0.20-41    2020-04-02 [3] CRAN (R 4.1.0)                
-#&gt;  latticeExtra             0.6-29     2019-12-19 [1] CRAN (R 4.1.0)                
-#&gt;  lazyeval                 0.2.2      2019-03-15 [2] CRAN (R 4.1.0)                
-#&gt;  lifecycle                0.2.0      2020-03-06 [2] CRAN (R 4.1.0)                
-#&gt;  lubridate                1.7.8      2020-04-06 [1] CRAN (R 4.1.0)                
-#&gt;  magrittr                 1.5        2014-11-22 [2] CRAN (R 4.1.0)                
-#&gt;  MASS                     7.3-51.5   2019-12-20 [3] CRAN (R 4.1.0)                
-#&gt;  Matrix                   1.2-18     2019-11-27 [3] CRAN (R 4.1.0)                
-#&gt;  matrixStats              0.56.0     2020-03-13 [1] CRAN (R 4.1.0)                
-#&gt;  memoise                  1.1.0      2017-04-21 [2] CRAN (R 4.1.0)                
-#&gt;  mime                     0.9        2020-02-04 [2] CRAN (R 4.1.0)                
-#&gt;  munsell                  0.5.0      2018-06-12 [1] CRAN (R 4.1.0)                
-#&gt;  nnet                     7.3-13     2020-02-25 [3] CRAN (R 4.1.0)                
-#&gt;  openssl                  1.4.1      2019-07-18 [2] CRAN (R 4.1.0)                
-#&gt;  pillar                   1.4.3      2019-12-20 [2] CRAN (R 4.1.0)                
-#&gt;  pkgconfig                2.0.3      2019-09-22 [2] CRAN (R 4.1.0)                
-#&gt;  pkgdown                  1.5.1.9000 2020-04-27 [1] Github (r-lib/pkgdown@c181e5c)
-#&gt;  plyr                     1.8.6      2020-03-03 [1] CRAN (R 4.1.0)                
-#&gt;  png                      0.1-7      2013-12-03 [1] CRAN (R 4.1.0)                
-#&gt;  prettyunits              1.1.1      2020-01-24 [2] CRAN (R 4.1.0)                
-#&gt;  progress                 1.2.2      2019-05-16 [1] CRAN (R 4.1.0)                
-#&gt;  promises                 1.1.0      2019-10-04 [2] CRAN (R 4.1.0)                
-#&gt;  ProtGenerics             1.19.3     2019-12-25 [1] Bioconductor                  
-#&gt;  purrr                    0.3.4      2020-04-17 [2] CRAN (R 4.1.0)                
-#&gt;  R.methodsS3              1.8.0      2020-02-14 [1] CRAN (R 4.1.0)                
-#&gt;  R.oo                     1.23.0     2019-11-03 [1] CRAN (R 4.1.0)                
-#&gt;  R.utils                  2.9.2      2019-12-08 [1] CRAN (R 4.1.0)                
-#&gt;  R6                       2.4.1      2019-11-12 [2] CRAN (R 4.1.0)                
-#&gt;  rappdirs                 0.3.1      2016-03-28 [1] CRAN (R 4.1.0)                
-#&gt;  RColorBrewer             1.1-2      2014-12-07 [1] CRAN (R 4.1.0)                
-#&gt;  Rcpp                     1.0.4.6    2020-04-09 [2] CRAN (R 4.1.0)                
-#&gt;  RCurl                    1.98-1.2   2020-04-18 [1] CRAN (R 4.1.0)                
-#&gt;  RCy3                     2.7.9      2020-04-21 [1] Bioconductor                  
-#&gt;  RefManageR               1.2.12     2019-04-03 [1] CRAN (R 4.1.0)                
-#&gt;  regutools              * 0.99.15    2020-04-27 [1] Bioconductor                  
-#&gt;  RJSONIO                  1.3-1.4    2020-01-15 [1] CRAN (R 4.1.0)                
-#&gt;  rlang                    0.4.5      2020-03-01 [2] CRAN (R 4.1.0)                
-#&gt;  rmarkdown                2.1        2020-01-20 [1] CRAN (R 4.1.0)                
-#&gt;  rpart                    4.1-15     2019-04-12 [3] CRAN (R 4.1.0)                
-#&gt;  rprojroot                1.3-2      2018-01-03 [2] CRAN (R 4.1.0)                
-#&gt;  Rsamtools                2.3.7      2020-03-18 [1] Bioconductor                  
-#&gt;  RSQLite                  2.2.0      2020-01-07 [1] CRAN (R 4.1.0)                
-#&gt;  rstudioapi               0.11       2020-02-07 [2] CRAN (R 4.1.0)                
-#&gt;  rtracklayer              1.47.0     2019-10-29 [1] Bioconductor                  
-#&gt;  S4Vectors              * 0.25.15    2020-04-04 [1] Bioconductor                  
-#&gt;  scales                   1.1.0      2019-11-18 [1] CRAN (R 4.1.0)                
-#&gt;  sessioninfo            * 1.1.1      2018-11-05 [2] CRAN (R 4.1.0)                
-#&gt;  shiny                    1.4.0.2    2020-03-13 [1] CRAN (R 4.1.0)                
-#&gt;  stringi                  1.4.6      2020-02-17 [2] CRAN (R 4.1.0)                
-#&gt;  stringr                  1.4.0      2019-02-10 [2] CRAN (R 4.1.0)                
-#&gt;  SummarizedExperiment     1.17.5     2020-03-27 [1] Bioconductor                  
-#&gt;  survival                 3.1-12     2020-04-10 [3] CRAN (R 4.1.0)                
-#&gt;  tibble                   3.0.1      2020-04-20 [2] CRAN (R 4.1.0)                
-#&gt;  tidyselect               1.0.0      2020-01-27 [1] CRAN (R 4.1.0)                
-#&gt;  VariantAnnotation        1.33.5     2020-04-23 [1] Bioconductor                  
-#&gt;  vctrs                    0.2.4      2020-03-10 [2] CRAN (R 4.1.0)                
-#&gt;  withr                    2.2.0      2020-04-20 [2] CRAN (R 4.1.0)                
-#&gt;  xfun                     0.13       2020-04-13 [2] CRAN (R 4.1.0)                
-#&gt;  XML                      3.99-0.3   2020-01-20 [1] CRAN (R 4.1.0)                
-#&gt;  xml2                     1.3.2      2020-04-23 [2] CRAN (R 4.1.0)                
-#&gt;  xtable                   1.8-4      2019-04-21 [1] CRAN (R 4.1.0)                
-#&gt;  XVector                * 0.27.2     2020-03-24 [1] Bioconductor                  
-#&gt;  yaml                     2.2.1      2020-02-01 [2] CRAN (R 4.1.0)                
-#&gt;  zlibbioc                 1.33.1     2020-01-24 [1] Bioconductor                  
+#&gt;  acepack                  1.4.1      2016-10-29 [1] CRAN (R 4.0.0)                
+#&gt;  AnnotationDbi            1.51.0     2020-04-27 [1] Bioconductor                  
+#&gt;  AnnotationFilter         1.13.0     2020-04-27 [1] Bioconductor                  
+#&gt;  AnnotationHub            2.21.0     2020-05-01 [1] Bioconductor                  
+#&gt;  askpass                  1.1        2019-01-13 [2] CRAN (R 4.0.0)                
+#&gt;  assertthat               0.2.1      2019-03-21 [2] CRAN (R 4.0.0)                
+#&gt;  backports                1.1.6      2020-04-05 [2] CRAN (R 4.0.0)                
+#&gt;  base64enc                0.1-3      2015-07-28 [1] CRAN (R 4.0.0)                
+#&gt;  bibtex                   0.4.2.2    2020-01-02 [1] CRAN (R 4.0.0)                
+#&gt;  Biobase                  2.49.0     2020-04-27 [1] Bioconductor                  
+#&gt;  BiocFileCache            1.13.0     2020-04-27 [1] Bioconductor                  
+#&gt;  BiocGenerics           * 0.35.2     2020-05-06 [1] Bioconductor                  
+#&gt;  BiocManager              1.30.10    2019-11-16 [2] CRAN (R 4.0.0)                
+#&gt;  BiocParallel             1.23.0     2020-04-27 [1] Bioconductor                  
+#&gt;  BiocStyle              * 2.17.0     2020-04-27 [1] Bioconductor                  
+#&gt;  BiocVersion              3.12.0     2020-04-27 [2] Bioconductor                  
+#&gt;  biomaRt                  2.45.0     2020-04-27 [1] Bioconductor                  
+#&gt;  Biostrings             * 2.57.0     2020-04-27 [1] Bioconductor                  
+#&gt;  biovizBase               1.37.0     2020-04-27 [1] Bioconductor                  
+#&gt;  bit                      1.1-15.2   2020-02-10 [1] CRAN (R 4.0.0)                
+#&gt;  bit64                    0.9-7      2017-05-08 [1] CRAN (R 4.0.0)                
+#&gt;  bitops                   1.0-6      2013-08-17 [1] CRAN (R 4.0.0)                
+#&gt;  blob                     1.2.1      2020-01-20 [1] CRAN (R 4.0.0)                
+#&gt;  bookdown                 0.18       2020-03-05 [1] CRAN (R 4.0.0)                
+#&gt;  BSgenome                 1.57.0     2020-04-27 [1] Bioconductor                  
+#&gt;  checkmate                2.0.0      2020-02-06 [1] CRAN (R 4.0.0)                
+#&gt;  cli                      2.0.2      2020-02-28 [2] CRAN (R 4.0.0)                
+#&gt;  cluster                  2.1.0      2019-06-19 [3] CRAN (R 4.0.0)                
+#&gt;  colorspace               1.4-1      2019-03-18 [1] CRAN (R 4.0.0)                
+#&gt;  crayon                   1.3.4      2017-09-16 [2] CRAN (R 4.0.0)                
+#&gt;  curl                     4.3        2019-12-02 [2] CRAN (R 4.0.0)                
+#&gt;  data.table               1.12.8     2019-12-09 [1] CRAN (R 4.0.0)                
+#&gt;  DBI                      1.1.0      2019-12-15 [1] CRAN (R 4.0.0)                
+#&gt;  dbplyr                   1.4.3      2020-04-19 [1] CRAN (R 4.0.0)                
+#&gt;  DelayedArray             0.15.1     2020-05-01 [1] Bioconductor                  
+#&gt;  desc                     1.2.0      2018-05-01 [2] CRAN (R 4.0.0)                
+#&gt;  dichromat                2.0-0      2013-01-24 [1] CRAN (R 4.0.0)                
+#&gt;  digest                   0.6.25     2020-02-23 [2] CRAN (R 4.0.0)                
+#&gt;  dplyr                    0.8.5      2020-03-07 [1] CRAN (R 4.0.0)                
+#&gt;  ellipsis                 0.3.0      2019-09-20 [2] CRAN (R 4.0.0)                
+#&gt;  ensembldb                2.13.1     2020-05-06 [1] Bioconductor                  
+#&gt;  evaluate                 0.14       2019-05-28 [2] CRAN (R 4.0.0)                
+#&gt;  fansi                    0.4.1      2020-01-08 [2] CRAN (R 4.0.0)                
+#&gt;  fastmap                  1.0.1      2019-10-08 [1] CRAN (R 4.0.0)                
+#&gt;  foreign                  0.8-79     2020-04-26 [3] CRAN (R 4.0.0)                
+#&gt;  Formula                  1.2-3      2018-05-03 [1] CRAN (R 4.0.0)                
+#&gt;  fs                       1.4.1      2020-04-04 [2] CRAN (R 4.0.0)                
+#&gt;  generics                 0.0.2      2018-11-29 [1] CRAN (R 4.0.0)                
+#&gt;  GenomeInfoDb             1.25.0     2020-04-27 [1] Bioconductor                  
+#&gt;  GenomeInfoDbData         1.2.3      2020-05-10 [1] Bioconductor                  
+#&gt;  GenomicAlignments        1.25.0     2020-04-27 [1] Bioconductor                  
+#&gt;  GenomicFeatures          1.41.0     2020-04-27 [1] Bioconductor                  
+#&gt;  GenomicRanges            1.41.1     2020-05-02 [1] Bioconductor                  
+#&gt;  ggplot2                  3.3.0      2020-03-05 [1] CRAN (R 4.0.0)                
+#&gt;  glue                     1.4.0      2020-04-03 [2] CRAN (R 4.0.0)                
+#&gt;  graph                    1.67.0     2020-04-27 [1] Bioconductor                  
+#&gt;  gridExtra                2.3        2017-09-09 [1] CRAN (R 4.0.0)                
+#&gt;  gtable                   0.3.0      2019-03-25 [1] CRAN (R 4.0.0)                
+#&gt;  Gviz                     1.33.0     2020-04-27 [1] Bioconductor                  
+#&gt;  Hmisc                    4.4-0      2020-03-23 [1] CRAN (R 4.0.0)                
+#&gt;  hms                      0.5.3      2020-01-08 [1] CRAN (R 4.0.0)                
+#&gt;  htmlTable                1.13.3     2019-12-04 [1] CRAN (R 4.0.0)                
+#&gt;  htmltools                0.4.0      2019-10-04 [2] CRAN (R 4.0.0)                
+#&gt;  htmlwidgets              1.5.1      2019-10-08 [2] CRAN (R 4.0.0)                
+#&gt;  httpuv                   1.5.2      2019-09-11 [1] CRAN (R 4.0.0)                
+#&gt;  httr                     1.4.1      2019-08-05 [2] CRAN (R 4.0.0)                
+#&gt;  igraph                   1.2.5      2020-03-19 [1] CRAN (R 4.0.0)                
+#&gt;  interactiveDisplayBase   1.27.0     2020-04-27 [1] Bioconductor                  
+#&gt;  IRanges                * 2.23.4     2020-05-03 [1] Bioconductor                  
+#&gt;  jpeg                     0.1-8.1    2019-10-24 [1] CRAN (R 4.0.0)                
+#&gt;  jsonlite                 1.6.1      2020-02-02 [2] CRAN (R 4.0.0)                
+#&gt;  knitcitations          * 1.0.10     2019-09-15 [1] CRAN (R 4.0.0)                
+#&gt;  knitr                    1.28       2020-02-06 [2] CRAN (R 4.0.0)                
+#&gt;  later                    1.0.0      2019-10-04 [2] CRAN (R 4.0.0)                
+#&gt;  lattice                  0.20-41    2020-04-02 [3] CRAN (R 4.0.0)                
+#&gt;  latticeExtra             0.6-29     2019-12-19 [1] CRAN (R 4.0.0)                
+#&gt;  lazyeval                 0.2.2      2019-03-15 [2] CRAN (R 4.0.0)                
+#&gt;  lifecycle                0.2.0      2020-03-06 [2] CRAN (R 4.0.0)                
+#&gt;  lubridate                1.7.8      2020-04-06 [1] CRAN (R 4.0.0)                
+#&gt;  magrittr                 1.5        2014-11-22 [2] CRAN (R 4.0.0)                
+#&gt;  MASS                     7.3-51.6   2020-04-26 [3] CRAN (R 4.0.0)                
+#&gt;  Matrix                   1.2-18     2019-11-27 [3] CRAN (R 4.0.0)                
+#&gt;  matrixStats              0.56.0     2020-03-13 [1] CRAN (R 4.0.0)                
+#&gt;  memoise                  1.1.0      2017-04-21 [2] CRAN (R 4.0.0)                
+#&gt;  mime                     0.9        2020-02-04 [2] CRAN (R 4.0.0)                
+#&gt;  munsell                  0.5.0      2018-06-12 [1] CRAN (R 4.0.0)                
+#&gt;  nnet                     7.3-14     2020-04-26 [3] CRAN (R 4.0.0)                
+#&gt;  openssl                  1.4.1      2019-07-18 [2] CRAN (R 4.0.0)                
+#&gt;  pillar                   1.4.4      2020-05-05 [2] CRAN (R 4.0.0)                
+#&gt;  pkgconfig                2.0.3      2019-09-22 [2] CRAN (R 4.0.0)                
+#&gt;  pkgdown                  1.5.1.9000 2020-05-10 [1] Github (r-lib/pkgdown@c181e5c)
+#&gt;  plyr                     1.8.6      2020-03-03 [1] CRAN (R 4.0.0)                
+#&gt;  png                      0.1-7      2013-12-03 [1] CRAN (R 4.0.0)                
+#&gt;  prettyunits              1.1.1      2020-01-24 [2] CRAN (R 4.0.0)                
+#&gt;  progress                 1.2.2      2019-05-16 [1] CRAN (R 4.0.0)                
+#&gt;  promises                 1.1.0      2019-10-04 [2] CRAN (R 4.0.0)                
+#&gt;  ProtGenerics             1.21.0     2020-04-27 [1] Bioconductor                  
+#&gt;  purrr                    0.3.4      2020-04-17 [2] CRAN (R 4.0.0)                
+#&gt;  R.methodsS3              1.8.0      2020-02-14 [1] CRAN (R 4.0.0)                
+#&gt;  R.oo                     1.23.0     2019-11-03 [1] CRAN (R 4.0.0)                
+#&gt;  R.utils                  2.9.2      2019-12-08 [1] CRAN (R 4.0.0)                
+#&gt;  R6                       2.4.1      2019-11-12 [2] CRAN (R 4.0.0)                
+#&gt;  rappdirs                 0.3.1      2016-03-28 [1] CRAN (R 4.0.0)                
+#&gt;  RColorBrewer             1.1-2      2014-12-07 [1] CRAN (R 4.0.0)                
+#&gt;  Rcpp                     1.0.4.6    2020-04-09 [2] CRAN (R 4.0.0)                
+#&gt;  RCurl                    1.98-1.2   2020-04-18 [1] CRAN (R 4.0.0)                
+#&gt;  RCy3                     2.9.0      2020-04-27 [1] Bioconductor                  
+#&gt;  RefManageR               1.2.12     2019-04-03 [1] CRAN (R 4.0.0)                
+#&gt;  regutools              * 1.1.2      2020-05-10 [1] Bioconductor                  
+#&gt;  RJSONIO                  1.3-1.4    2020-01-15 [1] CRAN (R 4.0.0)                
+#&gt;  rlang                    0.4.6      2020-05-02 [2] CRAN (R 4.0.0)                
+#&gt;  rmarkdown                2.1        2020-01-20 [1] CRAN (R 4.0.0)                
+#&gt;  rpart                    4.1-15     2019-04-12 [3] CRAN (R 4.0.0)                
+#&gt;  rprojroot                1.3-2      2018-01-03 [2] CRAN (R 4.0.0)                
+#&gt;  Rsamtools                2.5.0      2020-04-27 [1] Bioconductor                  
+#&gt;  RSQLite                  2.2.0      2020-01-07 [1] CRAN (R 4.0.0)                
+#&gt;  rstudioapi               0.11       2020-02-07 [2] CRAN (R 4.0.0)                
+#&gt;  rtracklayer              1.49.1     2020-05-02 [1] Bioconductor                  
+#&gt;  S4Vectors              * 0.27.5     2020-05-06 [1] Bioconductor                  
+#&gt;  scales                   1.1.0      2019-11-18 [1] CRAN (R 4.0.0)                
+#&gt;  sessioninfo            * 1.1.1      2018-11-05 [2] CRAN (R 4.0.0)                
+#&gt;  shiny                    1.4.0.2    2020-03-13 [1] CRAN (R 4.0.0)                
+#&gt;  stringi                  1.4.6      2020-02-17 [2] CRAN (R 4.0.0)                
+#&gt;  stringr                  1.4.0      2019-02-10 [2] CRAN (R 4.0.0)                
+#&gt;  SummarizedExperiment     1.19.2     2020-05-01 [1] Bioconductor                  
+#&gt;  survival                 3.1-12     2020-04-10 [3] CRAN (R 4.0.0)                
+#&gt;  tibble                   3.0.1      2020-04-20 [2] CRAN (R 4.0.0)                
+#&gt;  tidyselect               1.0.0      2020-01-27 [1] CRAN (R 4.0.0)                
+#&gt;  VariantAnnotation        1.35.0     2020-04-27 [1] Bioconductor                  
+#&gt;  vctrs                    0.2.4      2020-03-10 [2] CRAN (R 4.0.0)                
+#&gt;  withr                    2.2.0      2020-04-20 [2] CRAN (R 4.0.0)                
+#&gt;  xfun                     0.13       2020-04-13 [2] CRAN (R 4.0.0)                
+#&gt;  XML                      3.99-0.3   2020-01-20 [1] CRAN (R 4.0.0)                
+#&gt;  xml2                     1.3.2      2020-04-23 [2] CRAN (R 4.0.0)                
+#&gt;  xtable                   1.8-4      2019-04-21 [1] CRAN (R 4.0.0)                
+#&gt;  XVector                * 0.29.0     2020-04-27 [1] Bioconductor                  
+#&gt;  yaml                     2.2.1      2020-02-01 [2] CRAN (R 4.0.0)                
+#&gt;  zlibbioc                 1.35.0     2020-04-27 [1] Bioconductor                  
 #&gt; 
 #&gt; [1] /usr/local/lib/R/host-site-library
 #&gt; [2] /usr/local/lib/R/site-library
@@ -866,26 +867,26 @@
 <div id="bibliography" class="section level1">
 <h1 class="hasAnchor">
 <a href="#bibliography" class="anchor"></a>Bibliography</h1>
-<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.11/BiocStyle">BiocStyle</a></em> (<a href="https://github.com/Bioconductor/BiocStyle">Oleś, Morgan, and Huber, 2020</a>), <em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (<a href="http://www.crcpress.com/product/isbn/9781466561595">Xie, 2014</a>) and <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (<a href="https://github.com/rstudio/rmarkdown">Allaire, Xie, McPherson, Luraschi, et al., 2020</a>) running behind the scenes.</p>
+<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.12/BiocStyle">BiocStyle</a></em> (<a href="https://github.com/Bioconductor/BiocStyle">Oleś, Morgan, and Huber, 2020</a>), <em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (<a href="http://www.crcpress.com/product/isbn/9781466561595">Xie, 2014</a>) and <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (<a href="https://github.com/rstudio/rmarkdown">Allaire, Xie, McPherson, Luraschi, et al., 2020</a>) running behind the scenes.</p>
 <p>Citations were made with <em><a href="https://CRAN.R-project.org/package=knitcitations">knitcitations</a></em> (<a href="https://CRAN.R-project.org/package=knitcitations">Boettiger, 2019</a>).</p>
 <p>[1] J. Allaire, Y. Xie, J. McPherson, J. Luraschi, et al. <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.1. 2020. &lt;URL: <a href="https://github.com/rstudio/rmarkdown" class="uri">https://github.com/rstudio/rmarkdown</a>&gt;.</p>
 <p>[2] C. Boettiger. <em>knitcitations: Citations for ‘Knitr’ Markdown Files</em>. R package version 1.0.10. 2019. &lt;URL: <a href="https://CRAN.R-project.org/package=knitcitations" class="uri">https://CRAN.R-project.org/package=knitcitations</a>&gt;.</p>
-<p>[3] J. Chávez, C. Barberena-Jonas, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. “Programmatic access to bacterial regulatory networks with regutools”. In: <em>bioRxiv</em> (2020). DOI: 10.1101/xxxyyy. &lt;URL: <a href="https://doi.org/10.1101/xxxyyy" class="uri">https://doi.org/10.1101/xxxyyy</a>&gt;.</p>
-<p>[4] J. Chávez, C. Barberena-Jonas, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. <em>regutools: an R package for data extraction from RegulonDB</em>. <a href="https://github.com/comunidadbioinfo/regutools" class="uri">https://github.com/comunidadbioinfo/regutools</a> - R package version 0.99.15. 2020. DOI: 10.18129/B9.bioc.regutools. &lt;URL: <a href="http://www.bioconductor.org/packages/regutools" class="uri">http://www.bioconductor.org/packages/regutools</a>&gt;.</p>
+<p>[3] J. Chávez, C. Barberena-Jonas, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. “Programmatic access to bacterial regulatory networks with regutools”. In: <em>bioRxiv</em> (2020). DOI: 10.1101/2020.04.29.068551. &lt;URL: <a href="https://doi.org/10.1101/2020.04.29.068551" class="uri">https://doi.org/10.1101/2020.04.29.068551</a>&gt;.</p>
+<p>[4] J. Chávez, C. Barberena-Jonas, J. E. Sotelo-Fonseca, J. Alquicira-Hernandez, et al. <em>regutools: an R package for data extraction from RegulonDB</em>. <a href="https://github.com/comunidadbioinfo/regutools" class="uri">https://github.com/comunidadbioinfo/regutools</a> - R package version 1.1.2. 2020. DOI: 10.18129/B9.bioc.regutools. &lt;URL: <a href="http://www.bioconductor.org/packages/regutools" class="uri">http://www.bioconductor.org/packages/regutools</a>&gt;.</p>
 <p>[5] G. Csárdi, R. core, H. Wickham, W. Chang, et al. <em>sessioninfo: R Session Information</em>. R package version 1.1.1. 2018. &lt;URL: <a href="https://CRAN.R-project.org/package=sessioninfo" class="uri">https://CRAN.R-project.org/package=sessioninfo</a>&gt;.</p>
 <p>[6] Gustavsen, J. A., Pai, Shraddha, et al. “RCy3: Network Biology using Cytoscape from within R”. In: <em>F1000Research</em> (2019). DOI: 10.12688/f1000research.20887.3.</p>
 <p>[7] F. Hahne and R. Ivanek. “Statistical Genomics: Methods and Protocols”. In: Ed. by E. Mathé and S. Davis. New York, NY: Springer New York, 2016. Chap. Visualizing Genomic Data Using Gviz and Bioconductor, pp. 335-351. ISBN: 978-1-4939-3578-9. DOI: 10.1007/978-1-4939-3578-9_16. &lt;URL: <a href="http://dx.doi.org/10.1007/978-1-4939-3578-9_16" class="uri">http://dx.doi.org/10.1007/978-1-4939-3578-9_16</a>&gt;.</p>
 <p>[8] M. Lawrence, W. Huber, H. Pagès, P. Aboyoun, et al. “Software for Computing and Annotating Genomic Ranges”. In: <em>PLoS Computational Biology</em> 9 (8 2013). DOI: 10.1371/journal.pcbi.1003118. &lt;URL: <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118" class="uri">http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118</a>}.&gt;</p>
 <p>[9] M. Lawrence, W. Huber, H. Pagès, P. Aboyoun, et al. “Software for Computing and Annotating Genomic Ranges”. In: <em>PLoS Computational Biology</em> 9 (8 2013). DOI: 10.1371/journal.pcbi.1003118. &lt;URL: <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118" class="uri">http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118</a>}.&gt;</p>
-<p>[10] M. Morgan and L. Shepherd. <em>AnnotationHub: Client to access AnnotationHub resources</em>. R package version 2.19.12. 2020.</p>
+<p>[10] M. Morgan and L. Shepherd. <em>AnnotationHub: Client to access AnnotationHub resources</em>. R package version 2.21.0. 2020.</p>
 <p>[11] K. Müller, H. Wickham, D. A. James, and S. Falcon. <em>RSQLite: ‘SQLite’ Interface for R</em>. R package version 2.2.0. 2020. &lt;URL: <a href="https://CRAN.R-project.org/package=RSQLite" class="uri">https://CRAN.R-project.org/package=RSQLite</a>&gt;.</p>
-<p>[12] A. Oleś, M. Morgan, and W. Huber. <em>BiocStyle: Standard styles for vignettes and other Bioconductor documents</em>. R package version 2.15.8. 2020. &lt;URL: <a href="https://github.com/Bioconductor/BiocStyle" class="uri">https://github.com/Bioconductor/BiocStyle</a>&gt;.</p>
-<p>[13] H. Pagès, P. Aboyoun, R. Gentleman, and S. DebRoy. <em>Biostrings: Efficient manipulation of biological strings</em>. R package version 2.55.7. 2020.</p>
-<p>[14] H. Pagès, M. Carlson, S. Falcon, and N. Li. <em>AnnotationDbi: Manipulation of SQLite-based annotations in Bioconductor</em>. R package version 1.49.1. 2020.</p>
-<p>[15] H. Pagès, M. Lawrence, and P. Aboyoun. <em>S4Vectors: Foundation of vector-like and list-like containers in Bioconductor</em>. R package version 0.25.15. 2020.</p>
+<p>[12] A. Oleś, M. Morgan, and W. Huber. <em>BiocStyle: Standard styles for vignettes and other Bioconductor documents</em>. R package version 2.17.0. 2020. &lt;URL: <a href="https://github.com/Bioconductor/BiocStyle" class="uri">https://github.com/Bioconductor/BiocStyle</a>&gt;.</p>
+<p>[13] H. Pagès, P. Aboyoun, R. Gentleman, and S. DebRoy. <em>Biostrings: Efficient manipulation of biological strings</em>. R package version 2.57.0. 2020.</p>
+<p>[14] H. Pagès, M. Carlson, S. Falcon, and N. Li. <em>AnnotationDbi: Manipulation of SQLite-based annotations in Bioconductor</em>. R package version 1.51.0. 2020.</p>
+<p>[15] H. Pagès, M. Lawrence, and P. Aboyoun. <em>S4Vectors: Foundation of vector-like and list-like containers in Bioconductor</em>. R package version 0.27.5. 2020.</p>
 <p>[16] R Core Team. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. Vienna, Austria, 2020. &lt;URL: <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>&gt;.</p>
 <p>[17] R Special Interest Group on Databases (R-SIG-DB), H. Wickham, and K. Müller. <em>DBI: R Database Interface</em>. R package version 1.1.0. 2019. &lt;URL: <a href="https://CRAN.R-project.org/package=DBI" class="uri">https://CRAN.R-project.org/package=DBI</a>&gt;.</p>
-<p>[18] L. Shepherd and M. Morgan. <em>BiocFileCache: Manage Files Across Sessions</em>. R package version 1.11.6. 2020.</p>
+<p>[18] L. Shepherd and M. Morgan. <em>BiocFileCache: Manage Files Across Sessions</em>. R package version 1.13.0. 2020.</p>
 <p>[19] H. Wickham. “testthat: Get Started with Testing”. In: <em>The R Journal</em> 3 (2011), pp. 5-10. &lt;URL: <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf" class="uri">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>&gt;.</p>
 <p>[20] Y. Xie. “knitr: A Comprehensive Tool for Reproducible Research in R”. In: <em>Implementing Reproducible Computational Research</em>. Ed. by V. Stodden, F. Leisch and R. D. Peng. ISBN 978-1466561595. Chapman and Hall/CRC, 2014. &lt;URL: <a href="http://www.crcpress.com/product/isbn/9781466561595" class="uri">http://www.crcpress.com/product/isbn/9781466561595</a>&gt;.</p>
 </div>

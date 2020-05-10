@@ -51,7 +51,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.15</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.2</span>
       </span>
     </div>
 
@@ -124,7 +124,7 @@
 
 <span class="co">## Connect to the RegulonDB database if necessary</span>
 <span class="kw">if</span>(!<span class="fu"><a href="https://rdrr.io/r/base/exists.html">exists</a></span>(<span class="st">'regulondb_conn'</span>)) <span class="no">regulondb_conn</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/connect_database.html">connect_database</a></span>()
-<span class="co">#&gt; snapshotDate(): 2020-03-31</span>
+<span class="co">#&gt; snapshotDate(): 2020-04-27</span>
 
 <span class="co">## Build a regulondb object</span>
 <span class="no">e_coli_regulondb</span> <span class="kw">&lt;-</span>
@@ -183,7 +183,7 @@
 <span class="co">#&gt; for data extraction from RegulonDB_. doi: 10.18129/B9.bioc.regutools</span>
 <span class="co">#&gt; (URL: https://doi.org/10.18129/B9.bioc.regutools),</span>
 <span class="co">#&gt; https://github.com/comunidadbioinfo/regutools - R package version</span>
-<span class="co">#&gt; 0.99.15, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span>
+<span class="co">#&gt; 1.1.2, &lt;URL: http://www.bioconductor.org/packages/regutools&gt;.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; A BibTeX entry for LaTeX users is</span>
 <span class="co">#&gt; </span>
@@ -192,15 +192,16 @@
 <span class="co">#&gt;     author = {Joselyn Chávez and Carmina Barberena-Jonas and Jesus Emiliano Sotelo-Fonseca and Jose Alquicira-Hernandez and Heladia Salgado and Leonardo Collado-Torres and Alejandro Reyes},</span>
 <span class="co">#&gt;     year = {2020},</span>
 <span class="co">#&gt;     url = {http://www.bioconductor.org/packages/regutools},</span>
-<span class="co">#&gt;     note = {https://github.com/comunidadbioinfo/regutools - R package version 0.99.15},</span>
+<span class="co">#&gt;     note = {https://github.com/comunidadbioinfo/regutools - R package version 1.1.2},</span>
 <span class="co">#&gt;     doi = {10.18129/B9.bioc.regutools},</span>
 <span class="co">#&gt;   }</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Chávez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span>
 <span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). "Programmatic access to</span>
 <span class="co">#&gt; bacterial regulatory networks with regutools." _bioRxiv_. doi:</span>
-<span class="co">#&gt; 10.1101/xxxyyy (URL: https://doi.org/10.1101/xxxyyy), &lt;URL:</span>
-<span class="co">#&gt; https://doi.org/10.1101/xxxyyy&gt;.</span>
+<span class="co">#&gt; 10.1101/2020.04.29.068551 (URL:</span>
+<span class="co">#&gt; https://doi.org/10.1101/2020.04.29.068551), &lt;URL:</span>
+<span class="co">#&gt; https://doi.org/10.1101/2020.04.29.068551&gt;.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; A BibTeX entry for LaTeX users is</span>
 <span class="co">#&gt; </span>
@@ -209,8 +210,8 @@
 <span class="co">#&gt;     author = {Joselyn Chávez and Carmina Barberena-Jonas and Jesus Emiliano Sotelo-Fonseca and Jose Alquicira-Hernandez and Heladia Salgado and Leonardo Collado-Torres and Alejandro Reyes},</span>
 <span class="co">#&gt;     year = {2020},</span>
 <span class="co">#&gt;     journal = {bioRxiv},</span>
-<span class="co">#&gt;     doi = {10.1101/xxxyyy},</span>
-<span class="co">#&gt;     url = {https://doi.org/10.1101/xxxyyy},</span>
+<span class="co">#&gt;     doi = {10.1101/2020.04.29.068551},</span>
+<span class="co">#&gt;     url = {https://doi.org/10.1101/2020.04.29.068551},</span>
 <span class="co">#&gt;   }</span></pre></div>
 <p>Please note that the <code>regutools</code> was only made possible thanks to many other R and bioinformatics software authors, which are cited either in the vignettes and/or the paper(s) describing this package.</p>
 </div>
@@ -293,8 +294,11 @@
 <ul class="list-unstyled">
 <li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
 <li><a href="https://bioconductor.org/checkResults/release/bioc-LATEST/regutools"><img src="http://www.bioconductor.org/shields/build/release/bioc/regutools.svg" alt="BioC status"></a></li>
+<li><a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/regutools"><img src="http://www.bioconductor.org/shields/build/devel/bioc/regutools.svg" alt="BioC dev status"></a></li>
 <li><a href="https://codecov.io/gh/ComunidadBioInfo/regutools?branch=master"><img src="https://codecov.io/gh/ComunidadBioInfo/regutools/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://github.com/ComunidadBioInfo/regutools/actions"><img src="https://github.com/ComunidadBioInfo/regutools/workflows/R-CMD-check-bioc/badge.svg" alt="R build status"></a></li>
+<li><a href="https://support.bioconductor.org/t/regutools/"><img src="http://www.bioconductor.org/shields/posts/regutools.svg" alt="Support site activity, last 6 months: tagged questions/avg. answers per question/avg. comments per question/accepted answers, or 0 if no tagged posts."></a></li>
+<li><a href="https://github.com/comunidadbioinfo/regutools/issues"><img src="https://img.shields.io/github/issues/comunidadbioinfo/regutools" alt="GitHub issues"></a></li>
 </ul>
 </div>
 </div>
