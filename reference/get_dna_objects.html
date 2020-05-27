@@ -171,7 +171,7 @@ or <code>"terminator"</code>.</p></td>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
 <span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) {
       <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()
-  }</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-01</span></div><div class='input'>
+  }</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-23</span></div><div class='input'>
 <span class='co'>## Build the regulondb object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
@@ -188,11 +188,11 @@ or <code>"terminator"</code>.</p></td>
 #&gt;   [1]      chr  337-2799      + | ECK120000987        gene        thrA
 #&gt;   [2]      chr 2801-3733      + | ECK120000988        gene        thrB
 #&gt;   [3]      chr   190-255      + | ECK120001251        gene        thrL
-#&gt;                                             description
-#&gt;                                             &lt;character&gt;
-#&gt;   [1] fused aspartate kinase/homoserine dehydrogenase 1
-#&gt;   [2]                                 homoserine kinase
-#&gt;   [3]                  &lt;i&gt;thr&lt;/i&gt; operon leader peptide
+#&gt;                  description
+#&gt;                  &lt;character&gt;
+#&gt;   [1] fused aspartate kina..
+#&gt;   [2]      homoserine kinase
+#&gt;   [3] &lt;i&gt;thr&lt;/i&gt; operon le..
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
 <span class='co'>## Get genes providing Genomic Ranges</span>
@@ -206,11 +206,11 @@ or <code>"terminator"</code>.</p></td>
 #&gt;   [1]      chr  337-2799      + | ECK120000987        gene        thrA
 #&gt;   [2]      chr 2801-3733      + | ECK120000988        gene        thrB
 #&gt;   [3]      chr   190-255      + | ECK120001251        gene        thrL
-#&gt;                                             description
-#&gt;                                             &lt;character&gt;
-#&gt;   [1] fused aspartate kinase/homoserine dehydrogenase 1
-#&gt;   [2]                                 homoserine kinase
-#&gt;   [3]                  &lt;i&gt;thr&lt;/i&gt; operon leader peptide
+#&gt;                  description
+#&gt;                  &lt;character&gt;
+#&gt;   [1] fused aspartate kina..
+#&gt;   [2]      homoserine kinase
+#&gt;   [3] &lt;i&gt;thr&lt;/i&gt; operon le..
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
 <span class='co'>## Get aditional elements within genomic positions</span>
@@ -231,32 +231,19 @@ or <code>"terminator"</code>.</p></td>
 #&gt;   [17]      chr      3396      + | ECK125230836    promoter
 #&gt;   [18]      chr      3401      + | ECK125230837    promoter
 #&gt;   [19]      chr      4241      + | ECK125230838    promoter
-#&gt;                                name
-#&gt;                         &lt;character&gt;
-#&gt;    [1]                         thrA
-#&gt;    [2]                         thrB
-#&gt;    [3]                         thrL
-#&gt;    [4]  thrLp promoter with Sigma70
-#&gt;    [5]  TSS_1 promoter with unknown
-#&gt;    ...                          ...
-#&gt;   [15] TSS_12 promoter with unknown
-#&gt;   [16] TSS_13 promoter with unknown
-#&gt;   [17] TSS_14 promoter with unknown
-#&gt;   [18] TSS_15 promoter with unknown
-#&gt;   [19] TSS_16 promoter with unknown
-#&gt;                                              description
-#&gt;                                              &lt;character&gt;
-#&gt;    [1] fused aspartate kinase/homoserine dehydrogenase 1
-#&gt;    [2]                                 homoserine kinase
-#&gt;    [3]                  &lt;i&gt;thr&lt;/i&gt; operon leader peptide
-#&gt;    [4]                       thrLp promoter with Sigma70
-#&gt;    [5]                       TSS_1 promoter with unknown
-#&gt;    ...                                               ...
-#&gt;   [15]                      TSS_12 promoter with unknown
-#&gt;   [16]                      TSS_13 promoter with unknown
-#&gt;   [17]                      TSS_14 promoter with unknown
-#&gt;   [18]                      TSS_15 promoter with unknown
-#&gt;   [19]                      TSS_16 promoter with unknown
+#&gt;                          name            description
+#&gt;                   &lt;character&gt;            &lt;character&gt;
+#&gt;    [1]                   thrA fused aspartate kina..
+#&gt;    [2]                   thrB      homoserine kinase
+#&gt;    [3]                   thrL &lt;i&gt;thr&lt;/i&gt; operon le..
+#&gt;    [4] thrLp promoter with .. thrLp promoter with ..
+#&gt;    [5] TSS_1 promoter with .. TSS_1 promoter with ..
+#&gt;    ...                    ...                    ...
+#&gt;   [15] TSS_12 promoter with.. TSS_12 promoter with..
+#&gt;   [16] TSS_13 promoter with.. TSS_13 promoter with..
+#&gt;   [17] TSS_14 promoter with.. TSS_14 promoter with..
+#&gt;   [18] TSS_15 promoter with.. TSS_15 promoter with..
+#&gt;   [19] TSS_16 promoter with.. TSS_16 promoter with..
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div></pre>
   </div>

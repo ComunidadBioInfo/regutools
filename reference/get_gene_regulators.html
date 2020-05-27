@@ -166,7 +166,7 @@ negative (-) or dual (+/-)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-01</span></div><div class='input'>
+<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-23</span></div><div class='input'>
 <span class='co'>## Build the regulon db object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
@@ -183,9 +183,9 @@ negative (-) or dual (+/-)</p>
     <span class='kw'>output.type</span> <span class='kw'>=</span> <span class='st'>"TF"</span>,
     <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"onerow"</span>
 )</div><div class='output co'>#&gt; regulondb_result with 1 row and 2 columns
-#&gt;         genes                 regulators
-#&gt;   &lt;character&gt;                &lt;character&gt;
-#&gt; 1        araC CRP(+), AraC(+/-), XylR(-)</div><div class='input'>
+#&gt;         genes             regulators
+#&gt;   &lt;character&gt;            &lt;character&gt;
+#&gt; 1        araC CRP(+), AraC(+/-), X..</div><div class='input'>
 <span class='co'>## Get genes that regulate araC in table format</span>
 <span class='fu'>get_gene_regulators</span>(
     <span class='no'>e_coli_regulondb</span>,

@@ -161,7 +161,7 @@ about the binding sites of the transcription factors.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-01</span></div><div class='input'>
+<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-23</span></div><div class='input'>
 <span class='co'>## Build the regulon db object</span>
 <span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
     <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
@@ -186,19 +186,19 @@ about the binding sites of the transcription factors.</p>
 #&gt;        ECK120012913-araE   E.coli 2982265-2982281      - |
 #&gt;        ECK125108641-xylA   E.coli 3730824-3730840      - |
 #&gt;        ECK125108643-xylA   E.coli 3730847-3730863      - |
-#&gt;                                                       sequence
-#&gt;                                                    &lt;character&gt;
-#&gt;   ECK120015742-araB-araC ataaaaagcgTCAGGTAGGATCCGCTAatcttatgga
-#&gt;   ECK120012328-araB-araC ccgctaatctTATGGATAAAAATGCTAtggcatagca
-#&gt;   ECK120012320-araB-araC tctataatcaCGGCAGAAAAGTCCACAttgattattt
-#&gt;   ECK120012323-araB-araC caaaaacgcgTAACAAAAGTGTCTATAatcacggcag
-#&gt;   ECK120012603-araB-araC attcagagaaGAAACCAATTGTCCATAttgcatcaga
-#&gt;                      ...                                   ...
-#&gt;        ECK120012333-araF ccaaagacaaCAAGGATTTCCAGGCTAatcttatgga
-#&gt;        ECK120012915-araE tccatatttaTGCTGTTTCCGACCTGAcacctgcgtg
-#&gt;        ECK120012913-araE cgacatgtcgCAGCAATTTAATCCATAtttatgctgt
-#&gt;        ECK125108641-xylA taacataattGAGCAACTGAAAGGGAGtgcccaatat
-#&gt;        ECK125108643-xylA attatctcaaTAGCAGTGTGAAATAACataattgagc
+#&gt;                                        sequence
+#&gt;                                     &lt;character&gt;
+#&gt;   ECK120015742-araB-araC ataaaaagcgTCAGGTAGGA..
+#&gt;   ECK120012328-araB-araC ccgctaatctTATGGATAAA..
+#&gt;   ECK120012320-araB-araC tctataatcaCGGCAGAAAA..
+#&gt;   ECK120012323-araB-araC caaaaacgcgTAACAAAAGT..
+#&gt;   ECK120012603-araB-araC attcagagaaGAAACCAATT..
+#&gt;                      ...                    ...
+#&gt;        ECK120012333-araF ccaaagacaaCAAGGATTTC..
+#&gt;        ECK120012915-araE tccatatttaTGCTGTTTCC..
+#&gt;        ECK120012913-araE cgacatgtcgCAGCAATTTA..
+#&gt;        ECK125108641-xylA taacataattGAGCAACTGA..
+#&gt;        ECK125108643-xylA attatctcaaTAGCAGTGTG..
 #&gt;   -------
 #&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div></pre>
   </div>
