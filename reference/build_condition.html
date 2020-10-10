@@ -89,12 +89,6 @@ The output is used in get_dataset()." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -135,7 +129,7 @@ condition to query database.
 The output is used in <code><a href='get_dataset.html'>get_dataset()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>build_condition</span>(<span class='no'>regulondb</span>, <span class='no'>dataset</span>, <span class='no'>filters</span>, <span class='no'>operator</span>, <span class='no'>interval</span>, <span class='no'>partialmatch</span>)</pre>
+    <pre class="usage"><span class='fu'>build_condition</span><span class='op'>(</span><span class='va'>regulondb</span>, <span class='va'>dataset</span>, <span class='va'>filters</span>, <span class='va'>operator</span>, <span class='va'>interval</span>, <span class='va'>partialmatch</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,33 +167,39 @@ or partial match in the query</p></td>
 
     <p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> with the sql logical condition to query the dataset
 .</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Carmina Barberena Jonás, Jesús Emiliano Sotelo Fonseca,
+José Alquicira Hernández, Joselyn Chávez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/RtmpyXyyGy/BiocFileCache</span></div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-23</span></div><div class='output co'>#&gt; <span class='message'>adding rname 'https://www.dropbox.com/s/eod8vdq4fthvjcr/regulondb_v10.6.2_DM_sqlite3.db?dl=1'</span></div><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/Rtmp5ibXmO/BiocFileCache</span></div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-09-03</span></div><div class='output co'>#&gt; <span class='message'>adding rname 'https://www.dropbox.com/s/eod8vdq4fthvjcr/regulondb_v10.6.2_DM_sqlite3.db?dl=1'</span></div><div class='input'>
 <span class='co'>## Build the regulon db object</span>
-<span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
-        <span class='kw'>database_conn</span> <span class='kw'>=</span> <span class='no'>regulondb_conn</span>,
-        <span class='kw'>organism</span> <span class='kw'>=</span> <span class='st'>"E.coli"</span>,
-        <span class='kw'>database_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>,
-        <span class='kw'>genome_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>
-    )
+<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
+    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
+        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
+        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,
+        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
+        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
+    <span class='op'>)</span>
 
 <span class='co'>## Build the condition for ara</span>
-<span class='fu'>build_condition</span>(
-    <span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>dataset</span> <span class='kw'>=</span> <span class='st'>"GENE"</span>,
-    <span class='kw'>filters</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-        <span class='kw'>name</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ara"</span>),
-        <span class='kw'>strand</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"forward"</span>),
-        <span class='kw'>posright</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"2000"</span>, <span class='st'>"40000"</span>)
-    ),
-    <span class='kw'>operator</span> <span class='kw'>=</span> <span class='st'>"AND"</span>,
-    <span class='kw'>interval</span> <span class='kw'>=</span> <span class='st'>"posright"</span>,
-    <span class='kw'>partialmatch</span> <span class='kw'>=</span> <span class='st'>"name"</span>
-)</div><div class='output co'>#&gt; [1] "(name like  '%ara%')AND(posright &gt;= 2000 AND posright &lt;= 40000) AND (name like  '%ara%')AND(strand = 'forward')"</div></pre>
+<span class='fu'>build_condition</span><span class='op'>(</span>
+    <span class='va'>e_coli_regulondb</span>,
+    dataset <span class='op'>=</span> <span class='st'>"GENE"</span>,
+    filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+        name <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ara"</span><span class='op'>)</span>,
+        strand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"forward"</span><span class='op'>)</span>,
+        posright <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"2000"</span>, <span class='st'>"40000"</span><span class='op'>)</span>
+    <span class='op'>)</span>,
+    operator <span class='op'>=</span> <span class='st'>"AND"</span>,
+    interval <span class='op'>=</span> <span class='st'>"posright"</span>,
+    partialmatch <span class='op'>=</span> <span class='st'>"name"</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "(name like  '%ara%')AND(posright &gt;= 2000 AND posright &lt;= 40000) AND (name like  '%ara%')AND(strand = 'forward')"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -215,7 +215,7 @@ or partial match in the query</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

@@ -90,12 +90,6 @@ TFs and their regulated genes" />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -137,7 +131,7 @@ onerow or table, or a vector with genes and retrieves information about the
 TFs and their regulated genes</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_regulatory_summary</span>(<span class='no'>regulondb</span>, <span class='no'>gene_regulators</span>)</pre>
+    <pre class="usage"><span class='fu'>get_regulatory_summary</span><span class='op'>(</span><span class='va'>regulondb</span>, <span class='va'>gene_regulators</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,30 +157,36 @@ genes</p></td>
 <li><p>Name(s) of regulated genes</p></li>
 </ul>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Carmina Barberena Jonas, Jesús Emiliano Sotelo Fonseca,
+José Alquicira Hernández, Joselyn Chávez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-23</span></div><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-09-03</span></div><div class='input'>
 <span class='co'>## Build the regulon db object</span>
-<span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
-        <span class='kw'>database_conn</span> <span class='kw'>=</span> <span class='no'>regulondb_conn</span>,
-        <span class='kw'>organism</span> <span class='kw'>=</span> <span class='st'>"E.coli"</span>,
-        <span class='kw'>database_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>,
-        <span class='kw'>genome_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>
-    )
+<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
+    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
+        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
+        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,
+        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
+        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
+    <span class='op'>)</span>
 
 <span class='co'>## Get the araC regulators</span>
-<span class='no'>araC_regulation</span> <span class='kw'>&lt;-</span>
-    <span class='fu'><a href='get_gene_regulators.html'>get_gene_regulators</a></span>(
-        <span class='no'>e_coli_regulondb</span>,
-        <span class='kw'>genes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"araC"</span>),
-        <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"multirow"</span>,
-        <span class='kw'>output.type</span> <span class='kw'>=</span> <span class='st'>"TF"</span>
-    )
+<span class='va'>araC_regulation</span> <span class='op'>&lt;-</span>
+    <span class='fu'><a href='get_gene_regulators.html'>get_gene_regulators</a></span><span class='op'>(</span>
+        <span class='va'>e_coli_regulondb</span>,
+        genes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"araC"</span><span class='op'>)</span>,
+        format <span class='op'>=</span> <span class='st'>"multirow"</span>,
+        output.type <span class='op'>=</span> <span class='st'>"TF"</span>
+    <span class='op'>)</span>
 
 <span class='co'>## Summarize the araC regulation</span>
-<span class='fu'>get_regulatory_summary</span>(<span class='no'>e_coli_regulondb</span>, <span class='no'>araC_regulation</span>)</div><div class='output co'>#&gt; regulondb_result with 3 rows and 7 columns
+<span class='fu'>get_regulatory_summary</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, <span class='va'>araC_regulation</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; regulondb_result with 3 rows and 7 columns
 #&gt;            TF Regulated_genes_per_TF          Percent   Activator   Repressor
 #&gt;   &lt;character&gt;            &lt;character&gt;      &lt;character&gt; &lt;character&gt; &lt;character&gt;
 #&gt; 1        AraC                      1 33.3333333333333           0           0
@@ -198,9 +198,10 @@ genes</p></td>
 #&gt; 2           0            araC
 #&gt; 3           0            araC</div><div class='input'>
 <span class='co'>## Retrieve summary of genes 'araC' and 'modB'</span>
-<span class='fu'>get_regulatory_summary</span>(<span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>gene_regulators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"araC"</span>, <span class='st'>"modB"</span>)
-)</div><div class='output co'>#&gt; regulondb_result with 4 rows and 7 columns
+<span class='fu'>get_regulatory_summary</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>,
+    gene_regulators <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"araC"</span>, <span class='st'>"modB"</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; regulondb_result with 4 rows and 7 columns
 #&gt;            TF Regulated_genes_per_TF     Percent   Activator   Repressor
 #&gt;   &lt;character&gt;            &lt;character&gt; &lt;character&gt; &lt;character&gt; &lt;character&gt;
 #&gt; 1        AraC                      1          20           0           0
@@ -214,9 +215,10 @@ genes</p></td>
 #&gt; 3           0            modB
 #&gt; 4           0            araC</div><div class='input'>
 <span class='co'>## Obtain the summary for 'ECK120000050' and 'modB'</span>
-<span class='fu'>get_regulatory_summary</span>(<span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>gene_regulators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ECK120000050"</span>, <span class='st'>"modB"</span>)
-)</div><div class='output co'>#&gt; regulondb_result with 4 rows and 7 columns
+<span class='fu'>get_regulatory_summary</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>,
+    gene_regulators <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ECK120000050"</span>, <span class='st'>"modB"</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; regulondb_result with 4 rows and 7 columns
 #&gt;            TF Regulated_genes_per_TF     Percent   Activator   Repressor
 #&gt;   &lt;character&gt;            &lt;character&gt; &lt;character&gt; &lt;character&gt; &lt;character&gt;
 #&gt; 1        AraC                      1          20           0           0
@@ -244,7 +246,7 @@ genes</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

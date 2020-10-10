@@ -88,12 +88,6 @@ datasets can be selected and filtered." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -133,16 +127,16 @@ datasets can be selected and filtered." />
 datasets can be selected and filtered.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_dataset</span>(
-  <span class='no'>regulondb</span>,
-  <span class='kw'>dataset</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>attributes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>filters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>and</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>interval</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>partialmatch</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>output_format</span> <span class='kw'>=</span> <span class='st'>"regulondb_result"</span>
-)</pre>
+    <pre class="usage"><span class='fu'>get_dataset</span><span class='op'>(</span>
+  <span class='va'>regulondb</span>,
+  dataset <span class='op'>=</span> <span class='cn'>NULL</span>,
+  attributes <span class='op'>=</span> <span class='cn'>NULL</span>,
+  filters <span class='op'>=</span> <span class='cn'>NULL</span>,
+  and <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  interval <span class='op'>=</span> <span class='cn'>NULL</span>,
+  partialmatch <span class='op'>=</span> <span class='cn'>NULL</span>,
+  output_format <span class='op'>=</span> <span class='st'>"regulondb_result"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -191,21 +185,27 @@ are "regulondb_result", "GRanges", "DNAStringSet" or "BStringSet".</p></td>
     <p>By default, a regulon_results object. If specified in the parameter
 output_format, it can also return either a GRanges object or a Biostrings
 object.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Carmina Barberena Jonas, Jesús Emiliano Sotelo Fonseca,
+José Alquicira Hernández, Joselyn Chávez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-23</span></div><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-09-03</span></div><div class='input'>
 <span class='co'>## Build the regulon db object</span>
-<span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
-        <span class='kw'>database_conn</span> <span class='kw'>=</span> <span class='no'>regulondb_conn</span>,
-        <span class='kw'>organism</span> <span class='kw'>=</span> <span class='st'>"E.coli"</span>,
-        <span class='kw'>database_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>,
-        <span class='kw'>genome_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>
-    )
+<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
+    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
+        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
+        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,
+        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
+        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
+    <span class='op'>)</span>
 
 <span class='co'>## Obtain all the information from the "GENE" dataset</span>
-<span class='fu'>get_dataset</span>(<span class='no'>e_coli_regulondb</span>, <span class='kw'>dataset</span> <span class='kw'>=</span> <span class='st'>"GENE"</span>)</div><div class='output co'>#&gt; regulondb_result with 4602 rows and 33 columns
+<span class='fu'>get_dataset</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, dataset <span class='op'>=</span> <span class='st'>"GENE"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; regulondb_result with 4602 rows and 33 columns
 #&gt;                id        name     bnumber          gi               synonyms
 #&gt;       &lt;character&gt; &lt;character&gt; &lt;character&gt; &lt;character&gt;            &lt;character&gt;
 #&gt; 1    ECK120000001         alr       b4053          NA ECK4045,EG10001,alr5..
@@ -337,10 +337,11 @@ object.</p>
 #&gt; 4601                       NA              NA                      NA
 #&gt; 4602  ECK120009705\tsdhCDAB..         Sigma70 ECK120011345\tArcA EC..</div><div class='input'>
 <span class='co'>## Get the attributes posright and name from the "GENE" dataset</span>
-<span class='fu'>get_dataset</span>(<span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>dataset</span> <span class='kw'>=</span> <span class='st'>"GENE"</span>,
-    <span class='kw'>attributes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"posright"</span>, <span class='st'>"name"</span>)
-)</div><div class='output co'>#&gt; regulondb_result with 4602 rows and 2 columns
+<span class='fu'>get_dataset</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>,
+    dataset <span class='op'>=</span> <span class='st'>"GENE"</span>,
+    attributes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"posright"</span>, <span class='st'>"name"</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; regulondb_result with 4602 rows and 2 columns
 #&gt;       posright        name
 #&gt;      &lt;integer&gt; &lt;character&gt;
 #&gt; 1      4266861         alr
@@ -357,19 +358,20 @@ object.</p>
 <span class='co'>## From "GENE" dataset, get the gene name, strand, posright, product name</span>
 <span class='co'>## and id of all genes regulated with name like "ara", strand as "forward"</span>
 <span class='co'>## with a position right between 2000 and 40000</span>
-<span class='fu'>get_dataset</span>(
-    <span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>dataset</span> <span class='kw'>=</span> <span class='st'>"GENE"</span>,
-    <span class='kw'>attributes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"name"</span>, <span class='st'>"strand"</span>, <span class='st'>"posright"</span>, <span class='st'>"product_name"</span>, <span class='st'>"id"</span>),
-    <span class='kw'>filters</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-        <span class='kw'>name</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ara"</span>),
-        <span class='kw'>strand</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"forward"</span>),
-        <span class='kw'>posright</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"2000"</span>, <span class='st'>"40000"</span>)
-    ),
-    <span class='kw'>and</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-    <span class='kw'>partialmatch</span> <span class='kw'>=</span> <span class='st'>"name"</span>,
-    <span class='kw'>interval</span> <span class='kw'>=</span> <span class='st'>"posright"</span>
-)</div><div class='output co'>#&gt; regulondb_result with 1 row and 5 columns
+<span class='fu'>get_dataset</span><span class='op'>(</span>
+    <span class='va'>e_coli_regulondb</span>,
+    dataset <span class='op'>=</span> <span class='st'>"GENE"</span>,
+    attributes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"name"</span>, <span class='st'>"strand"</span>, <span class='st'>"posright"</span>, <span class='st'>"product_name"</span>, <span class='st'>"id"</span><span class='op'>)</span>,
+    filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+        name <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ara"</span><span class='op'>)</span>,
+        strand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"forward"</span><span class='op'>)</span>,
+        posright <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"2000"</span>, <span class='st'>"40000"</span><span class='op'>)</span>
+    <span class='op'>)</span>,
+    and <span class='op'>=</span> <span class='cn'>TRUE</span>,
+    partialmatch <span class='op'>=</span> <span class='st'>"name"</span>,
+    interval <span class='op'>=</span> <span class='st'>"posright"</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; regulondb_result with 1 row and 5 columns
 #&gt;          name      strand  posright           product_name           id
 #&gt;   &lt;character&gt; &lt;character&gt; &lt;integer&gt;            &lt;character&gt;  &lt;character&gt;
 #&gt; 1        carA     forward     30799 carbamoyl phosphate .. ECK120000130</div></pre>
@@ -388,7 +390,7 @@ object.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

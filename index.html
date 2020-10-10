@@ -58,12 +58,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -93,9 +87,9 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<div id="regutools" class="section level1">
+<div id="regutools-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#regutools" class="anchor"></a>regutools <img src="reference/figures/logo.png" align="right" width="150px">
+<a href="#regutools-" class="anchor"></a>regutools <img src="reference/figures/logo.png" align="right" width="150px">
 </h1></div>
 <!-- badges: start -->
 
@@ -105,47 +99,50 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the released version of <code>regutools</code> from <a href="http://bioconductor.org/">Bioconductor</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span>(<span class="st">"BiocManager"</span>, <span class="kw">quietly</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
-    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BiocManager"</span>)
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
 
-<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"regutools"</span>)
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"regutools"</span><span class="op">)</span>
 
 <span class="co">## Check that you have a valid Bioconductor installation</span>
-<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/valid.html">valid</a></span>()</pre></div>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/valid.html">valid</a></span><span class="op">(</span><span class="op">)</span></pre></div>
 <p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"ComunidadBioinfo/regutools"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"ComunidadBioinfo/regutools"</span><span class="op">)</span></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>This is a basic example which shows you how to use <code>regutools</code>. For more details, please check the vignette.</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">'regutools'</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/ComunidadBioInfo/regutools">'regutools'</a></span><span class="op">)</span>
 <span class="co">## basic example code</span>
 
 <span class="co">## Connect to the RegulonDB database if necessary</span>
-<span class="kw">if</span>(!<span class="fu"><a href="https://rdrr.io/r/base/exists.html">exists</a></span>(<span class="st">'regulondb_conn'</span>)) <span class="no">regulondb_conn</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/connect_database.html">connect_database</a></span>()
+<span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/exists.html">exists</a></span><span class="op">(</span><span class="st">'regulondb_conn'</span><span class="op">)</span><span class="op">)</span> <span class="va">regulondb_conn</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/connect_database.html">connect_database</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; snapshotDate(): 2020-04-27</span>
 
 <span class="co">## Build a regulondb object</span>
-<span class="no">e_coli_regulondb</span> <span class="kw">&lt;-</span>
-    <span class="fu"><a href="reference/regulondb.html">regulondb</a></span>(
-        <span class="kw">database_conn</span> <span class="kw">=</span> <span class="no">regulondb_conn</span>,
-        <span class="kw">organism</span> <span class="kw">=</span> <span class="st">"E.coli"</span>,
-        <span class="kw">database_version</span> <span class="kw">=</span> <span class="st">"1"</span>,
-        <span class="kw">genome_version</span> <span class="kw">=</span> <span class="st">"1"</span>
-    )
+<span class="va">e_coli_regulondb</span> <span class="op">&lt;-</span>
+    <span class="fu"><a href="reference/regulondb.html">regulondb</a></span><span class="op">(</span>
+        database_conn <span class="op">=</span> <span class="va">regulondb_conn</span>,
+        organism <span class="op">=</span> <span class="st">"E.coli"</span>,
+        database_version <span class="op">=</span> <span class="st">"1"</span>,
+        genome_version <span class="op">=</span> <span class="st">"1"</span>
+    <span class="op">)</span>
 
 <span class="co">## Get the araC regulators</span>
-<span class="no">araC_regulation</span> <span class="kw">&lt;-</span>
-    <span class="fu"><a href="reference/get_gene_regulators.html">get_gene_regulators</a></span>(
-        <span class="no">e_coli_regulondb</span>,
-        <span class="kw">genes</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"araC"</span>),
-        <span class="kw">format</span> <span class="kw">=</span> <span class="st">"multirow"</span>,
-        <span class="kw">output.type</span> <span class="kw">=</span> <span class="st">"TF"</span>
-    )
+<span class="va">araC_regulation</span> <span class="op">&lt;-</span>
+    <span class="fu"><a href="reference/get_gene_regulators.html">get_gene_regulators</a></span><span class="op">(</span>
+        <span class="va">e_coli_regulondb</span>,
+        genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"araC"</span><span class="op">)</span>,
+        format <span class="op">=</span> <span class="st">"multirow"</span>,
+        output.type <span class="op">=</span> <span class="st">"TF"</span>
+    <span class="op">)</span>
 
 <span class="co">## Summarize the araC regulation</span>
-<span class="fu"><a href="reference/get_regulatory_summary.html">get_regulatory_summary</a></span>(<span class="no">e_coli_regulondb</span>, <span class="no">araC_regulation</span>)
+<span class="fu"><a href="reference/get_regulatory_summary.html">get_regulatory_summary</a></span><span class="op">(</span><span class="va">e_coli_regulondb</span>, <span class="va">araC_regulation</span><span class="op">)</span>
 <span class="co">#&gt; regulondb_result with 3 rows and 7 columns</span>
 <span class="co">#&gt;            TF Regulated_genes_per_TF          Percent   Activator   Repressor</span>
 <span class="co">#&gt;   &lt;character&gt;            &lt;character&gt;      &lt;character&gt; &lt;character&gt; &lt;character&gt;</span>
@@ -167,16 +164,18 @@
 <h2 class="hasAnchor">
 <a href="#installation-instructions" class="anchor"></a>Installation instructions</h2>
 <p>Get the latest stable <code>R</code> release from <a href="http://cran.r-project.org/">CRAN</a>. Then install <code>regutools</code> using from <a href="http://bioconductor.org/">Bioconductor</a> the following code:</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span>(<span class="st">"BiocManager"</span>, <span class="kw">quietly</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
-    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BiocManager"</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
 
-<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"regutools"</span>)</pre></div>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"regutools"</span><span class="op">)</span></pre></div>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h2>
 <p>Below is the citation output from using <code><a href="https://rdrr.io/r/utils/citation.html">citation('regutools')</a></code> in R. Please run this yourself to check for any updates on how to cite <strong>regutools</strong>.</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">'regutools'</span>), <span class="kw">bibtex</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">'regutools'</span><span class="op">)</span>, bibtex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Chávez J, Barberena-Jonas C, Sotelo-Fonseca JE, Alquicira-Hernandez J,</span>
 <span class="co">#&gt; Salgado H, Collado-Torres L, Reyes A (2020). _regutools: an R package</span>
@@ -310,7 +309,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

@@ -90,12 +90,6 @@ internet connection." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -137,10 +131,10 @@ that subsequent calls will run faster. This function requires an active
 internet connection.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>connect_database</span>(
-  <span class='kw'>ah</span> <span class='kw'>=</span> <span class='kw pkg'>AnnotationHub</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html'>AnnotationHub</a></span>(),
-  <span class='kw'>bfc</span> <span class='kw'>=</span> <span class='kw pkg'>BiocFileCache</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>BiocFileCache</a></span>()
-)</pre>
+    <pre class="usage"><span class='fu'>connect_database</span><span class='op'>(</span>
+  ah <span class='op'>=</span> <span class='fu'>AnnotationHub</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html'>AnnotationHub</a></span><span class='op'>(</span><span class='op'>)</span>,
+  bfc <span class='op'>=</span> <span class='fu'>BiocFileCache</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/BiocFileCache/man/BiocFileCache-class.html'>BiocFileCache</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,9 +161,11 @@ connection to the RegulonDB database.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'>connect_database</span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-23</span></div><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'>connect_database</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-09-03</span></div><div class='input'>
 <span class='co'>## Connect to the database without using AnnotationHub</span>
-<span class='no'>regulondb_conn_noAH</span> <span class='kw'>&lt;-</span> <span class='fu'>connect_database</span>(<span class='kw'>ah</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</div></pre>
+<span class='va'>regulondb_conn_noAH</span> <span class='op'>&lt;-</span> <span class='fu'>connect_database</span><span class='op'>(</span>ah <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -185,7 +181,7 @@ connection to the RegulonDB database.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

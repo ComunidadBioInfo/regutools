@@ -90,12 +90,6 @@ negative (-) or dual (+/-)" />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -137,7 +131,7 @@ The effect of regulators over the gene of interest can be positive (+),
 negative (-) or dual (+/-)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_gene_regulators</span>(<span class='no'>regulondb</span>, <span class='no'>genes</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"multirow"</span>, <span class='kw'>output.type</span> <span class='kw'>=</span> <span class='st'>"TF"</span>)</pre>
+    <pre class="usage"><span class='fu'>get_gene_regulators</span><span class='op'>(</span><span class='va'>regulondb</span>, <span class='va'>genes</span>, format <span class='op'>=</span> <span class='st'>"multirow"</span>, output.type <span class='op'>=</span> <span class='st'>"TF"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,36 +157,43 @@ negative (-) or dual (+/-)</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <a href='regulondb_result-class.html'>regulondb_result</a> object.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Carmina Barberena Jonas, Jesús Emiliano Sotelo Fonseca,
+José Alquicira Hernández, Joselyn Chávez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span>(<span class='st'>"regulondb_conn"</span>)) <span class='no'>regulondb_conn</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span>()</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-05-23</span></div><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-09-03</span></div><div class='input'>
 <span class='co'>## Build the regulon db object</span>
-<span class='no'>e_coli_regulondb</span> <span class='kw'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span>(
-        <span class='kw'>database_conn</span> <span class='kw'>=</span> <span class='no'>regulondb_conn</span>,
-        <span class='kw'>organism</span> <span class='kw'>=</span> <span class='st'>"E.coli"</span>,
-        <span class='kw'>database_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>,
-        <span class='kw'>genome_version</span> <span class='kw'>=</span> <span class='st'>"1"</span>
-    )
+<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
+    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
+        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
+        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,
+        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
+        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
+    <span class='op'>)</span>
 
 <span class='co'>## Get Transcription factors that regulate araC in one row</span>
-<span class='fu'>get_gene_regulators</span>(
-    <span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>genes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"araC"</span>),
-    <span class='kw'>output.type</span> <span class='kw'>=</span> <span class='st'>"TF"</span>,
-    <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"onerow"</span>
-)</div><div class='output co'>#&gt; regulondb_result with 1 row and 2 columns
+<span class='fu'>get_gene_regulators</span><span class='op'>(</span>
+    <span class='va'>e_coli_regulondb</span>,
+    genes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"araC"</span><span class='op'>)</span>,
+    output.type <span class='op'>=</span> <span class='st'>"TF"</span>,
+    format <span class='op'>=</span> <span class='st'>"onerow"</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; regulondb_result with 1 row and 2 columns
 #&gt;         genes             regulators
 #&gt;   &lt;character&gt;            &lt;character&gt;
 #&gt; 1        araC CRP(+), AraC(+/-), X..</div><div class='input'>
 <span class='co'>## Get genes that regulate araC in table format</span>
-<span class='fu'>get_gene_regulators</span>(
-    <span class='no'>e_coli_regulondb</span>,
-    <span class='kw'>genes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"araC"</span>),
-    <span class='kw'>output.type</span> <span class='kw'>=</span> <span class='st'>"GENE"</span>,
-    <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"table"</span>
-)</div><div class='output co'>#&gt; regulondb_result with 1 row and 3 columns
+<span class='fu'>get_gene_regulators</span><span class='op'>(</span>
+    <span class='va'>e_coli_regulondb</span>,
+    genes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"araC"</span><span class='op'>)</span>,
+    output.type <span class='op'>=</span> <span class='st'>"GENE"</span>,
+    format <span class='op'>=</span> <span class='st'>"table"</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; regulondb_result with 1 row and 3 columns
 #&gt;             araC         crp        xylR
 #&gt;      &lt;character&gt; &lt;character&gt; &lt;character&gt;
 #&gt; araC         +/-           +           -</div></pre>
@@ -211,7 +212,7 @@ negative (-) or dual (+/-)</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
