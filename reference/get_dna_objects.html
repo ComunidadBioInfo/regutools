@@ -53,6 +53,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -64,9 +66,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -80,19 +88,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -131,12 +133,12 @@
     <p>Retrieve genomic elements from regulonDB</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_dna_objects</span><span class='op'>(</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>get_dna_objects</span><span class='op'>(</span>
   <span class='va'>regulondb</span>,
   genome <span class='op'>=</span> <span class='st'>"eschColi_K12"</span>,
   grange <span class='op'>=</span> <span class='fu'>GRanges</span><span class='op'>(</span><span class='st'>"chr"</span>, <span class='fu'>IRanges</span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>5000</span><span class='op'>)</span><span class='op'>)</span>,
   elements <span class='op'>=</span> <span class='st'>"gene"</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -171,88 +173,92 @@ or <code>"terminator"</code>.</p></td>
     <p>Joselyn Chavez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-      <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
-  <span class='op'>}</span>
-</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-10-27</span></div><div class='input'>
-<span class='co'>## Build the regulondb object</span>
-<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
-        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
-        organism <span class='op'>=</span> <span class='st'>"chr"</span>,
-        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
-        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
-    <span class='op'>)</span>
-
-<span class='co'>## Get all genes from E. coli</span>
-<span class='fu'>get_dna_objects</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; GRanges object with 3 ranges and 4 metadata columns:
-#&gt;       seqnames    ranges strand |           id        type        name
-#&gt;          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;
-#&gt;   [1]      chr  337-2799      + | ECK120000987        gene        thrA
-#&gt;   [2]      chr 2801-3733      + | ECK120000988        gene        thrB
-#&gt;   [3]      chr   190-255      + | ECK120001251        gene        thrL
-#&gt;                  description
-#&gt;                  &lt;character&gt;
-#&gt;   [1] fused aspartate kina..
-#&gt;   [2]      homoserine kinase
-#&gt;   [3] &lt;i&gt;thr&lt;/i&gt; operon le..
-#&gt;   -------
-#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
-<span class='co'>## Get genes providing Genomic Ranges</span>
-<span class='va'>grange</span> <span class='op'>&lt;-</span> <span class='fu'>GenomicRanges</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span><span class='op'>(</span>
-    <span class='st'>"chr"</span>,
-    <span class='fu'>IRanges</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span><span class='op'>(</span><span class='fl'>5000</span>, <span class='fl'>10000</span><span class='op'>)</span>
-<span class='op'>)</span>
-<span class='fu'>get_dna_objects</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, <span class='va'>grange</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; GRanges object with 3 ranges and 4 metadata columns:
-#&gt;       seqnames    ranges strand |           id        type        name
-#&gt;          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;
-#&gt;   [1]      chr  337-2799      + | ECK120000987        gene        thrA
-#&gt;   [2]      chr 2801-3733      + | ECK120000988        gene        thrB
-#&gt;   [3]      chr   190-255      + | ECK120001251        gene        thrL
-#&gt;                  description
-#&gt;                  &lt;character&gt;
-#&gt;   [1] fused aspartate kina..
-#&gt;   [2]      homoserine kinase
-#&gt;   [3] &lt;i&gt;thr&lt;/i&gt; operon le..
-#&gt;   -------
-#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div><div class='input'>
-<span class='co'>## Get aditional elements within genomic positions</span>
-<span class='fu'>get_dna_objects</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>,
-    <span class='va'>grange</span>,
-    elements <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gene"</span>, <span class='st'>"promoter"</span><span class='op'>)</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; GRanges object with 19 ranges and 4 metadata columns:
-#&gt;        seqnames    ranges strand |           id        type
-#&gt;           &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt;
-#&gt;    [1]      chr  337-2799      + | ECK120000987        gene
-#&gt;    [2]      chr 2801-3733      + | ECK120000988        gene
-#&gt;    [3]      chr   190-255      + | ECK120001251        gene
-#&gt;    [4]      chr       148      + | ECK120010236    promoter
-#&gt;    [5]      chr        38      + | ECK125230824    promoter
-#&gt;    ...      ...       ...    ... .          ...         ...
-#&gt;   [15]      chr      3066      + | ECK125230834    promoter
-#&gt;   [16]      chr      3368      + | ECK125230835    promoter
-#&gt;   [17]      chr      3396      + | ECK125230836    promoter
-#&gt;   [18]      chr      3401      + | ECK125230837    promoter
-#&gt;   [19]      chr      4241      + | ECK125230838    promoter
-#&gt;                          name            description
-#&gt;                   &lt;character&gt;            &lt;character&gt;
-#&gt;    [1]                   thrA fused aspartate kina..
-#&gt;    [2]                   thrB      homoserine kinase
-#&gt;    [3]                   thrL &lt;i&gt;thr&lt;/i&gt; operon le..
-#&gt;    [4] thrLp promoter with .. thrLp promoter with ..
-#&gt;    [5] TSS_1 promoter with .. TSS_1 promoter with ..
-#&gt;    ...                    ...                    ...
-#&gt;   [15] TSS_12 promoter with.. TSS_12 promoter with..
-#&gt;   [16] TSS_13 promoter with.. TSS_13 promoter with..
-#&gt;   [17] TSS_14 promoter with.. TSS_14 promoter with..
-#&gt;   [18] TSS_15 promoter with.. TSS_15 promoter with..
-#&gt;   [19] TSS_16 promoter with.. TSS_16 promoter with..
-#&gt;   -------
-#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'>## Connect to the RegulonDB database if necessary</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'>      <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='op'>}</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> snapshotDate(): 2021-08-03</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Build the regulondb object</span></span>
+<span class='r-in'><span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span></span>
+<span class='r-in'>    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span></span>
+<span class='r-in'>        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,</span>
+<span class='r-in'>        organism <span class='op'>=</span> <span class='st'>"chr"</span>,</span>
+<span class='r-in'>        database_version <span class='op'>=</span> <span class='st'>"1"</span>,</span>
+<span class='r-in'>        genome_version <span class='op'>=</span> <span class='st'>"1"</span></span>
+<span class='r-in'>    <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Get all genes from E. coli</span></span>
+<span class='r-in'><span class='fu'>get_dna_objects</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRanges object with 3 ranges and 4 metadata columns:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       seqnames    ranges strand |           id        type        name</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [1]      chr  337-2799      + | ECK120000987        gene        thrA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [2]      chr 2801-3733      + | ECK120000988        gene        thrB</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [3]      chr   190-255      + | ECK120001251        gene        thrL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                  description</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                  &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [1] fused aspartate kina..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [2]      homoserine kinase</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [3] &lt;i&gt;thr&lt;/i&gt; operon le..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -------</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Get genes providing Genomic Ranges</span></span>
+<span class='r-in'><span class='va'>grange</span> <span class='op'>&lt;-</span> <span class='fu'>GenomicRanges</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html'>GRanges</a></span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='st'>"chr"</span>,</span>
+<span class='r-in'>    <span class='fu'>IRanges</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/IRanges/man/IRanges-constructor.html'>IRanges</a></span><span class='op'>(</span><span class='fl'>5000</span>, <span class='fl'>10000</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>get_dna_objects</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, <span class='va'>grange</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRanges object with 3 ranges and 4 metadata columns:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       seqnames    ranges strand |           id        type        name</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [1]      chr  337-2799      + | ECK120000987        gene        thrA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [2]      chr 2801-3733      + | ECK120000988        gene        thrB</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [3]      chr   190-255      + | ECK120001251        gene        thrL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                  description</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                  &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [1] fused aspartate kina..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [2]      homoserine kinase</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [3] &lt;i&gt;thr&lt;/i&gt; operon le..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -------</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Get aditional elements within genomic positions</span></span>
+<span class='r-in'><span class='fu'>get_dna_objects</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>,</span>
+<span class='r-in'>    <span class='va'>grange</span>,</span>
+<span class='r-in'>    elements <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gene"</span>, <span class='st'>"promoter"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRanges object with 19 ranges and 4 metadata columns:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        seqnames    ranges strand |           id        type</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [1]      chr  337-2799      + | ECK120000987        gene</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [2]      chr 2801-3733      + | ECK120000988        gene</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [3]      chr   190-255      + | ECK120001251        gene</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [4]      chr       148      + | ECK120010236    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [5]      chr        38      + | ECK125230824    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ...      ...       ...    ... .          ...         ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [15]      chr      3066      + | ECK125230834    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [16]      chr      3368      + | ECK125230835    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [17]      chr      3396      + | ECK125230836    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [18]      chr      3401      + | ECK125230837    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [19]      chr      4241      + | ECK125230838    promoter</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          name            description</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                   &lt;character&gt;            &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [1]                   thrA fused aspartate kina..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [2]                   thrB      homoserine kinase</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [3]                   thrL &lt;i&gt;thr&lt;/i&gt; operon le..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [4] thrLp promoter with .. thrLp promoter with ..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [5] TSS_1 promoter with .. TSS_1 promoter with ..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ...                    ...                    ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [15] TSS_12 promoter with.. TSS_12 promoter with..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [16] TSS_13 promoter with.. TSS_13 promoter with..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [17] TSS_14 promoter with.. TSS_14 promoter with..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [18] TSS_15 promoter with.. TSS_15 promoter with..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [19] TSS_16 promoter with.. TSS_16 promoter with..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -------</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -264,11 +270,11 @@ or <code>"terminator"</code>.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p>
+  <p><p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -276,6 +282,8 @@ or <code>"terminator"</code>.</p></td>
 
   
 
+
+  
 
   </body>
 </html>

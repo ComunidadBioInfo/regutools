@@ -53,6 +53,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -64,9 +66,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -80,19 +88,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -131,7 +133,7 @@
     <p>This function converts, when possible, a regulon_result object into a GRanges object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>convert_to_granges</span><span class='op'>(</span><span class='va'>regulondb_result</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>convert_to_granges</span><span class='op'>(</span><span class='va'>regulondb_result</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,166 +152,169 @@
     <p>Alejandro Reyes</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-10-27</span></div><div class='input'>
-<span class='co'>## Build the regulon db object</span>
-<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
-        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
-        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,
-        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
-        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
-    <span class='op'>)</span>
-
-<span class='co'>## Obtain all the information from the "GENE" dataset</span>
-<span class='fu'>convert_to_granges</span><span class='op'>(</span><span class='fu'><a href='get_dataset.html'>get_dataset</a></span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, dataset <span class='op'>=</span> <span class='st'>"GENE"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Dropped 19 entries where genomic coordinates were NAs</span></div><div class='output co'>#&gt; GRanges object with 4583 ranges and 30 metadata columns:
-#&gt;          seqnames          ranges strand |           id        name     bnumber
-#&gt;             &lt;Rle&gt;       &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;
-#&gt;      [1]   E.coli 4265782-4266861      + | ECK120000001         alr       b4053
-#&gt;      [2]   E.coli   795862-796551      + | ECK120000002        modB       b0764
-#&gt;      [3]   E.coli 2531463-2532224      + | ECK120000003        cysZ       b2413
-#&gt;      [4]   E.coli 3812731-3813951      + | ECK120000004         dfp       b3639
-#&gt;      [5]   E.coli 4347404-4348744      - | ECK120000005        dcuB       b4123
-#&gt;      ...      ...             ...    ... .          ...         ...         ...
-#&gt;   [4579]   E.coli 3032939-3033010      - | ECK125276531        yqfH       b4753
-#&gt;   [4580]   E.coli   850332-850397      + | ECK125276532        yliM       b4736
-#&gt;   [4581]   E.coli 1642122-1642211      + | ECK125276533        ynfS       b4750
-#&gt;   [4582]   E.coli   568695-568844      + | ECK125276534        ylcJ       b4733
-#&gt;   [4583]   E.coli   765050-765150      + | ECK125276535        sdhX       b4764
-#&gt;                   gi               synonyms           dna_sequence
-#&gt;          &lt;character&gt;            &lt;character&gt;            &lt;character&gt;
-#&gt;      [1]        &lt;NA&gt; ECK4045,EG10001,alr5.. ATGCAAGCGGCAACTGTTGT..
-#&gt;      [2]        &lt;NA&gt; ECK0753,EG10002,b076.. ATGATACTGACCGATCCAGA..
-#&gt;      [3]        &lt;NA&gt;  ECK2408,EG10003,b2413 ATGGTTTCATCATTCACATC..
-#&gt;      [4]        &lt;NA&gt; ECK3629,EG10004,b363.. ATGAGCCTGGCCGGTAAAAA..
-#&gt;      [5]        &lt;NA&gt; ECK4116,EG10006,b412.. ATGTTATTTACTATCCAACT..
-#&gt;      ...         ...                    ...                    ...
-#&gt;   [4579]        &lt;NA&gt; ECK4610,G0-16747,b4753 ATGATTAACCAAGTGAGCGT..
-#&gt;   [4580]        &lt;NA&gt; ECK4593,G0-16731,b4736 ATGGAAACGTTCTGTTACAT..
-#&gt;   [4581]        &lt;NA&gt; ECK4607,G0-16744,b4750 ATGAATAACCCCGTCTGTCT..
-#&gt;   [4582]        &lt;NA&gt; ECK4590,G0-16728,b4733 ATGAGCCTCGTTTTATGCTT..
-#&gt;   [4583]        &lt;NA&gt; ECK4621,G0-17009,b47.. ATATCTGTAATAAGAAATAG..
-#&gt;                external_db_link      evidence_reference   product_id
-#&gt;                     &lt;character&gt;             &lt;character&gt;  &lt;character&gt;
-#&gt;      [1] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004477
-#&gt;      [2] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004478
-#&gt;      [3] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004479
-#&gt;      [4] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004480
-#&gt;      [5] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004481
-#&gt;      ...                    ...                     ...          ...
-#&gt;   [4579]                   &lt;NA&gt;                    &lt;NA&gt; ECK125276571
-#&gt;   [4580]                   &lt;NA&gt;                    &lt;NA&gt; ECK125276556
-#&gt;   [4581]                   &lt;NA&gt;                    &lt;NA&gt; ECK125276575
-#&gt;   [4582]                   &lt;NA&gt;                    &lt;NA&gt; ECK125276577
-#&gt;   [4583]                   &lt;NA&gt; \t\t\t30591570,30541135 ECK125276565
-#&gt;                    product_name        product_synonym       product_sequence
-#&gt;                     &lt;character&gt;            &lt;character&gt;            &lt;character&gt;
-#&gt;      [1]     alanine racemase 1 Alr,alanine racemase.. MQAATVVINRRALRHNLQRL..
-#&gt;      [2] molybdate ABC transp..         ChlJ,ModB,TslJ MILTDPEWQAVLLSLKVSSL..
-#&gt;      [3] sulfate:H&lt;sup&gt;+&lt;/sup..                   CysZ MVSSFTSAPRSGFYYFAQGW..
-#&gt;      [4] fused 4'-phosphopant..              CoaBC,Dfp MSLAGKKIVLGVSGGIAAYK..
-#&gt;      [5] anaerobic C4-dicarbo..              DcuB,GenF MLFTIQLIIILICLFYGARK..
-#&gt;      ...                    ...                    ...                    ...
-#&gt;   [4579]           protein YqfH                   YqfH MINQVSVYRQPPVLSGCRQV..
-#&gt;   [4580]           protein YliM                   YliM  METFCYMKWPVRHHKSRRVSH
-#&gt;   [4581] Qin prophage; protei..                   YnfS MNNPVCLDDWLIGFKSLCCT..
-#&gt;   [4582]           protein YlcJ                   YlcJ MSLVLCFLLMSLFFMYSFVL..
-#&gt;   [4583] small regulatory RNA..              RybD,SdhX AUAUCUGUAAUAAGAAAUAG..
-#&gt;          molecular_weigth isoelectric_point celullar_location
-#&gt;                 &lt;numeric&gt;         &lt;numeric&gt;       &lt;character&gt;
-#&gt;      [1]           39.153             7.059           cytosol
-#&gt;      [2]           24.939            10.716    inner membrane
-#&gt;      [3]           29.305             9.809    inner membrane
-#&gt;      [4]           43.438             7.585           cytosol
-#&gt;      [5]           47.935             7.878    inner membrane
-#&gt;      ...              ...               ...               ...
-#&gt;   [4579]            2.617            10.452              &lt;NA&gt;
-#&gt;   [4580]            2.716            10.877              &lt;NA&gt;
-#&gt;   [4581]            3.193             4.113    inner membrane
-#&gt;   [4582]            5.943            10.891              &lt;NA&gt;
-#&gt;   [4583]               NA                NA              &lt;NA&gt;
-#&gt;                    product_note product_type             go_index_bp
-#&gt;                     &lt;character&gt;  &lt;character&gt;             &lt;character&gt;
-#&gt;      [1]                   &lt;NA&gt;         &lt;NA&gt; GO:0006522\tGO:000836..
-#&gt;      [2] ModB is the predicte..         &lt;NA&gt;  GO:0015689\tGO:0055085
-#&gt;      [3] CysZ is a high affin..         &lt;NA&gt; GO:0000103\tGO:000827..
-#&gt;      [4] The &lt;i&gt;dfp&lt;/i&gt; (&lt;i&gt;c..         &lt;NA&gt; GO:0008152\tGO:001593..
-#&gt;      [5] DcuB is a C4-dicarbo..         &lt;NA&gt; GO:0009061\tGO:001574..
-#&gt;      ...                    ...          ...                     ...
-#&gt;   [4579] YqfH was identified ..         &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   [4580] YliM was identified ..         &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   [4581] YnfS was identified ..         &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   [4582] YlcJ was identified ..         &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   [4583] The small regulatory..    small RNA              GO:0040033
-#&gt;                       go_desc_bp             go_index_cc             go_desc_cc
-#&gt;                      &lt;character&gt;             &lt;character&gt;            &lt;character&gt;
-#&gt;      [1]  alanine metabolic pr..              GO:0005829                cytosol
-#&gt;      [2]  molybdate ion transp.. GO:0005886\tGO:000588.. plasma membrane,inte..
-#&gt;      [3]  sulfate assimilation.. GO:0005886\tGO:000588.. plasma membrane,inte..
-#&gt;      [4] metabolic process\tco..  GO:0005737\tGO:0005829      cytoplasm,cytosol
-#&gt;      [5]  anaerobic respiratio.. GO:0005886\tGO:000588.. plasma membrane,inte..
-#&gt;      ...                     ...                     ...                    ...
-#&gt;   [4579]                    &lt;NA&gt;                    &lt;NA&gt;                   &lt;NA&gt;
-#&gt;   [4580]                    &lt;NA&gt;                    &lt;NA&gt;                   &lt;NA&gt;
-#&gt;   [4581]                    &lt;NA&gt; GO:0005886\tGO:001602.. plasma membrane,memb..
-#&gt;   [4582]                    &lt;NA&gt;                    &lt;NA&gt;                   &lt;NA&gt;
-#&gt;   [4583]  negative regulation ..                    &lt;NA&gt;                   &lt;NA&gt;
-#&gt;                      go_index_mf              go_desc_mf
-#&gt;                      &lt;character&gt;             &lt;character&gt;
-#&gt;      [1] GO:0003824\tGO:000878.. catalytic activity\ta..
-#&gt;      [2]              GO:0015098  molybdate ion transm..
-#&gt;      [3]  GO:0009675\tGO:0015116  high-affinity sulfat..
-#&gt;      [4] GO:0003824\tGO:000463.. catalytic activity\tp..
-#&gt;      [5]  GO:0005469\tGO:0015556  succinate:fumarate a..
-#&gt;      ...                     ...                     ...
-#&gt;   [4579]                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   [4580]                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   [4581]                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   [4582]                    &lt;NA&gt;                    &lt;NA&gt;
-#&gt;   [4583]  GO:0005515\tGO:0048027 protein binding\tmRNA..
-#&gt;          product_external_db_links           product_ev_ref    operon_id
-#&gt;                        &lt;character&gt;              &lt;character&gt;  &lt;character&gt;
-#&gt;      [1]   ECOCYC\thttp://biocyc..                     &lt;NA&gt; ECK120029421
-#&gt;      [2]   ECOCYC\thttp://biocyc..                     &lt;NA&gt; ECK120014822
-#&gt;      [3]   ECOCYC\thttp://biocyc..   \t\t\t6341507,29792261 ECK120029422
-#&gt;      [4]   DIP\thttp://dip.doe-m..                     &lt;NA&gt; ECK120030583
-#&gt;      [5]   ECOCYC\thttp://biocyc..   \t\t\t20860483,1512189 ECK120014710
-#&gt;      ...                       ...                      ...          ...
-#&gt;   [4579]   ECOCYC\thttp://biocyc..                     &lt;NA&gt;         &lt;NA&gt;
-#&gt;   [4580]   ECOCYC\thttp://biocyc..                     &lt;NA&gt; ECK125285808
-#&gt;   [4581]   ECOCYC\thttp://biocyc..                     &lt;NA&gt;         &lt;NA&gt;
-#&gt;   [4582]   ECOCYC\thttp://biocyc..                     &lt;NA&gt;         &lt;NA&gt;
-#&gt;   [4583]   ECOCYC\thttp://biocyc.. IMP\t\tInferred from m.. ECK125285815
-#&gt;                   operon_name              tu_promoter    sigma_factor
-#&gt;                   &lt;character&gt;              &lt;character&gt;     &lt;character&gt;
-#&gt;      [1]                  alr ECK120029337\t\tECK120..            &lt;NA&gt;
-#&gt;      [2]               modABC ECK120009489\tmodABC\t.. Sigma28,Sigma70
-#&gt;      [3]                 cysZ                     &lt;NA&gt;            &lt;NA&gt;
-#&gt;      [4]                  dfp ECK120030182\tdfp\tECK..            &lt;NA&gt;
-#&gt;      [5]            dcuB-fumB  ECK120009650\tdcuB-fu..         Sigma70
-#&gt;      ...                  ...                      ...             ...
-#&gt;   [4579]                 &lt;NA&gt;                     &lt;NA&gt;            &lt;NA&gt;
-#&gt;   [4580]            yliM-ompX  ECK120034934\tyliM-om..         Sigma70
-#&gt;   [4581]                 &lt;NA&gt;                     &lt;NA&gt;            &lt;NA&gt;
-#&gt;   [4582]                 &lt;NA&gt;                     &lt;NA&gt;            &lt;NA&gt;
-#&gt;   [4583] sdhCDAB-sucABCD-sdhX  ECK120009705\tsdhCDAB..         Sigma70
-#&gt;                          gene_tf
-#&gt;                      &lt;character&gt;
-#&gt;      [1]                    &lt;NA&gt;
-#&gt;      [2] ECK120011235\tCRP ECK..
-#&gt;      [3]                    &lt;NA&gt;
-#&gt;      [4]                    &lt;NA&gt;
-#&gt;      [5] ECK120011235\tCRP ECK..
-#&gt;      ...                     ...
-#&gt;   [4579]                    &lt;NA&gt;
-#&gt;   [4580]                    &lt;NA&gt;
-#&gt;   [4581]                    &lt;NA&gt;
-#&gt;   [4582]                    &lt;NA&gt;
-#&gt;   [4583] ECK120011345\tArcA EC..
-#&gt;   -------
-#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'>## Connect to the RegulonDB database if necessary</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> snapshotDate(): 2021-08-03</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Build the regulon db object</span></span>
+<span class='r-in'><span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span></span>
+<span class='r-in'>    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span></span>
+<span class='r-in'>        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,</span>
+<span class='r-in'>        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,</span>
+<span class='r-in'>        database_version <span class='op'>=</span> <span class='st'>"1"</span>,</span>
+<span class='r-in'>        genome_version <span class='op'>=</span> <span class='st'>"1"</span></span>
+<span class='r-in'>    <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Obtain all the information from the "GENE" dataset</span></span>
+<span class='r-in'><span class='fu'>convert_to_granges</span><span class='op'>(</span><span class='fu'><a href='get_dataset.html'>get_dataset</a></span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, dataset <span class='op'>=</span> <span class='st'>"GENE"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Dropped 19 entries where genomic coordinates were NAs</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRanges object with 4583 ranges and 30 metadata columns:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          seqnames          ranges strand |           id        name     bnumber</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             &lt;Rle&gt;       &lt;IRanges&gt;  &lt;Rle&gt; |  &lt;character&gt; &lt;character&gt; &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1]   E.coli 4265782-4266861      + | ECK120000001         alr       b4053</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2]   E.coli   795862-796551      + | ECK120000002        modB       b0764</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3]   E.coli 2531463-2532224      + | ECK120000003        cysZ       b2413</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4]   E.coli 3812731-3813951      + | ECK120000004         dfp       b3639</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5]   E.coli 4347404-4348744      - | ECK120000005        dcuB       b4123</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...      ...             ...    ... .          ...         ...         ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]   E.coli 3032939-3033010      - | ECK125276531        yqfH       b4753</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]   E.coli   850332-850397      + | ECK125276532        yliM       b4736</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581]   E.coli 1642122-1642211      + | ECK125276533        ynfS       b4750</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]   E.coli   568695-568844      + | ECK125276534        ylcJ       b4733</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583]   E.coli   765050-765150      + | ECK125276535        sdhX       b4764</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                   gi               synonyms           dna_sequence</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          &lt;character&gt;            &lt;character&gt;            &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1]        &lt;NA&gt; ECK4045,EG10001,alr5.. ATGCAAGCGGCAACTGTTGT..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2]        &lt;NA&gt; ECK0753,EG10002,b076.. ATGATACTGACCGATCCAGA..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3]        &lt;NA&gt;  ECK2408,EG10003,b2413 ATGGTTTCATCATTCACATC..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4]        &lt;NA&gt; ECK3629,EG10004,b363.. ATGAGCCTGGCCGGTAAAAA..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5]        &lt;NA&gt; ECK4116,EG10006,b412.. ATGTTATTTACTATCCAACT..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...         ...                    ...                    ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]        &lt;NA&gt; ECK4610,G0-16747,b4753 ATGATTAACCAAGTGAGCGT..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]        &lt;NA&gt; ECK4593,G0-16731,b4736 ATGGAAACGTTCTGTTACAT..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581]        &lt;NA&gt; ECK4607,G0-16744,b4750 ATGAATAACCCCGTCTGTCT..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]        &lt;NA&gt; ECK4590,G0-16728,b4733 ATGAGCCTCGTTTTATGCTT..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583]        &lt;NA&gt; ECK4621,G0-17009,b47.. ATATCTGTAATAAGAAATAG..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                external_db_link      evidence_reference   product_id</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                     &lt;character&gt;             &lt;character&gt;  &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004477</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004478</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004479</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004480</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5] ASAP,http://asap.aha..                    &lt;NA&gt; ECK120004481</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...                    ...                     ...          ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]                   &lt;NA&gt;                    &lt;NA&gt; ECK125276571</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]                   &lt;NA&gt;                    &lt;NA&gt; ECK125276556</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581]                   &lt;NA&gt;                    &lt;NA&gt; ECK125276575</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]                   &lt;NA&gt;                    &lt;NA&gt; ECK125276577</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583]                   &lt;NA&gt; \t\t\t30591570,30541135 ECK125276565</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                    product_name        product_synonym       product_sequence</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                     &lt;character&gt;            &lt;character&gt;            &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1]     alanine racemase 1 Alr,alanine racemase.. MQAATVVINRRALRHNLQRL..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2] molybdate ABC transp..         ChlJ,ModB,TslJ MILTDPEWQAVLLSLKVSSL..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3] sulfate:H&lt;sup&gt;+&lt;/sup..                   CysZ MVSSFTSAPRSGFYYFAQGW..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4] fused 4'-phosphopant..              CoaBC,Dfp MSLAGKKIVLGVSGGIAAYK..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5] anaerobic C4-dicarbo..              DcuB,GenF MLFTIQLIIILICLFYGARK..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...                    ...                    ...                    ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]           protein YqfH                   YqfH MINQVSVYRQPPVLSGCRQV..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]           protein YliM                   YliM  METFCYMKWPVRHHKSRRVSH</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581] Qin prophage; protei..                   YnfS MNNPVCLDDWLIGFKSLCCT..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]           protein YlcJ                   YlcJ MSLVLCFLLMSLFFMYSFVL..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583] small regulatory RNA..              RybD,SdhX AUAUCUGUAAUAAGAAAUAG..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          molecular_weigth isoelectric_point celullar_location</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                 &lt;numeric&gt;         &lt;numeric&gt;       &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1]           39.153             7.059           cytosol</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2]           24.939            10.716    inner membrane</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3]           29.305             9.809    inner membrane</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4]           43.438             7.585           cytosol</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5]           47.935             7.878    inner membrane</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...              ...               ...               ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]            2.617            10.452              &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]            2.716            10.877              &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581]            3.193             4.113    inner membrane</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]            5.943            10.891              &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583]               NA                NA              &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                    product_note product_type             go_index_bp</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                     &lt;character&gt;  &lt;character&gt;             &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1]                   &lt;NA&gt;         &lt;NA&gt; GO:0006522\tGO:000836..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2] ModB is the predicte..         &lt;NA&gt;  GO:0015689\tGO:0055085</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3] CysZ is a high affin..         &lt;NA&gt; GO:0000103\tGO:000827..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4] The &lt;i&gt;dfp&lt;/i&gt; (&lt;i&gt;c..         &lt;NA&gt; GO:0008152\tGO:001593..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5] DcuB is a C4-dicarbo..         &lt;NA&gt; GO:0009061\tGO:001574..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...                    ...          ...                     ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579] YqfH was identified ..         &lt;NA&gt;                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580] YliM was identified ..         &lt;NA&gt;                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581] YnfS was identified ..         &lt;NA&gt;                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582] YlcJ was identified ..         &lt;NA&gt;                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583] The small regulatory..    small RNA              GO:0040033</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                       go_desc_bp             go_index_cc             go_desc_cc</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                      &lt;character&gt;             &lt;character&gt;            &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1]  alanine metabolic pr..              GO:0005829                cytosol</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2]  molybdate ion transp.. GO:0005886\tGO:000588.. plasma membrane,inte..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3]  sulfate assimilation.. GO:0005886\tGO:000588.. plasma membrane,inte..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4] metabolic process\tco..  GO:0005737\tGO:0005829      cytoplasm,cytosol</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5]  anaerobic respiratio.. GO:0005886\tGO:000588.. plasma membrane,inte..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...                     ...                     ...                    ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]                    &lt;NA&gt;                    &lt;NA&gt;                   &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]                    &lt;NA&gt;                    &lt;NA&gt;                   &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581]                    &lt;NA&gt; GO:0005886\tGO:001602.. plasma membrane,memb..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]                    &lt;NA&gt;                    &lt;NA&gt;                   &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583]  negative regulation ..                    &lt;NA&gt;                   &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                      go_index_mf              go_desc_mf</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                      &lt;character&gt;             &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1] GO:0003824\tGO:000878.. catalytic activity\ta..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2]              GO:0015098  molybdate ion transm..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3]  GO:0009675\tGO:0015116  high-affinity sulfat..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4] GO:0003824\tGO:000463.. catalytic activity\tp..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5]  GO:0005469\tGO:0015556  succinate:fumarate a..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...                     ...                     ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]                    &lt;NA&gt;                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]                    &lt;NA&gt;                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581]                    &lt;NA&gt;                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]                    &lt;NA&gt;                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583]  GO:0005515\tGO:0048027 protein binding\tmRNA..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          product_external_db_links           product_ev_ref    operon_id</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                        &lt;character&gt;              &lt;character&gt;  &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1]   ECOCYC\thttp://biocyc..                     &lt;NA&gt; ECK120029421</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2]   ECOCYC\thttp://biocyc..                     &lt;NA&gt; ECK120014822</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3]   ECOCYC\thttp://biocyc..   \t\t\t6341507,29792261 ECK120029422</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4]   DIP\thttp://dip.doe-m..                     &lt;NA&gt; ECK120030583</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5]   ECOCYC\thttp://biocyc..   \t\t\t20860483,1512189 ECK120014710</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...                       ...                      ...          ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]   ECOCYC\thttp://biocyc..                     &lt;NA&gt;         &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]   ECOCYC\thttp://biocyc..                     &lt;NA&gt; ECK125285808</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581]   ECOCYC\thttp://biocyc..                     &lt;NA&gt;         &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]   ECOCYC\thttp://biocyc..                     &lt;NA&gt;         &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583]   ECOCYC\thttp://biocyc.. IMP\t\tInferred from m.. ECK125285815</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                   operon_name              tu_promoter    sigma_factor</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                   &lt;character&gt;              &lt;character&gt;     &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1]                  alr ECK120029337\t\tECK120..            &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2]               modABC ECK120009489\tmodABC\t.. Sigma28,Sigma70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3]                 cysZ                     &lt;NA&gt;            &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4]                  dfp ECK120030182\tdfp\tECK..            &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5]            dcuB-fumB  ECK120009650\tdcuB-fu..         Sigma70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...                  ...                      ...             ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]                 &lt;NA&gt;                     &lt;NA&gt;            &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]            yliM-ompX  ECK120034934\tyliM-om..         Sigma70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581]                 &lt;NA&gt;                     &lt;NA&gt;            &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]                 &lt;NA&gt;                     &lt;NA&gt;            &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583] sdhCDAB-sucABCD-sdhX  ECK120009705\tsdhCDAB..         Sigma70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          gene_tf</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                      &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [1]                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [2] ECK120011235\tCRP ECK..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [3]                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [4]                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [5] ECK120011235\tCRP ECK..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      ...                     ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4579]                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4580]                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4581]                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4582]                    &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [4583] ECK120011345\tArcA EC..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -------</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -321,11 +326,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p>
+  <p><p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -333,6 +338,8 @@
 
   
 
+
+  
 
   </body>
 </html>

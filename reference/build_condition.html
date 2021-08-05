@@ -55,6 +55,8 @@ The output is used in get_dataset()." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -66,9 +68,15 @@ The output is used in get_dataset()." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -82,19 +90,13 @@ The output is used in get_dataset()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -135,7 +137,7 @@ condition to query database.
 The output is used in <code><a href='get_dataset.html'>get_dataset()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>build_condition</span><span class='op'>(</span><span class='va'>regulondb</span>, <span class='va'>dataset</span>, <span class='va'>filters</span>, <span class='va'>operator</span>, <span class='va'>interval</span>, <span class='va'>partialmatch</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>build_condition</span><span class='op'>(</span><span class='va'>regulondb</span>, <span class='va'>dataset</span>, <span class='va'>filters</span>, <span class='va'>operator</span>, <span class='va'>interval</span>, <span class='va'>partialmatch</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -171,7 +173,7 @@ or partial match in the query</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> with the sql logical condition to query the dataset
+    <p>A <code>character(1)</code> with the sql logical condition to query the dataset
 .</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
@@ -179,33 +181,35 @@ or partial match in the query</p></td>
 José Alquicira Hernández, Joselyn Chávez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>using temporary cache /tmp/Rtmph4ZAW3/BiocFileCache</span></div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-10-27</span></div><div class='output co'>#&gt; <span class='message'>adding rname 'https://www.dropbox.com/s/ufp6wqcv5211v1w/regulondb_v10.8_sqlite.db?dl=1'</span></div><div class='input'>
-<span class='co'>## Build the regulon db object</span>
-<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
-        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
-        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,
-        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
-        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
-    <span class='op'>)</span>
-
-<span class='co'>## Build the condition for ara</span>
-<span class='fu'>build_condition</span><span class='op'>(</span>
-    <span class='va'>e_coli_regulondb</span>,
-    dataset <span class='op'>=</span> <span class='st'>"GENE"</span>,
-    filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
-        name <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ara"</span><span class='op'>)</span>,
-        strand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"forward"</span><span class='op'>)</span>,
-        posright <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"2000"</span>, <span class='st'>"40000"</span><span class='op'>)</span>
-    <span class='op'>)</span>,
-    operator <span class='op'>=</span> <span class='st'>"AND"</span>,
-    interval <span class='op'>=</span> <span class='st'>"posright"</span>,
-    partialmatch <span class='op'>=</span> <span class='st'>"name"</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "(name like  '%ara%')AND(posright &gt;= 2000 AND posright &lt;= 40000) AND (name like  '%ara%')AND(strand = 'forward')"</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
+<span class='r-in'><span class='co'>## Connect to the RegulonDB database if necessary</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> snapshotDate(): 2021-08-03</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Build the regulon db object</span></span>
+<span class='r-in'><span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span></span>
+<span class='r-in'>    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span></span>
+<span class='r-in'>        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,</span>
+<span class='r-in'>        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,</span>
+<span class='r-in'>        database_version <span class='op'>=</span> <span class='st'>"1"</span>,</span>
+<span class='r-in'>        genome_version <span class='op'>=</span> <span class='st'>"1"</span></span>
+<span class='r-in'>    <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Build the condition for ara</span></span>
+<span class='r-in'><span class='fu'>build_condition</span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='va'>e_coli_regulondb</span>,</span>
+<span class='r-in'>    dataset <span class='op'>=</span> <span class='st'>"GENE"</span>,</span>
+<span class='r-in'>    filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span class='r-in'>        name <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ara"</span><span class='op'>)</span>,</span>
+<span class='r-in'>        strand <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"forward"</span><span class='op'>)</span>,</span>
+<span class='r-in'>        posright <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"2000"</span>, <span class='st'>"40000"</span><span class='op'>)</span></span>
+<span class='r-in'>    <span class='op'>)</span>,</span>
+<span class='r-in'>    operator <span class='op'>=</span> <span class='st'>"AND"</span>,</span>
+<span class='r-in'>    interval <span class='op'>=</span> <span class='st'>"posright"</span>,</span>
+<span class='r-in'>    partialmatch <span class='op'>=</span> <span class='st'>"name"</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "(name like  '%ara%')AND(posright &gt;= 2000 AND posright &lt;= 40000) AND (name like  '%ara%')AND(strand = 'forward')"</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -217,11 +221,11 @@ José Alquicira Hernández, Joselyn Chávez</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p>
+  <p><p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -229,6 +233,8 @@ José Alquicira Hernández, Joselyn Chávez</p>
 
   
 
+
+  
 
   </body>
 </html>

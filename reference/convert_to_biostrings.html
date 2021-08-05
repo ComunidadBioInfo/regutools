@@ -53,6 +53,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -64,9 +66,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -80,19 +88,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -131,7 +133,7 @@
     <p>This function converts, when possible, a regulon_result object into a Biostrings object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>convert_to_biostrings</span><span class='op'>(</span><span class='va'>regulondb_result</span>, seq_type <span class='op'>=</span> <span class='st'>"DNA"</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>convert_to_biostrings</span><span class='op'>(</span><span class='va'>regulondb_result</span>, seq_type <span class='op'>=</span> <span class='st'>"DNA"</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,33 +156,36 @@
     <p>Alejandro Reyes</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-10-27</span></div><div class='input'>
-<span class='co'>## Build the regulon db object</span>
-<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
-        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
-        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,
-        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
-        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
-    <span class='op'>)</span>
-
-<span class='co'>## Obtain all the information from the "GENE" dataset</span>
-<span class='fu'>convert_to_biostrings</span><span class='op'>(</span><span class='fu'><a href='get_dataset.html'>get_dataset</a></span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, dataset <span class='op'>=</span> <span class='st'>"GENE"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Dropped 2 entries where sequence data were NAs</span></div><div class='output co'>#&gt; DNAStringSet object of length 4600:
-#&gt;        width seq
-#&gt;    [1]  1080 ATGCAAGCGGCAACTGTTGTGATTAACCGCCG...CTTCAAGGGTCGCGATGAAATACGTGGATTAA
-#&gt;    [2]   690 ATGATACTGACCGATCCAGAATGGCAGGCAGT...CCAGAATCAGCCGTGAACGGGCGGGGCGCTAA
-#&gt;    [3]   762 ATGGTTTCATCATTCACATCTGCCCCACGCAG...GCTATCGCGATAAACACGCGATGTGGCGGTAA
-#&gt;    [4]  1221 ATGAGCCTGGCCGGTAAAAAAATCGTTCTCGG...TGACCCGTTATGATGAAAAAAATCGACGTTAA
-#&gt;    [5]  1341 ATGTTATTTACTATCCAACTTATCATAATACT...GGATCTTCGCCGCGATGTACGGGTTCTTATAA
-#&gt;    ...   ... ...
-#&gt; [4596]    72 ATGATTAACCAAGTGAGCGTTTATCGACAACC...TGAGCGGATGCCGACAGGTAAAAACCATTTAA
-#&gt; [4597]    66 ATGGAAACGTTCTGTTACATGAAATGGCCCGTTAGACATCACAAATCGCGAAGAGTTTCCCATTAA
-#&gt; [4598]    90 ATGAATAACCCCGTCTGTCTTGATGACTGGTT...CTTTGGCCGTAATAGCTCTGCTAATAATATAA
-#&gt; [4599]   150 ATGAGCCTCGTTTTATGCTTTTTGTTAATGTC...TGACCTTAATTGTCTTTTTAAATAAAAAATAA
-#&gt; [4600]   101 ATATCTGTAATAAGAAATAGCCCTCGCCGCTT...ATGGTTGGCCATCGTATGATGGCCTTTTTTGT</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'>## Connect to the RegulonDB database if necessary</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> snapshotDate(): 2021-08-03</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Build the regulon db object</span></span>
+<span class='r-in'><span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span></span>
+<span class='r-in'>    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span></span>
+<span class='r-in'>        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,</span>
+<span class='r-in'>        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,</span>
+<span class='r-in'>        database_version <span class='op'>=</span> <span class='st'>"1"</span>,</span>
+<span class='r-in'>        genome_version <span class='op'>=</span> <span class='st'>"1"</span></span>
+<span class='r-in'>    <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Obtain all the information from the "GENE" dataset</span></span>
+<span class='r-in'><span class='fu'>convert_to_biostrings</span><span class='op'>(</span><span class='fu'><a href='get_dataset.html'>get_dataset</a></span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, dataset <span class='op'>=</span> <span class='st'>"GENE"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Dropped 2 entries where sequence data were NAs</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> DNAStringSet object of length 4600:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        width seq</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [1]  1080 ATGCAAGCGGCAACTGTTGTGATTAACCGCCG...CTTCAAGGGTCGCGATGAAATACGTGGATTAA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [2]   690 ATGATACTGACCGATCCAGAATGGCAGGCAGT...CCAGAATCAGCCGTGAACGGGCGGGGCGCTAA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [3]   762 ATGGTTTCATCATTCACATCTGCCCCACGCAG...GCTATCGCGATAAACACGCGATGTGGCGGTAA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [4]  1221 ATGAGCCTGGCCGGTAAAAAAATCGTTCTCGG...TGACCCGTTATGATGAAAAAAATCGACGTTAA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    [5]  1341 ATGTTATTTACTATCCAACTTATCATAATACT...GGATCTTCGCCGCGATGTACGGGTTCTTATAA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    ...   ... ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4596]    72 ATGATTAACCAAGTGAGCGTTTATCGACAACC...TGAGCGGATGCCGACAGGTAAAAACCATTTAA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4597]    66 ATGGAAACGTTCTGTTACATGAAATGGCCCGTTAGACATCACAAATCGCGAAGAGTTTCCCATTAA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4598]    90 ATGAATAACCCCGTCTGTCTTGATGACTGGTT...CTTTGGCCGTAATAGCTCTGCTAATAATATAA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4599]   150 ATGAGCCTCGTTTTATGCTTTTTGTTAATGTC...TGACCTTAATTGTCTTTTTAAATAAAAAATAA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4600]   101 ATATCTGTAATAAGAAATAGCCCTCGCCGCTT...ATGGTTGGCCATCGTATGATGGCCTTTTTTGT</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -192,11 +197,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p>
+  <p><p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -204,6 +209,8 @@
 
   
 
+
+  
 
   </body>
 </html>

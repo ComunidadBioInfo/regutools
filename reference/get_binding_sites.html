@@ -54,6 +54,8 @@ transcription factor." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -65,9 +67,15 @@ transcription factor." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -81,19 +89,13 @@ transcription factor." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -133,7 +135,7 @@ transcription factor." />
 transcription factor.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_binding_sites</span><span class='op'>(</span><span class='va'>regulondb</span>, <span class='va'>transcription_factor</span>, output_format <span class='op'>=</span> <span class='st'>"GRanges"</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>get_binding_sites</span><span class='op'>(</span><span class='va'>regulondb</span>, <span class='va'>transcription_factor</span>, output_format <span class='op'>=</span> <span class='st'>"GRanges"</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,49 +165,51 @@ about the binding sites of the transcription factors.</p>
     <p>José Alquicira Hernández, Jacques van Helden, Joselyn Chávez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-10-27</span></div><div class='input'>
-<span class='co'>## Build the regulon db object</span>
-<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
-        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
-        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,
-        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
-        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
-    <span class='op'>)</span>
-
-<span class='co'>## Get the binding sites for AraC</span>
-<span class='fu'>get_binding_sites</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, transcription_factor <span class='op'>=</span> <span class='st'>"AraC"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; GRanges object with 15 ranges and 1 metadata column:
-#&gt;                          seqnames          ranges strand |
-#&gt;                             &lt;Rle&gt;       &lt;IRanges&gt;  &lt;Rle&gt; |
-#&gt;   ECK120015742-araB-araC   E.coli     70110-70126      + |
-#&gt;   ECK120012328-araB-araC   E.coli     70131-70147      + |
-#&gt;   ECK120012320-araB-araC   E.coli     70184-70200      - |
-#&gt;   ECK120012323-araB-araC   E.coli     70205-70221      - |
-#&gt;   ECK120012603-araB-araC   E.coli     70342-70358      - |
-#&gt;                      ...      ...             ...    ... .
-#&gt;        ECK120012333-araF   E.coli 1986396-1986412      - |
-#&gt;        ECK120012915-araE   E.coli 2982244-2982260      - |
-#&gt;        ECK120012913-araE   E.coli 2982265-2982281      - |
-#&gt;        ECK125108641-xylA   E.coli 3730824-3730840      - |
-#&gt;        ECK125108643-xylA   E.coli 3730847-3730863      - |
-#&gt;                                        sequence
-#&gt;                                     &lt;character&gt;
-#&gt;   ECK120015742-araB-araC ataaaaagcgTCAGGTAGGA..
-#&gt;   ECK120012328-araB-araC ccgctaatctTATGGATAAA..
-#&gt;   ECK120012320-araB-araC tctataatcaCGGCAGAAAA..
-#&gt;   ECK120012323-araB-araC caaaaacgcgTAACAAAAGT..
-#&gt;   ECK120012603-araB-araC attcagagaaGAAACCAATT..
-#&gt;                      ...                    ...
-#&gt;        ECK120012333-araF ccaaagacaaCAAGGATTTC..
-#&gt;        ECK120012915-araE tccatatttaTGCTGTTTCC..
-#&gt;        ECK120012913-araE cgacatgtcgCAGCAATTTA..
-#&gt;        ECK125108641-xylA taacataattGAGCAACTGA..
-#&gt;        ECK125108643-xylA attatctcaaTAGCAGTGTG..
-#&gt;   -------
-#&gt;   seqinfo: 1 sequence from an unspecified genome; no seqlengths</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'>## Connect to the RegulonDB database if necessary</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> snapshotDate(): 2021-08-03</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Build the regulon db object</span></span>
+<span class='r-in'><span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span></span>
+<span class='r-in'>    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span></span>
+<span class='r-in'>        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,</span>
+<span class='r-in'>        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,</span>
+<span class='r-in'>        database_version <span class='op'>=</span> <span class='st'>"1"</span>,</span>
+<span class='r-in'>        genome_version <span class='op'>=</span> <span class='st'>"1"</span></span>
+<span class='r-in'>    <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Get the binding sites for AraC</span></span>
+<span class='r-in'><span class='fu'>get_binding_sites</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, transcription_factor <span class='op'>=</span> <span class='st'>"AraC"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> GRanges object with 15 ranges and 1 metadata column:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          seqnames          ranges strand |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                             &lt;Rle&gt;       &lt;IRanges&gt;  &lt;Rle&gt; |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120015742-araB-araC   E.coli     70110-70126      + |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120012328-araB-araC   E.coli     70131-70147      + |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120012320-araB-araC   E.coli     70184-70200      - |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120012323-araB-araC   E.coli     70205-70221      - |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120012603-araB-araC   E.coli     70342-70358      - |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                      ...      ...             ...    ... .</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK120012333-araF   E.coli 1986396-1986412      - |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK120012915-araE   E.coli 2982244-2982260      - |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK120012913-araE   E.coli 2982265-2982281      - |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK125108641-xylA   E.coli 3730824-3730840      - |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK125108643-xylA   E.coli 3730847-3730863      - |</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                        sequence</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                     &lt;character&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120015742-araB-araC ataaaaagcgTCAGGTAGGA..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120012328-araB-araC ccgctaatctTATGGATAAA..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120012320-araB-araC tctataatcaCGGCAGAAAA..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120012323-araB-araC caaaaacgcgTAACAAAAGT..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ECK120012603-araB-araC attcagagaaGAAACCAATT..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                      ...                    ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK120012333-araF ccaaagacaaCAAGGATTTC..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK120012915-araE tccatatttaTGCTGTTTCC..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK120012913-araE cgacatgtcgCAGCAATTTA..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK125108641-xylA taacataattGAGCAACTGA..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        ECK125108643-xylA attatctcaaTAGCAGTGTG..</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   -------</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   seqinfo: 1 sequence from an unspecified genome; no seqlengths</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -217,11 +221,11 @@ about the binding sites of the transcription factors.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p>
+  <p><p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -229,6 +233,8 @@ about the binding sites of the transcription factors.</p>
 
   
 
+
+  
 
   </body>
 </html>

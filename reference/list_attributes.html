@@ -55,6 +55,8 @@ be used as parameter 'values' in list_attributes() function." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -66,9 +68,15 @@ be used as parameter 'values' in list_attributes() function." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -82,19 +90,13 @@ be used as parameter 'values' in list_attributes() function." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">regutools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/regutools.html">Get started</a>
 </li>
 <li>
@@ -135,7 +137,7 @@ RegulonDB. The result of this function may
 be used as parameter 'values' in <code>list_attributes()</code> function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_attributes</span><span class='op'>(</span><span class='va'>regulondb</span>, <span class='va'>dataset</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>list_attributes</span><span class='op'>(</span><span class='va'>regulondb</span>, <span class='va'>dataset</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -160,53 +162,56 @@ the database.</p></td>
 José Alquicira Hernández, Joselyn Chavez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Connect to the RegulonDB database if necessary</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>snapshotDate(): 2020-10-27</span></div><div class='input'>
-<span class='co'>## Build the regulon db object</span>
-<span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span>
-    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span>
-        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,
-        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,
-        database_version <span class='op'>=</span> <span class='st'>"1"</span>,
-        genome_version <span class='op'>=</span> <span class='st'>"1"</span>
-    <span class='op'>)</span>
-
-<span class='co'>## List the transcription factor attributes</span>
-<span class='fu'>list_attributes</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, <span class='st'>"TF"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "id"                          "name"                       
-#&gt;  [3] "synonyms"                    "encode_tf_gene_id"          
-#&gt;  [5] "encode_tf_operon_id"         "encode_tf_tu_id"            
-#&gt;  [7] "site_length"                 "symmetry"                   
-#&gt;  [9] "transcription_factor_family" "connectivity_class"         
-#&gt; [11] "sensing_class"               "global_function_all_tfbs"   
-#&gt; [13] "global_function_strong"      "note"                       
-#&gt; [15] "total_regulated_gene"        "total_effect_repressor_gene"
-#&gt; [17] "total_effect_activator_gene" "total_effect_dual_gene"     
-#&gt; [19] "total_effect_unknown_gene"   "total_tfbs"                 
-#&gt; [21] "total_ri"                    "total_regulated_tf"         
-#&gt; [23] "total_regulated_promoter"    "total_regulated_tu"         
-#&gt; [25] "total_regulated_operon"      "total_coregulated_sigma"    
-#&gt; [27] "total_active_conformation"   "total_coregulator"          
-#&gt; [29] "regulated_gene_info"         "regulated_tf_id"            
-#&gt; [31] "regulated_tf_name"           "regulated_tu_id"            
-#&gt; [33] "regulated_tu_name"           "regulated_operon_id"        
-#&gt; [35] "regulated_operon_name"       "regulated_pm_id"            
-#&gt; [37] "regulated_pm_name"           "coregulated_sigma"          
-#&gt; [39] "active_conformation_id"      "active_conformation_name"   
-#&gt; [41] "coregulator_id"              "coregulator_name"           
-#&gt; [43] "tfbs_unique"                 "regulation_info"            
-#&gt; [45] "evidence_reference"         </div><div class='input'>
-<span class='co'>## List the operon attributes</span>
-<span class='fu'>list_attributes</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, <span class='st'>"OPERON"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "id"                 "name"               "firstgeneposleft"  
-#&gt;  [4] "lastgeneposright"   "regulationposleft"  "regulationposright"
-#&gt;  [7] "strand"             "total_tu"           "total_gene"        
-#&gt; [10] "total_sigma"        "total_promoter"     "total_tfbs"        
-#&gt; [13] "total_ri"           "total_tf"           "total_terminator"  
-#&gt; [16] "tu_id"              "tu_name"            "gene_info"         
-#&gt; [19] "sigma_name"         "promoter_name"      "tf_name"           
-#&gt; [22] "ri_id"              "ri_info"            "tm_ids"            </div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'>## Connect to the RegulonDB database if necessary</span></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/exists.html'>exists</a></span><span class='op'>(</span><span class='st'>"regulondb_conn"</span><span class='op'>)</span><span class='op'>)</span> <span class='va'>regulondb_conn</span> <span class='op'>&lt;-</span> <span class='fu'><a href='connect_database.html'>connect_database</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> snapshotDate(): 2021-08-03</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Build the regulon db object</span></span>
+<span class='r-in'><span class='va'>e_coli_regulondb</span> <span class='op'>&lt;-</span></span>
+<span class='r-in'>    <span class='fu'><a href='regulondb.html'>regulondb</a></span><span class='op'>(</span></span>
+<span class='r-in'>        database_conn <span class='op'>=</span> <span class='va'>regulondb_conn</span>,</span>
+<span class='r-in'>        organism <span class='op'>=</span> <span class='st'>"E.coli"</span>,</span>
+<span class='r-in'>        database_version <span class='op'>=</span> <span class='st'>"1"</span>,</span>
+<span class='r-in'>        genome_version <span class='op'>=</span> <span class='st'>"1"</span></span>
+<span class='r-in'>    <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## List the transcription factor attributes</span></span>
+<span class='r-in'><span class='fu'>list_attributes</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, <span class='st'>"TF"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "id"                          "name"                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "synonyms"                    "encode_tf_gene_id"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "encode_tf_operon_id"         "encode_tf_tu_id"            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "site_length"                 "symmetry"                   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "transcription_factor_family" "connectivity_class"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "sensing_class"               "global_function_all_tfbs"   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "global_function_strong"      "note"                       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [15] "total_regulated_gene"        "total_effect_repressor_gene"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [17] "total_effect_activator_gene" "total_effect_dual_gene"     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [19] "total_effect_unknown_gene"   "total_tfbs"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [21] "total_ri"                    "total_regulated_tf"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [23] "total_regulated_promoter"    "total_regulated_tu"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [25] "total_regulated_operon"      "total_coregulated_sigma"    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [27] "total_active_conformation"   "total_coregulator"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [29] "regulated_gene_info"         "regulated_tf_id"            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [31] "regulated_tf_name"           "regulated_tu_id"            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [33] "regulated_tu_name"           "regulated_operon_id"        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [35] "regulated_operon_name"       "regulated_pm_id"            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [37] "regulated_pm_name"           "coregulated_sigma"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [39] "active_conformation_id"      "active_conformation_name"   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [41] "coregulator_id"              "coregulator_name"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [43] "tfbs_unique"                 "regulation_info"            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [45] "evidence_reference"         </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## List the operon attributes</span></span>
+<span class='r-in'><span class='fu'>list_attributes</span><span class='op'>(</span><span class='va'>e_coli_regulondb</span>, <span class='st'>"OPERON"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "id"                 "name"               "firstgeneposleft"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "lastgeneposright"   "regulationposleft"  "regulationposright"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "strand"             "total_tu"           "total_gene"        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "total_sigma"        "total_promoter"     "total_tfbs"        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "total_ri"           "total_tf"           "total_terminator"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [16] "tu_id"              "tu_name"            "gene_info"         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [19] "sigma_name"         "promoter_name"      "tf_name"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [22] "ri_id"              "ri_info"            "tm_ids"            </span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -218,11 +223,11 @@ José Alquicira Hernández, Joselyn Chavez</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p>
+  <p><p>Developed by Joselyn Chavez, Carmina Barberena-Jonas, Jesus E. Sotelo-Fonseca, Leonardo Collado-Torres, Alejandro Reyes.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -230,6 +235,8 @@ José Alquicira Hernández, Joselyn Chavez</p>
 
   
 
+
+  
 
   </body>
 </html>
