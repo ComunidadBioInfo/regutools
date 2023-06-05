@@ -14,7 +14,7 @@
 #' frequency_by_genes <- make_frequency(total_genes_by_tf, cantidad, n_tf)
 #' @import dplyr
 #' @export
-make_frequency <- function(df, column_name, column_total){
+get_frequency <- function(df, column_name, column_total){
   df %>%
     group_by({{column_name}}) %>%
     summarise({{column_total}}:= n())
