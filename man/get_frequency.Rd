@@ -23,9 +23,9 @@ given as the second parameter of the function.
 }
 \examples{
 # Example 1: Obtain the frequency of the number of transcriptionUnits by operon
-frecuency_tus <- make_frecuency(df = tus_by_operon, column_name = cantidad, column_total = n_operon)
+frecuency_tus <- get_frecuency(df = tus_by_operon, column_name = cantidad, column_total = n_operon)
 # Example 2:
-frequency_by_genes <- make_frequency(total_genes_by_tf, cantidad, n_tf)
+frequency_by_genes <- get_frequency(total_genes_by_tf, cantidad, n_tf)
 }
 \author{
 Pina Acosta Daniel, Valle Mondragon Sergio.
