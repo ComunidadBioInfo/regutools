@@ -1,5 +1,5 @@
 #' @title It encompasses the count function and make_frequency to obtain the frequency..
-#' @description Both the "count_elements" function and the "make_frequency" function are
+#' @description Both the "count_elements" function and the "get_frequency" function are
 #' encompassed to obtain a more straightforward dataset, allowing that
 #' dataset to be passed as a parameter to the "plot_frequency" function.
 #' @author Pina Acosta Daniel, Valle Mondragon Sergio.
