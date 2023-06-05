@@ -1,7 +1,7 @@
 #' @title It encompasses the count function and make_frequency to obtain the frequency..
 #' @description Both the "count_elements" function and the "get_frequency" function are
 #' encompassed to obtain a more straightforward dataset, allowing that
-#' dataset to be passed as a parameter to the "plot_frequency" function.
+#' dataset to be passed as a parameter to the bar and dispersion function.
 #' @author Pina Acosta Daniel, Valle Mondragon Sergio.
 #' @param df The dataset being worked with.
 #' @param column_name Column name from which the rows are to be counted.
