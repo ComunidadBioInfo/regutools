@@ -1,7 +1,6 @@
-pandoc: 2.14.0.3
-pkgdown: 1.6.1
+pandoc: '3.5'
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   regutools: regutools.html
-last_built: 2021-11-23T04:36Z
-
+last_built: 2024-12-10T21:17Z
