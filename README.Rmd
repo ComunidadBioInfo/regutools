@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 [![BioC status](http://www.bioconductor.org/shields/build/release/bioc/regutools.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/regutools)
 [![BioC dev status](http://www.bioconductor.org/shields/build/devel/bioc/regutools.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/regutools)
 [![Codecov test coverage](https://codecov.io/gh/ComunidadBioInfo/regutools/branch/master/graph/badge.svg)](https://codecov.io/gh/ComunidadBioInfo/regutools?branch=master)
-[![R build status](https://github.com/ComunidadBioInfo/regutools/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/ComunidadBioInfo/regutools/actions)
+[![R build status](https://github.com/ComunidadBioInfo/regutools/actions/workflows/check-bioc.yml/badge.svg)](https://github.com/ComunidadBioInfo/regutools/actions/workflows/check-bioc.yml)
 [![Support site activity, last 6 months: tagged questions/avg. answers per question/avg. comments per question/accepted answers, or 0 if no tagged posts.](http://www.bioconductor.org/shields/posts/regutools.svg)](https://support.bioconductor.org/t/regutools/)
 [![GitHub issues](https://img.shields.io/github/issues/comunidadbioinfo/regutools)](https://github.com/comunidadbioinfo/regutools/issues)
 <!-- badges: end -->
