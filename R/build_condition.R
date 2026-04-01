@@ -47,12 +47,14 @@
 #' @export
 
 build_condition <-
-    function(regulondb,
-    dataset,
-    filters,
-    operator,
-    interval,
-    partialmatch) {
+    function(
+      regulondb,
+      dataset,
+      filters,
+      operator,
+      interval,
+      partialmatch
+    ) {
         if (is(filters, "list")) {
             if (!all(names(filters) %in% list_attributes(regulondb, dataset))) {
                 non.existing.attrs.index <-

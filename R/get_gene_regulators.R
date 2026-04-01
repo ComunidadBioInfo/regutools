@@ -42,10 +42,12 @@
 #' @export
 
 get_gene_regulators <-
-    function(regulondb,
-    genes,
-    format = "multirow",
-    output.type = "TF") {
+    function(
+      regulondb,
+      genes,
+      format = "multirow",
+      output.type = "TF"
+    ) {
         stopifnot(validObject(regulondb))
         # Check genes parameter class
         ##        if (!class(genes) %in% c("vector", "list", "character")) {

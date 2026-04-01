@@ -25,8 +25,10 @@
 #' ## Get the binding sites for AraC
 #' get_binding_sites(e_coli_regulondb, transcription_factor = "AraC")
 #' @export
-get_binding_sites <- function(regulondb, transcription_factor,
-    output_format = "GRanges") {
+get_binding_sites <- function(
+      regulondb, transcription_factor,
+      output_format = "GRanges"
+) {
     ## For a BiocCheck NOTE
     left <- right <- NULL
     if (!output_format %in% c("GRanges", "Biostrings")) {
@@ -49,7 +51,7 @@ get_binding_sites <- function(regulondb, transcription_factor,
         )
     tfbs_table <- strsplit(
         as.character(tfbs_table$res),
-        split =  "\t"
+        split = "\t"
     )
     tfbs_table <- as.data.frame(do.call(rbind, tfbs_table))
     colnames(tfbs_table) <-

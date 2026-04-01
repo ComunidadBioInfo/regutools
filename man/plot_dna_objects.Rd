@@ -34,8 +34,8 @@ Plot annotation elements within genomic region
 \examples{
 ## Connect to the RegulonDB database if necessary
 if (!exists("regulondb_conn")) {
-      regulondb_conn <- connect_database()
-  }
+    regulondb_conn <- connect_database()
+}
 
 ## Build the regulondb object
 e_coli_regulondb <-

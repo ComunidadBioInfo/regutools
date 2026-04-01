@@ -2,8 +2,8 @@ context("list_datasets")
 test_that("function list_dataset works as expected", {
     ## Connect to the RegulonDB database if necessary
     if (!exists("regulondb_conn")) {
-          regulondb_conn <- connect_database()
-      }
+        regulondb_conn <- connect_database()
+    }
 
     ## Build a regulondb object
     regdb <-

@@ -2,8 +2,8 @@ context("list_attributes")
 test_that("list_attributes works as expected ", {
     ## Connect to the RegulonDB database if necessary
     if (!exists("regulondb_conn")) {
-          regulondb_conn <- connect_database()
-      }
+        regulondb_conn <- connect_database()
+    }
 
     ## Build a regulondb object
     regdb <-

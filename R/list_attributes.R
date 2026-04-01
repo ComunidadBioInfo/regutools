@@ -32,8 +32,8 @@
 
 list_attributes <- function(regulondb, dataset) {
     if (missing(dataset)) {
-          stop("Parameter 'dataset' is missing, please specify\n")
-      }
+        stop("Parameter 'dataset' is missing, please specify\n")
+    }
     stopifnot(validObject(regulondb))
     dbListFields(regulondb, dataset)
 }

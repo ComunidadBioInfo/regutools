@@ -1,3 +1,9 @@
+# regutools 1.23.0
+
+BUG FIXES
+
+* Fixed URL for the database
+
 # regutools 1.3.2
 
 SIGNIFICANT USER-VISIBLE CHANGES

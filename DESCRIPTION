@@ -1,7 +1,7 @@
 Package: regutools
 Title: regutools: an R package for data extraction from RegulonDB
 Version: 1.23.0
-Date: 2021-11-15
+Date: 2026-04-01
 Authors@R: c(
     person ("Joselyn", "Chavez", email =  "joselynchavezf@gmail.com",
         role = c("aut", "cre"), comment = c(ORCID = "0000-0002-4974-4591")),
@@ -35,7 +35,7 @@ Description: RegulonDB has collected, harmonized and centralized data
     to further our understanding of gene regulatory networks.
 License: Artistic-2.0
 Encoding: UTF-8
-Depends: R (>= 4.0)
+Depends: R (>= 4.5.0)
 Imports:
     AnnotationDbi,
     AnnotationHub,
@@ -51,8 +51,8 @@ Imports:
     stats,
     utils,
     BiocFileCache
-LazyData: true
-RoxygenNote: 7.1.1
+LazyData: false
+RoxygenNote: 7.3.3
 Suggests: 
     BiocStyle,
     knitr,

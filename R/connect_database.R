@@ -26,8 +26,9 @@
 #' regulondb_conn_noAH <- connect_database(ah = NULL)
 connect_database <-
     function(
-    ah = AnnotationHub::AnnotationHub(),
-    bfc = BiocFileCache::BiocFileCache()) {
+      ah = AnnotationHub::AnnotationHub(),
+      bfc = BiocFileCache::BiocFileCache()
+    ) {
         if (!is.null(ah)) {
             ## Check input
             stopifnot(methods::is(ah, "AnnotationHub"))
@@ -50,13 +51,8 @@ connect_database <-
             }
         }
 
-
         ## Otherwise, use the Dropbox version and cache it with BiocFileCache
-        url <-
-            paste0(
-                "https://www.dropbox.com/s/ufp6wqcv5211v1w/",
-                "regulondb_v10.8_sqlite.db?dl=1"
-            )
+        url <- "https://github.com/ComunidadBioInfo/regutoolsData/raw/refs/heads/main/regulondb_v10.8_sqlite.db"
         destfile <- BiocFileCache::bfcrpath(bfc, url)
         AnnotationDbi::dbFileConnect(destfile)
     }

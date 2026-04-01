@@ -52,10 +52,12 @@
 #' setEdgeColorMapping setVisualStyle
 
 get_regulatory_network <-
-    function(regulondb,
-    regulator = NULL,
-    type = "TF-GENE",
-    cytograph = FALSE) {
+    function(
+      regulondb,
+      regulator = NULL,
+      type = "TF-GENE",
+      cytograph = FALSE
+    ) {
         # Check type parameter
         if (!type %in% c("GENE-GENE", "TF-GENE", "TF-TF")) {
             stop("Parameter 'type' must be TF-GENE, TF-TF, or GENE-GENE.",

@@ -86,10 +86,12 @@ setValidity("regulondb", function(object) {
 #'     )
 #' @export
 regulondb <-
-    function(database_conn,
-    organism,
-    genome_version,
-    database_version) {
+    function(
+      database_conn,
+      organism,
+      genome_version,
+      database_version
+    ) {
         stopifnot(is(database_conn, "SQLiteConnection"))
         stopifnot(is(organism, "character"))
         stopifnot(is(genome_version, "character"))

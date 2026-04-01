@@ -63,14 +63,16 @@
 #' @importFrom S4Vectors DataFrame
 #' @importFrom Biostrings DNAStringSet BStringSet
 get_dataset <-
-    function(regulondb,
-    dataset = NULL,
-    attributes = NULL,
-    filters = NULL,
-    and = TRUE,
-    interval = NULL,
-    partialmatch = NULL,
-    output_format = "regulondb_result") {
+    function(
+      regulondb,
+      dataset = NULL,
+      attributes = NULL,
+      filters = NULL,
+      and = TRUE,
+      interval = NULL,
+      partialmatch = NULL,
+      output_format = "regulondb_result"
+    ) {
         # Check if format specification is valid
         if (!output_format %in% c(
             "regulondb_result",
@@ -244,8 +246,8 @@ get_dataset <-
 #' convert_to_granges(get_dataset(e_coli_regulondb, dataset = "GENE"))
 convert_to_granges <- function(regulondb_result) {
     if (!is(regulondb_result, "regulondb_result")) {
-          stop("The input is not a 'regulondb_result' object.")
-      }
+        stop("The input is not a 'regulondb_result' object.")
+    }
     dataset <- regulondb_result@dataset
     if (dataset %in% c("GENE", "DNA_OBJECTS")) {
         posLeft <- "posleft"
@@ -292,11 +294,11 @@ convert_to_granges <- function(regulondb_result) {
             DataFrame(regulondb_result[keep, !colnames(regulondb_result) %in%
                 c(posLeft, posRight, "strand"), drop = FALSE])
         if (sum(!keep) > 0) {
-              warning(sprintf(
-                  "Dropped %s entries where genomic coordinates were NAs",
-                  sum(!keep)
-              ))
-          }
+            warning(sprintf(
+                "Dropped %s entries where genomic coordinates were NAs",
+                sum(!keep)
+            ))
+        }
         grdata
     } else {
         stop(
@@ -349,11 +351,11 @@ convert_to_granges <- function(regulondb_result) {
 convert_to_biostrings <-
     function(regulondb_result, seq_type = "DNA") {
         if (!is(regulondb_result, "regulondb_result")) {
-              stop("The input is not a 'regulondb_result' object.")
-          }
+            stop("The input is not a 'regulondb_result' object.")
+        }
         if (!seq_type %in% c("DNA", "product")) {
-              stop("'seq_type' must be either 'DNA' or 'product'")
-          }
+            stop("'seq_type' must be either 'DNA' or 'product'")
+        }
         dataset <- regulondb_result@dataset
         if (dataset == "GENE") {
             if (seq_type == "DNA") {

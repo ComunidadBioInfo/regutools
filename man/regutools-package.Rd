@@ -6,22 +6,9 @@
 \alias{regutools-package}
 \title{regutools: regutools: an R package for data extraction from RegulonDB}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-RegulonDB has collected, harmonized and centralized data 
-    from hundreds of experiments for nearly two decades and is considered
-    a point of reference for transcriptional regulation in Escherichia coli K12. 
-    Here, we present the regutools R package to facilitate programmatic 
-    access to RegulonDB data in computational biology. regutools provides 
-    researchers with the possibility of writing reproducible workflows 
-    with automated queries to RegulonDB. The regutools package serves as
-    a bridge between RegulonDB data and the Bioconductor ecosystem by 
-    reusing the data structures and statistical methods powered by other 
-    Bioconductor packages. We demonstrate the integration of regutools 
-    with Bioconductor by analyzing transcription factor DNA binding sites 
-    and transcriptional regulatory networks from RegulonDB. We anticipate 
-    that regutools will serve as a useful building block in our progress
-    to further our understanding of gene regulatory networks.
+RegulonDB has collected, harmonized and centralized data from hundreds of experiments for nearly two decades and is considered a point of reference for transcriptional regulation in Escherichia coli K12. Here, we present the regutools R package to facilitate programmatic access to RegulonDB data in computational biology. regutools provides researchers with the possibility of writing reproducible workflows with automated queries to RegulonDB. The regutools package serves as a bridge between RegulonDB data and the Bioconductor ecosystem by reusing the data structures and statistical methods powered by other Bioconductor packages. We demonstrate the integration of regutools with Bioconductor by analyzing transcription factor DNA binding sites and transcriptional regulatory networks from RegulonDB. We anticipate that regutools will serve as a useful building block in our progress to further our understanding of gene regulatory networks.
 }
 \seealso{
 Useful links:

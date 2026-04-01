@@ -2,8 +2,8 @@ context("get_regulators")
 test_that("Functions to retrieve gene regulation work as expected", {
     ## Connect to the RegulonDB database if necessary
     if (!exists("regulondb_conn")) {
-          regulondb_conn <- connect_database()
-      }
+        regulondb_conn <- connect_database()
+    }
 
     ## Build a regulondb object
     regdb <-

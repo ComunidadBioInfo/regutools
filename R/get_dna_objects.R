@@ -16,8 +16,8 @@
 #' @examples
 #' ## Connect to the RegulonDB database if necessary
 #' if (!exists("regulondb_conn")) {
-#'       regulondb_conn <- connect_database()
-#'   }
+#'     regulondb_conn <- connect_database()
+#' }
 #'
 #' ## Build the regulondb object
 #' e_coli_regulondb <-
@@ -45,10 +45,12 @@
 #' )
 #' @export
 get_dna_objects <-
-    function(regulondb,
-    genome = "eschColi_K12",
-    grange = GRanges("chr", IRanges(1, 5000)),
-    elements = "gene") {
+    function(
+      regulondb,
+      genome = "eschColi_K12",
+      grange = GRanges("chr", IRanges(1, 5000)),
+      elements = "gene"
+    ) {
         valid_elements <- c(
             "-10 promoter box",
             "-35 promoter box",

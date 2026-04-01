@@ -32,10 +32,12 @@
 #' @export
 
 get_gene_synonyms <-
-    function(regulondb,
-    genes,
-    from = "name",
-    to = c("id", "name", "bnumber", "gi")) {
+    function(
+      regulondb,
+      genes,
+      from = "name",
+      to = c("id", "name", "bnumber", "gi")
+    ) {
         # Function checks
         stopifnot(validObject(regulondb))
 

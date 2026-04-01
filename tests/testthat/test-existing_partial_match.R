@@ -3,8 +3,8 @@ context("build_condition")
 test_that("existing_partial_match returns an expected value", {
     ## Connect to the RegulonDB database if necessary
     if (!exists("regulondb_conn")) {
-          regulondb_conn <- connect_database()
-      }
+        regulondb_conn <- connect_database()
+    }
 
     ## Build a regulondb object
     regdb <-

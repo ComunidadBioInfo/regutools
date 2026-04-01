@@ -2,8 +2,8 @@ context("Binding sites")
 test_that("Function to get transcription factor binding sites works as expected", {
     ## Connect to the RegulonDB database if necessary
     if (!exists("regulondb_conn")) {
-          regulondb_conn <- connect_database()
-      }
+        regulondb_conn <- connect_database()
+    }
 
     ## Build a regulondb object
     regdb <-

@@ -2,8 +2,8 @@ context("GRanges_convert")
 test_that("Results from regulondb queries can be converted to GRanges", {
     ## Connect to the RegulonDB database if necessary
     if (!exists("regulondb_conn")) {
-          regulondb_conn <- connect_database()
-      }
+        regulondb_conn <- connect_database()
+    }
 
     ## Build a regulondb object
     regdb <-
@@ -59,8 +59,8 @@ test_that("Results from regulondb queries can be converted to GRanges", {
 test_that("Results from regulondb queries can be converted to Biostrings", {
     ## Connect to the RegulonDB database if necessary
     if (!exists("regulondb_conn")) {
-          regulondb_conn <- connect_database()
-      }
+        regulondb_conn <- connect_database()
+    }
 
     ## Build a regulondb object
     regdb <-
